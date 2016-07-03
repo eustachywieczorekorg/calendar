@@ -170,7 +170,6 @@ C:\Users\patrick\Documents\Visual Studio 2015\Projects\Morris\Morris\obj\Debug\a
 C:\Users\patrick\Documents\Visual Studio 2015\Projects\Morris\Morris\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\patrick\Documents\Visual Studio 2015\Projects\Morris\Morris\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\Users\patrick\Documents\Visual Studio 2015\Projects\Morris\Morris\obj\Debug\Morris.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\Morris.csprojResolveAssemblyReference.cache
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\Morris.dll
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\Morris.pdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\Morris.dll
@@ -231,29 +230,5 @@ C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\res\values\colors.x
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\res\menu\actionbar_friend.xml
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\R.cs.flag
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\uploadflags.txt
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\Morris.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\Java.Interop.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\Mono.Android.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\mscorlib.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.ComponentModel.Composition.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.Core.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.Net.Http.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.Runtime.Serialization.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.ServiceModel.Internals.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.Xml.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.Xml.Linq.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\Java.Interop.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\Mono.Android.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\Morris.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\mscorlib.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Core.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Net.Http.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Runtime.Serialization.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Xml.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\Morris.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\Morris.dll.mdb
