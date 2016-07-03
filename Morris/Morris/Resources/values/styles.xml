@@ -10,6 +10,10 @@
     <item name="windowNoTitle">true</item>
     <item name="colorPrimary">#2278b1</item>
   </style>
+
+  <style name="DatePickerTheme" parent="android:Theme.Holo.NoActionBar">
+    <item name="android:textColorPrimary">#ffffff</item>
+  </style>
   
     <!-- the theme applied to the application or activity -->
     <style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">

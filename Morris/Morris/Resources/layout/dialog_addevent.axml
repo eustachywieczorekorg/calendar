@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:inputType="text"
         android:layout_height="wrap_content"
-        android:id="@+id/eventName" />
+        android:id="@+id/eventName"
+        android:textColor="#FFFFFF" />
     <EditText
         android:hint="Event Description"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -18,7 +19,8 @@
         android:inputType="text"
         android:layout_height="wrap_content"
         android:id="@+id/eventDescription"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:textColor="#FFFFFF" />
     <EditText
         android:hint="Location"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -26,19 +28,22 @@
         android:inputType="text"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:id="@+id/theLocation" />
+        android:id="@+id/theLocation"
+        android:textColor="#FFFFFF" />
     <TextView
         android:text="Date"
         android:inputType="date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:id="@+id/theDate" />
+        android:id="@+id/theDate"
+        android:textColor="#FFFFFF" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dip"
-        android:text="@string/category_prompt" />
+        android:text="@string/category_prompt"
+        android:textColor="#FFFFFF" />
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,7 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
-            android:layout_weight="50" />
+            android:layout_weight="50"
+            android:textColor="#FFFFFF" />
         <TextView
             android:text="To:"
             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -63,7 +69,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView1"
             android:layout_weight="50"
-            android:layout_marginLeft="150dp" />
+            android:layout_marginLeft="150dp"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -86,5 +93,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/createEventBtn"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

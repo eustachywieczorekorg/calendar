@@ -2044,10 +2044,11 @@ containing a value of this type.
         public static final int Base_Widget_AppCompat_Toolbar_Button_Navigation=0x7f080079;
         /**  the theme applied to the application or activity 
          */
-        public static final int CustomActionBarTheme=0x7f080140;
+        public static final int CustomActionBarTheme=0x7f080141;
+        public static final int DatePickerTheme=0x7f080140;
         /**  ActionBar styles 
          */
-        public static final int MyActionBar=0x7f080141;
+        public static final int MyActionBar=0x7f080142;
         public static final int MyTheme=0x7f08013f;
         public static final int Platform_AppCompat=0x7f080017;
         public static final int Platform_AppCompat_Light=0x7f080018;
