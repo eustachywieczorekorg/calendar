@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#4e5f72"
+    android:background="#2278b1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minWidth="25px"
@@ -22,14 +22,12 @@
         android:id="@+id/roweventinvitename" />
     <RelativeLayout
         android:orientation="horizontal"
-        android:background="#4e5f72"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px">
         <LinearLayout
             android:orientation="vertical"
-            android:background="#4e5f72"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minWidth="25px"
@@ -68,7 +66,6 @@
         android:id="@+id/txtLocation" />
     <LinearLayout
         android:orientation="horizontal"
-        android:background="#4e5f72"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"

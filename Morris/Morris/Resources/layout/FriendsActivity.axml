@@ -9,6 +9,8 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#2c3e50"
+        android:background="#2278b1"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp"
         android:id="@+id/listView" />
 </LinearLayout>
