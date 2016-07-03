@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#4e5f72"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <ImageView
+        android:src="@drawable/morris_head"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/imageView2"
+        android:layout_gravity="center" />
+    <TextView
+        android:text="Eventname"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ecf0f1"
+        android:textSize="25dp"
+        android:id="@+id/roweventinvitename" />
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:background="#4e5f72"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="#4e5f72"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <TextView
+                android:text="Eventdescription"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/roweventinvitedescription"
+                android:textColor="#ecf0f1"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/buttonAccept1"
+            android:background="@android:color/holo_green_light"
+            android:layout_toLeftOf="@+id/buttonDecline1" />
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/buttonDecline1"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/holo_red_light" />
+    </RelativeLayout>
+    <TextView
+        android:text="Location"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ecf0f1"
+        android:textSize="20dp"
+        android:id="@+id/txtLocation" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="#4e5f72"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="20dp"
+            android:id="@+id/timefrom1" />
+        <TextView
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="20dp"
+            android:id="@+id/bindestreck1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="20dp"
+            android:id="@+id/timeto1" />
+    </LinearLayout>
+    <TextView
+        android:text="Date"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ecf0f1"
+        android:textSize="20dp"
+        android:id="@+id/rowdate1" />
+</LinearLayout>
