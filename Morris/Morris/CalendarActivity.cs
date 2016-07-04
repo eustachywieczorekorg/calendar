@@ -81,6 +81,7 @@ namespace Morris
             mEvents = new List<CalendarEvent>();
             mEvents = JsonConvert.DeserializeObject<List<CalendarEvent>>(json1);
             mAdapter = new CalendarEventListAdapter(this.Activity, Resource.Layout.row_event, mEvents, this.Activity.FragmentManager);
+            mAdapter.eventremoved += MDatePicker_update;
             mListView.Adapter = mAdapter;
         }
 

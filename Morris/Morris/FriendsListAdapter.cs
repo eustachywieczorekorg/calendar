@@ -208,7 +208,7 @@ namespace Morris
         public string usernamefromsp;
         public LinearLayout mLinearLayout;
         bool bgset = false;
-
+        public event EventHandler eventremoved;
         public CalendarEventListAdapter(Context context, int layout, List<CalendarEvent> events, FragmentManager fragmentmanager)
         {
             mContext = context;
@@ -249,7 +249,8 @@ namespace Morris
                 btndelete.Click += (object sender, EventArgs e) =>
                 {
                     FragmentTransaction transaction = mFragmentManager.BeginTransaction();
-                    dialog_prompt dialogprompt = new dialog_prompt();
+                    dialog_prompt dialogprompt = new dialog_prompt(mEvents[position].Creator, mEvents[position].Id);
+                    dialogprompt.eventremoved += Dialogprompt_eventremoved;
                     dialogprompt.Show(transaction, "dialog fragment");
                 };
             }
@@ -325,6 +326,11 @@ namespace Morris
            
 
             return row;
+        }
+
+        private void Dialogprompt_eventremoved(object sender, EventArgs e)
+        {
+            eventremoved.Invoke(sender, e);
         }
     }
 

@@ -24,6 +24,13 @@ public class dialog_prompt
 			mono.android.TypeManager.Activate ("Morris.dialog_prompt, Morris, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
+	public dialog_prompt (java.lang.String p0, int p1) throws java.lang.Throwable
+	{
+		super ();
+		if (getClass () == dialog_prompt.class)
+			mono.android.TypeManager.Activate ("Morris.dialog_prompt, Morris, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "System.String, mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e:System.Int32, mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", this, new java.lang.Object[] { p0, p1 });
+	}
+
 
 	public android.view.View onCreateView (android.view.LayoutInflater p0, android.view.ViewGroup p1, android.os.Bundle p2)
 	{
