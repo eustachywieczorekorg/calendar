@@ -1631,8 +1631,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b0019
 			public const int beginning = 2131427353;
 			
-			// aapt resource value: 0x7f0b0089
-			public const int bindestreck = 2131427465;
+			// aapt resource value: 0x7f0b0088
+			public const int bindestreck = 2131427464;
 			
 			// aapt resource value: 0x7f0b0093
 			public const int bindestreck1 = 2131427475;
@@ -1667,8 +1667,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b0097
 			public const int btnremovefriend = 2131427479;
 			
-			// aapt resource value: 0x7f0b0084
-			public const int button1 = 2131427460;
+			// aapt resource value: 0x7f0b0083
+			public const int button1 = 2131427459;
 			
 			// aapt resource value: 0x7f0b008f
 			public const int buttonAccept1 = 2131427471;
@@ -1676,8 +1676,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b0090
 			public const int buttonDecline1 = 2131427472;
 			
-			// aapt resource value: 0x7f0b0086
-			public const int buttonInviteFriend = 2131427462;
+			// aapt resource value: 0x7f0b0085
+			public const int buttonInviteFriend = 2131427461;
 			
 			// aapt resource value: 0x7f0b002b
 			public const int buttonPanel = 2131427371;
@@ -1847,14 +1847,14 @@ namespace Morris
 			// aapt resource value: 0x7f0b006b
 			public const int relativeLayout1 = 2131427435;
 			
-			// aapt resource value: 0x7f0b008b
-			public const int rowdate = 2131427467;
+			// aapt resource value: 0x7f0b008a
+			public const int rowdate = 2131427466;
 			
 			// aapt resource value: 0x7f0b0095
 			public const int rowdate1 = 2131427477;
 			
-			// aapt resource value: 0x7f0b0085
-			public const int roweventdescription = 2131427461;
+			// aapt resource value: 0x7f0b0084
+			public const int roweventdescription = 2131427460;
 			
 			// aapt resource value: 0x7f0b008e
 			public const int roweventinvitedescription = 2131427470;
@@ -1955,8 +1955,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b007c
 			public const int text2 = 2131427452;
 			
-			// aapt resource value: 0x7f0b0087
-			public const int textLocation = 2131427463;
+			// aapt resource value: 0x7f0b0086
+			public const int textLocation = 2131427462;
 			
 			// aapt resource value: 0x7f0b0034
 			public const int textSpacerNoButtons = 2131427380;
@@ -1973,20 +1973,20 @@ namespace Morris
 			// aapt resource value: 0x7f0b0055
 			public const int theLocation = 2131427413;
 			
-			// aapt resource value: 0x7f0b0083
-			public const int theweek = 2131427459;
+			// aapt resource value: 0x7f0b008b
+			public const int theweek = 2131427467;
 			
 			// aapt resource value: 0x7f0b007a
 			public const int time = 2131427450;
 			
-			// aapt resource value: 0x7f0b0088
-			public const int timefrom = 2131427464;
+			// aapt resource value: 0x7f0b0087
+			public const int timefrom = 2131427463;
 			
 			// aapt resource value: 0x7f0b0092
 			public const int timefrom1 = 2131427474;
 			
-			// aapt resource value: 0x7f0b008a
-			public const int timeto = 2131427466;
+			// aapt resource value: 0x7f0b0089
+			public const int timeto = 2131427465;
 			
 			// aapt resource value: 0x7f0b0094
 			public const int timeto1 = 2131427476;

@@ -283,7 +283,7 @@ namespace Morris
            
 
             TextView Week = row.FindViewById<TextView>(Resource.Id.theweek);
-            Week.Text ="Week: " + mEvents[position].Week.ToString();
+            Week.Text ="W." + mEvents[position].Week.ToString();
 
             List<Color> mColors = new List<Color>();
             mColors.Add(new Color(170, 170, 170));
