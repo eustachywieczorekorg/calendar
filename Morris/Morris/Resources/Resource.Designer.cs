@@ -1463,67 +1463,79 @@ namespace Morris
 			public const int abc_textfield_search_material = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int ButtonCreateStyle = 2130837579;
+			public const int button_border = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int ButtonSignInStyle = 2130837580;
+			public const int ButtonCreateStyle = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int ButtonSignUpStyle = 2130837581;
+			public const int ButtonSignInStyle = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int checkbox_style = 2130837582;
+			public const int ButtonSignUpStyle = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int edit_text_style = 2130837583;
+			public const int checkbox_style = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int edit_text_style1 = 2130837584;
+			public const int cross = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int edit_text_style2 = 2130837585;
+			public const int edit_text_style = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int ic_action_new = 2130837586;
+			public const int edit_text_style1 = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int ic_action_overflow = 2130837587;
+			public const int edit_text_style2 = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int ic_action_reply = 2130837588;
+			public const int ic_action_new = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int ic_action_search = 2130837589;
+			public const int ic_action_overflow = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int ic_action_undo = 2130837590;
+			public const int ic_action_reply = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int ic_plus_sign = 2130837591;
+			public const int ic_action_search = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int Icon = 2130837592;
+			public const int ic_action_undo = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int knappkoncept3 = 2130837593;
+			public const int ic_plus_sign = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int morris = 2130837594;
+			public const int Icon = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int morris_head = 2130837595;
+			public const int knappkoncept3 = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int morris_moving = 2130837596;
-			
-			// aapt resource value: 0x7f02005f
-			public const int notification_template_icon_bg = 2130837599;
+			public const int morris = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int ProgressBarStyle = 2130837597;
+			public const int morris_head = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int settingskoncept1 = 2130837598;
+			public const int morris_moving = 2130837598;
+			
+			// aapt resource value: 0x7f020063
+			public const int notification_template_icon_bg = 2130837603;
+			
+			// aapt resource value: 0x7f02005f
+			public const int plus = 2130837599;
+			
+			// aapt resource value: 0x7f020060
+			public const int ProgressBarStyle = 2130837600;
+			
+			// aapt resource value: 0x7f020061
+			public const int settingskoncept1 = 2130837601;
+			
+			// aapt resource value: 0x7f020062
+			public const int tick = 2130837602;
 			
 			static Drawable()
 			{
