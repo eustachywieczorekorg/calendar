@@ -21,14 +21,6 @@
             android:textSize="25dp"
             android:textColor="#ecf0f1"
             android:id="@+id/roweventname" />
-        <TextView
-            android:text="Week"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
-            android:textSize="25dp"
-            android:id="@+id/theweek" />
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,12 +91,28 @@
             android:textSize="20dp"
             android:id="@+id/timeto" />
     </LinearLayout>
-    <TextView
-        android:text="Date"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textColor="#ecf0f1"
-        android:textSize="20dp"
-        android:id="@+id/rowdate" />
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <TextView
+            android:text="Date"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#ecf0f1"
+            android:textSize="20dp"
+            android:id="@+id/rowdate" />
+        <TextView
+            android:text="W"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="25dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/theweek" />
+    </RelativeLayout>
 </LinearLayout>
