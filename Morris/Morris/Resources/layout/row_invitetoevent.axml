@@ -3,7 +3,7 @@
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#ecf0f1"
+    android:background="#2278b1"
     android:weightSum="100">
     <TextView
         android:id="@+id/friendusername"
@@ -15,11 +15,10 @@
         android:textSize="18sp"
         android:textColor="#2c3e50" />
     <ImageButton
-        android:src="@drawable/ic_plus_sign"
         android:layout_width="30dp"
         android:layout_height="50dp"
         android:layout_weight="10"
-        android:background="#ecf0f1"
         android:id="@+id/btninvite"
-        android:layout_marginRight="2dp" />
+        android:layout_marginRight="2dp"
+        android:background="@drawable/plus" />
 </LinearLayout>

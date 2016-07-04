@@ -243,7 +243,7 @@ namespace Morris
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             usernamefromsp = pref.GetString("Username", String.Empty);
 
-            Button btndelete = row.FindViewById<Button>(Resource.Id.button1);
+            ImageButton btndelete = row.FindViewById<ImageButton>(Resource.Id.button1);
             if (btndelete.HasOnClickListeners == false)
             {
                 btndelete.Click += (object sender, EventArgs e) =>
@@ -305,7 +305,7 @@ namespace Morris
 
                 if(kr8er == usernamefromsp)
                 {
-                btnInviteFriend.SetBackgroundResource(Resource.Drawable.ic_plus_sign);
+                btnInviteFriend.SetBackgroundResource(Resource.Drawable.plus);
                 btnInviteFriend.Clickable = true;
                 if (btnInviteFriend.HasOnClickListeners == false){
 
