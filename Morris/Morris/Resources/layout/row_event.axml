@@ -67,8 +67,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="25px"
-        android:minHeight="25px">
+        android:minWidth="25px">
         <TextView
             android:text="From"
             android:layout_width="wrap_content"
@@ -101,7 +100,7 @@
             android:text="Date"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#ecf0f1"
             android:textSize="20dp"
             android:id="@+id/rowdate" />

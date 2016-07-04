@@ -4,6 +4,7 @@
     android:background="@drawable/button_border"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+              android:id="@+id/linearlayout111"
     android:minWidth="25px"
     android:minHeight="25px">
     <ImageView
@@ -56,14 +57,6 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/cross" />
     </RelativeLayout>
-    <TextView
-        android:text="Location"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#ecf0f1"
-        android:textSize="20dp"
-        android:id="@+id/txtLocation" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -71,6 +64,22 @@
         android:minWidth="25px"
         android:minHeight="25px">
         <TextView
+            android:text="Location"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="20dp"
+            android:id="@+id/txtLocation" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <TextView
+            android:text="From"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ecf0f1"
@@ -84,18 +93,35 @@
             android:textSize="20dp"
             android:id="@+id/bindestreck1" />
         <TextView
+            android:text="To"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ecf0f1"
             android:textSize="20dp"
             android:id="@+id/timeto1" />
     </LinearLayout>
-    <TextView
-        android:text="Date"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#ecf0f1"
-        android:textSize="20dp"
-        android:id="@+id/rowdate1" />
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <TextView
+            android:text="Date"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="20dp"
+            android:id="@+id/rowdate1" />
+        <TextView
+            android:text="W"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="25dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/theweek1" />
+    </RelativeLayout>
 </LinearLayout>

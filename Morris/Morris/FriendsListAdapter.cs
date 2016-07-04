@@ -470,6 +470,23 @@ namespace Morris
             TimeTo.Text = mEvents[position].TimeTo;
             TextView Date = row.FindViewById<TextView>(Resource.Id.rowdate1);
             Date.Text = mEvents[position].Date.Year + "-" + mEvents[position].Date.Month + "-" + mEvents[position].Date.Day.ToString();
+            TextView week = row.FindViewById<TextView>(Resource.Id.theweek1);
+            week.Text = mEvents[position].Week.ToString();
+
+            LinearLayout mLinearLayout = row.FindViewById<LinearLayout>(Resource.Id.linearlayout111);
+            List<Color> mColors = new List<Color>();
+            mColors.Add(new Color(170, 170, 170));
+            mColors.Add(new Color(210, 84, 00));
+            mColors.Add(new Color(232, 76, 61));
+            mColors.Add(new Color(53, 152, 219));
+            mColors.Add(new Color(154, 101, 66));
+            mColors.Add(new Color(241, 196, 15));
+            mColors.Add(new Color(27, 188, 155));
+            mColors.Add(new Color(39, 174, 97));
+            mColors.Add(new Color(143, 68, 173));
+
+            Color bgcolor = new Color(mColors[mEvents[position].Category]);
+            mLinearLayout.SetBackgroundColor(bgcolor);
 
             ImageButton btnAccept = row.FindViewById<ImageButton>(Resource.Id.buttonAccept1);
             if (btnAccept.HasOnClickListeners == false)
