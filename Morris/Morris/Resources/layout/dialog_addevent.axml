@@ -11,7 +11,8 @@
         android:inputType="text"
         android:layout_height="wrap_content"
         android:id="@+id/eventName"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
     <EditText
         android:hint="Event Description"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/eventDescription"
         android:layout_marginTop="5dp"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
     <EditText
         android:hint="Location"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -29,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:id="@+id/theLocation"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
     <TextView
         android:text="Date"
         android:inputType="date"
