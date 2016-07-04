@@ -28,14 +28,14 @@
             android:layout_height="wrap_content"
             android:textColor="#ecf0f1"
             android:textSize="25dp"
-            android:id="@+id/theweek"
-            android:layout_toLeftOf="@+id/button1" />
-        <Button
-            android:text="X"
+            android:id="@+id/theweek" />
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button1"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:adjustViewBounds="true"
+            android:background="@drawable/crossmini" />
     </RelativeLayout>
     <RelativeLayout
         android:orientation="horizontal"
