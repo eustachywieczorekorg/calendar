@@ -349,5 +349,3 @@ C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\res\drawable\tick.p
 =======
 >>>>>>> babc75a37ecada324300b70dfa11c63991671ef7
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\Morris.dll.mdb
-C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\Morris.dll.mdb
-C:\Users\patrick\Desktop\calendar\Morris\Morris\bin\Debug\Morris.dll.mdb
