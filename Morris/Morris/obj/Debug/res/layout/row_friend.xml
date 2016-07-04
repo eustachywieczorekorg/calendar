@@ -1,1 +1,23 @@
-<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="60dp" android:background="#ecf0f1" xmlns:android="http://schemas.android.com/apk/res/android"><TextView android:id="@+id/txtName" android:text="Username" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="95" android:gravity="center" android:textSize="18sp" android:textColor="#2c3e50" android:background="#ecf0f1" /><Button android:text="Remove" android:background="@android:color/holo_red_light" android:layout_width="wrap_content" android:layout_height="match_parent" android:id="@+id/btnremovefriend" /></LinearLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:background="#ecf0f1">
+    <TextView
+        android:id="@+id/txtName"
+        android:text="Username"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="95"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#2c3e50"
+        android:background="#ecf0f1" />
+    <Button
+        android:text="Remove"
+        android:background="@android:color/holo_red_light"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/btnremovefriend" />
+</LinearLayout>

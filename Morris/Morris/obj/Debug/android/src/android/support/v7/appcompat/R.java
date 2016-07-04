@@ -1612,27 +1612,31 @@ containing a value of this type.
         public static int abc_textfield_search_activated_mtrl_alpha=0x7f020048;
         public static int abc_textfield_search_default_mtrl_alpha=0x7f020049;
         public static int abc_textfield_search_material=0x7f02004a;
-        public static int buttoncreatestyle=0x7f02004b;
-        public static int buttonsigninstyle=0x7f02004c;
-        public static int buttonsignupstyle=0x7f02004d;
-        public static int checkbox_style=0x7f02004e;
-        public static int edit_text_style=0x7f02004f;
-        public static int edit_text_style1=0x7f020050;
-        public static int edit_text_style2=0x7f020051;
-        public static int ic_action_new=0x7f020052;
-        public static int ic_action_overflow=0x7f020053;
-        public static int ic_action_reply=0x7f020054;
-        public static int ic_action_search=0x7f020055;
-        public static int ic_action_undo=0x7f020056;
-        public static int ic_plus_sign=0x7f020057;
-        public static int icon=0x7f020058;
-        public static int knappkoncept3=0x7f020059;
-        public static int morris=0x7f02005a;
-        public static int morris_head=0x7f02005b;
-        public static int morris_moving=0x7f02005c;
-        public static int notification_template_icon_bg=0x7f02005f;
-        public static int progressbarstyle=0x7f02005d;
-        public static int settingskoncept1=0x7f02005e;
+        public static int button_border=0x7f02004b;
+        public static int buttoncreatestyle=0x7f02004c;
+        public static int buttonsigninstyle=0x7f02004d;
+        public static int buttonsignupstyle=0x7f02004e;
+        public static int checkbox_style=0x7f02004f;
+        public static int cross=0x7f020050;
+        public static int edit_text_style=0x7f020051;
+        public static int edit_text_style1=0x7f020052;
+        public static int edit_text_style2=0x7f020053;
+        public static int ic_action_new=0x7f020054;
+        public static int ic_action_overflow=0x7f020055;
+        public static int ic_action_reply=0x7f020056;
+        public static int ic_action_search=0x7f020057;
+        public static int ic_action_undo=0x7f020058;
+        public static int ic_plus_sign=0x7f020059;
+        public static int icon=0x7f02005a;
+        public static int knappkoncept3=0x7f02005b;
+        public static int morris=0x7f02005c;
+        public static int morris_head=0x7f02005d;
+        public static int morris_moving=0x7f02005e;
+        public static int notification_template_icon_bg=0x7f020063;
+        public static int plus=0x7f02005f;
+        public static int progressbarstyle=0x7f020060;
+        public static int settingskoncept1=0x7f020061;
+        public static int tick=0x7f020062;
     }
     public static final class id {
         public static int EventsListView=0x7f0b0052;
@@ -2044,10 +2048,11 @@ containing a value of this type.
         public static int Base_Widget_AppCompat_Toolbar_Button_Navigation=0x7f080079;
         /**  the theme applied to the application or activity 
          */
-        public static int CustomActionBarTheme=0x7f080140;
+        public static int CustomActionBarTheme=0x7f080141;
+        public static int DatePickerTheme=0x7f080140;
         /**  ActionBar styles 
          */
-        public static int MyActionBar=0x7f080141;
+        public static int MyActionBar=0x7f080142;
         public static int MyTheme=0x7f08013f;
         public static int Platform_AppCompat=0x7f080017;
         public static int Platform_AppCompat_Light=0x7f080018;

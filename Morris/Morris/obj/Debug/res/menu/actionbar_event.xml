@@ -1,1 +1,8 @@
-<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><item android:id="@+id/action_logout" android:icon="@drawable/settingskoncept1" android:title="Logout" app:showAsAction="never" /></menu>
+﻿<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item android:id="@+id/action_logout"
+        android:icon="@drawable/settingskoncept1"
+        android:title="Logout"
+        app:showAsAction="never"/>
+</menu>
