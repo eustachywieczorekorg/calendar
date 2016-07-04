@@ -12,12 +12,14 @@
         android:layout_weight="95"
         android:gravity="center"
         android:textSize="18sp"
-        android:textColor="#2c3e50"
-        android:background="#ecf0f1" />
+        android:textColor="#ffffff"
+        android:background="@drawable/button_border"
+        android:textStyle="bold" />
     <Button
         android:text="Remove"
-        android:background="@android:color/holo_red_light"
+        android:background="@drawable/button_border"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/btnremovefriend" />
+        android:id="@+id/btnremovefriend"
+        android:textColor="#ffffff" />
 </LinearLayout>
