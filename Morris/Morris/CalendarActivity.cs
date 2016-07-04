@@ -30,6 +30,7 @@ namespace Morris
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         public DatePicker mDatePicker;
         public string senddate;
+        public event EventHandler updateevent;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -70,6 +71,8 @@ namespace Morris
             parameters1.Add("selecteddate", mDatePicker.Year + "-" + (mDatePicker.Month + 1) + "-" + mDatePicker.DayOfMonth);
             client1.UploadValuesCompleted += Client1_UploadValuesCompleted;
             client1.UploadValuesAsync(url, "POST", parameters1);
+            updateevent.Invoke(sender, e);
+            
         }
 
         private void Client1_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
@@ -119,6 +122,7 @@ namespace Morris
                 case Resource.Id.eventinvites:
                     dialog_eventinvites eventinvitedialog = new dialog_eventinvites();
                     eventinvitedialog.Show(transaction, "dialog fragment");
+                    eventinvitedialog.eventad += MDatePicker_update;
                     return true;
 
                 default:
