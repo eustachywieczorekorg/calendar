@@ -144,9 +144,6 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
     </None>
@@ -196,15 +193,9 @@
     <AndroidResource Include="Resources\drawable\ic_action_overflow.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_action_undo.png.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\menu\actionbar_calendar.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_action_reply.png.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\actionbar_event.xml">
@@ -221,16 +212,10 @@
     <AndroidResource Include="Resources\drawable\ic_action_new.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_action_search.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\knappkoncept3.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\settingskoncept1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_plus_sign.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\morris.png" />
