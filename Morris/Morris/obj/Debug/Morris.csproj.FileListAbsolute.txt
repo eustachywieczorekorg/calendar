@@ -255,7 +255,6 @@ C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\Syst
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
-C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\Morris.dll.mdb
 C:\Users\patrick\Desktop\calendar\Morris\Morris\bin\Debug\Morris.dll
 C:\Users\patrick\Desktop\calendar\Morris\Morris\bin\Debug\Morris.pdb
 C:\Users\patrick\Desktop\calendar\Morris\Morris\bin\Debug\Morris.Morris.apk
@@ -342,4 +341,5 @@ C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.
 C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\Morris.dll.mdb
-C:\Users\patrick\Desktop\calendar\Morris\Morris\bin\Debug\Morris.dll.mdb
+C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\Morris.dll.mdb
+C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\Morris.dll.mdb
