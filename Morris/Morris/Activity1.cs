@@ -22,9 +22,17 @@ namespace Morris
         private Android.Support.V7.Widget.Toolbar mToolbar;
         ViewPager _viewPager;
         JavaList<Android.Support.V4.App.Fragment> fragments;
-        FriendsActivity fa = new FriendsActivity();
-        CalendarActivity ca = new CalendarActivity();
-        EventActivity ea = new EventActivity();
+        FriendsActivity fa;
+        CalendarActivity ca;
+        EventActivity ea;
+
+        public Activity1()
+        {
+            fa = new FriendsActivity();
+            ca = new CalendarActivity();
+            ea = new EventActivity();
+        }
+        
 
     protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,6 +42,7 @@ namespace Morris
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             string usernamefromsp = pref.GetString("Username", String.Empty);
 
+            ca.updateevent += update;
 
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(mToolbar);
@@ -41,6 +50,11 @@ namespace Morris
 
 
             _viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
+            _viewPager.Adapter = new LayoutFragmentadapter(SupportFragmentManager, getfragments());
+            _viewPager.SetCurrentItem(1, false);
+        }
+        public void update(object sender, EventArgs e)
+        {
             _viewPager.Adapter = new LayoutFragmentadapter(SupportFragmentManager, getfragments());
             _viewPager.SetCurrentItem(1, false);
         }

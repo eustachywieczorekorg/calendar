@@ -23,6 +23,7 @@ namespace Morris
         public Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEventInvites.php");
         public string usernamefromsp;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
+        public event EventHandler eventad;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -59,6 +60,7 @@ namespace Morris
             parameters.Add("username", usernamefromsp);
             client.UploadValuesCompleted += Client_UploadValuesCompleted;
             client.UploadValuesAsync(url, "POST", parameters);
+            eventad.Invoke(sender, e);
         }
 
         public override void OnActivityCreated(Bundle savedInstanceState)
