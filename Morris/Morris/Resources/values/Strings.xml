@@ -8,7 +8,11 @@
     <item>Select below</item>
     <item>Food</item>
     <item>Sports</item>
-    <item>Business</item>
+    <item>Work</item>
     <item>Travel</item>
+    <item>Entertainment</item>
+    <item>Friends</item>
+    <item>Relaxation</item>
+    <item>Education</item>
   </string-array>
 </resources>
