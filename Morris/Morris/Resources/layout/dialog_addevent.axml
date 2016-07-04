@@ -84,12 +84,14 @@
             android:layout_width="wrap_content"
             android:layout_height="130dp"
             android:id="@+id/fromTimePicker"
-            android:layout_weight="50" />
+            android:layout_weight="50"
+            android:theme="@style/DatePickerTheme" />
         <TimePicker
             android:layout_width="wrap_content"
             android:layout_height="130dp"
             android:id="@+id/toTimePicker"
-            android:layout_weight="50" />
+            android:layout_weight="50"
+            android:theme="@style/DatePickerTheme" />
     </LinearLayout>
     <Button
         android:text="Create Event"
@@ -97,5 +99,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/createEventBtn"
         android:layout_gravity="center"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_border" />
 </LinearLayout>
