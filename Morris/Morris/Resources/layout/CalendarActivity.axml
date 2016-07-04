@@ -13,7 +13,7 @@
         android:id="@+id/datePicker1"
         style="@style/DatePickerTheme"
         android:theme="@style/DatePickerTheme"
-        headerTextColor="#ffffff"/>
+        headerTextColor="#ffffff" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"

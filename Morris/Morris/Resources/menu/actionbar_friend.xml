@@ -1,17 +1,18 @@
-﻿<menu xmlns:android="http://schemas.android.com/apk/res/android">
+﻿<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <item android:id="@+id/friendrequests"
         android:title="friendrequests"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:icon="@drawable/knappkoncept3"/>
   
   <item android:id="@+id/add"
         android:title="add"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:icon="@drawable/ic_action_new"/>
   
   <item android:id="@+id/action_logout"
         android:icon="@drawable/settingskoncept1"
         android:title="Logout"
-        android:showAsAction="never"/>
+        app:showAsAction="never"/>
 </menu>
