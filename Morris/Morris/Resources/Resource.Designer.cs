@@ -1502,46 +1502,31 @@ namespace Morris
 			public const int ic_action_overflow = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int ic_action_reply = 2130837592;
+			public const int knappkoncept3 = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int ic_action_search = 2130837593;
+			public const int morris = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int ic_action_undo = 2130837594;
+			public const int morris_head = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int ic_plus_sign = 2130837595;
-			
-			// aapt resource value: 0x7f02005c
-			public const int Icon = 2130837596;
-			
-			// aapt resource value: 0x7f02005d
-			public const int knappkoncept3 = 2130837597;
-			
-			// aapt resource value: 0x7f02005e
-			public const int morris = 2130837598;
-			
-			// aapt resource value: 0x7f02005f
-			public const int morris_head = 2130837599;
+			public const int morris_moving = 2130837595;
 			
 			// aapt resource value: 0x7f020060
-			public const int morris_moving = 2130837600;
+			public const int notification_template_icon_bg = 2130837600;
 			
-			// aapt resource value: 0x7f020065
-			public const int notification_template_icon_bg = 2130837605;
+			// aapt resource value: 0x7f02005c
+			public const int plus = 2130837596;
 			
-			// aapt resource value: 0x7f020061
-			public const int plus = 2130837601;
+			// aapt resource value: 0x7f02005d
+			public const int ProgressBarStyle = 2130837597;
 			
-			// aapt resource value: 0x7f020062
-			public const int ProgressBarStyle = 2130837602;
+			// aapt resource value: 0x7f02005e
+			public const int settingskoncept1 = 2130837598;
 			
-			// aapt resource value: 0x7f020063
-			public const int settingskoncept1 = 2130837603;
-			
-			// aapt resource value: 0x7f020064
-			public const int tick = 2130837604;
+			// aapt resource value: 0x7f02005f
+			public const int tick = 2130837599;
 			
 			static Drawable()
 			{
