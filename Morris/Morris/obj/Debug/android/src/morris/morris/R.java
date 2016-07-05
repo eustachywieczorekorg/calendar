@@ -1628,7 +1628,7 @@ containing a value of this type.
         public static final int knappkoncept3=0x7f020058;
         public static final int morris=0x7f020059;
         public static final int morris_head=0x7f02005a;
-        public static final int morris_icon2=0x7f02005b;
+        public static final int morris_icon4=0x7f02005b;
         public static final int morris_moving=0x7f02005c;
         public static final int notification_template_icon_bg=0x7f020061;
         public static final int plus=0x7f02005d;

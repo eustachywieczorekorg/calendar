@@ -1511,7 +1511,7 @@ namespace Morris
 			public const int morris_head = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int morris_icon2 = 2130837595;
+			public const int morris_icon4 = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
 			public const int morris_moving = 2130837596;
