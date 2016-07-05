@@ -25,8 +25,7 @@ namespace Morris
         public int Id { get; set; }
         public string UserName { get; set; }
     }
-
-
+    
     class CalendarEvent
     {
         public int Id { get; set; }

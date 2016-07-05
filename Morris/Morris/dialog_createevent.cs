@@ -83,7 +83,7 @@ namespace Morris
             totp.Focusable = true;
             fromtp.Activated = true;
             totp.Activated = true;
-
+            
             date.Text = selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString();
 
             if (editing)
@@ -105,7 +105,7 @@ namespace Morris
                         //parameters.Add("", );
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
-                        client.UploadValuesAsync(url,"POST",parameters);
+                        client.UploadValuesAsync(url, "POST", parameters);
                     }
                     if (eventDescription.Text != EventDescription)
                     {
@@ -174,12 +174,15 @@ namespace Morris
                     NameValueCollection parameters = new NameValueCollection();
                     string usernamefromsp = pref.GetString("Username", String.Empty);
 
+                    Time fromtime = new Time((int)fromtp.CurrentHour, (int)fromtp.CurrentMinute,0);
+                    Time totime = new Time((int)totp.CurrentHour, (int)totp.CurrentMinute, 0);
+
                     parameters.Add("eventname", eventName.Text);
                     parameters.Add("eventdescription", eventDescription.Text);
                     parameters.Add("date", selecteddate.Year + "-" + selecteddate.Month + "-" + selecteddate.Day);
                     parameters.Add("category", category.ToString());
-                    parameters.Add("fromtp", fromtp.Hour + ":" + fromtp.Minute);
-                    parameters.Add("totp",  totp.Hour + ":" + totp.Minute);
+                    parameters.Add("fromtp", fromtime.ToString());
+                    parameters.Add("totp", totime.ToString());
                     parameters.Add("username", usernamefromsp);
                     parameters.Add("location", location.Text);
                     client.UploadValuesCompleted += Client_UploadValuesCompleted;
@@ -210,7 +213,7 @@ namespace Morris
         {
             string response = Encoding.UTF8.GetString(e.Result);
             Toast.MakeText(this.Activity, response, ToastLength.Short).Show();
-            if(response=="Event created")
+            if (response == "Event created")
             {
                 eventcreated(this, new EventArgs());
                 this.Dismiss();

@@ -1,7 +1,6 @@
 ﻿using System;
 using Android.App;
 using Android.Content;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
@@ -14,7 +13,6 @@ namespace Morris
 { 
     public class CalendarActivity : Android.Support.V4.App.Fragment, CalendarView.IOnDateChangeListener, DatePicker.IOnDateChangedListener
     {
-
         ListView mListView;
          Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEvents.php");
         string usernamefromsp;
@@ -40,17 +38,6 @@ namespace Morris
 
             return view;
         }
-        
-        private void CalendarView_DateChange(object sender, CalendarView.DateChangeEventArgs e)
-        {
-            WebClient client = new WebClient();
-            NameValueCollection parameters = new NameValueCollection();
-            usernamefromsp = pref.GetString("Username", String.Empty);
-            parameters.Add("username", usernamefromsp);
-            parameters.Add("selecteddate", mDatePicker.Year + "-" + (mDatePicker.Month + 1) + "-" + mDatePicker.DayOfMonth);
-            client.UploadValuesCompleted += Client1_UploadValuesCompleted;
-            client.UploadValuesAsync(url, "POST", parameters);
-        }
 
         private void MDatePicker_update(object sender, EventArgs e)
         {
@@ -62,7 +49,6 @@ namespace Morris
             client1.UploadValuesCompleted += Client1_UploadValuesCompleted;
             client1.UploadValuesAsync(url, "POST", parameters1);
             updateevent.Invoke(sender, e);
-            
         }
 
         private void Client1_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
@@ -81,16 +67,11 @@ namespace Morris
         {
             menu.Clear();
             inflater.Inflate(Resource.Menu.actionbar_calendar, menu);
-            
-            return;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-
             Android.App.FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
-
-
             switch (item.ItemId)
             {
                 case Resource.Id.action_logout:
@@ -102,20 +83,17 @@ namespace Morris
                     this.StartActivity(intent);
                     this.Dispose();
                     return true;
-
                 case Resource.Id.addevent:
                     DateTime mDate2 = mDatePicker.DateTime;
                     CreateEventDialog createeventdialog = new CreateEventDialog(mDate2);
                     createeventdialog.Show(transaction, "dialog fragment");
                     createeventdialog.eventcreated += MDatePicker_update;
                     return true;
-
                 case Resource.Id.eventinvites:
                     dialog_eventinvites eventinvitedialog = new dialog_eventinvites();
                     eventinvitedialog.Show(transaction, "dialog fragment");
                     eventinvitedialog.eventad += MDatePicker_update;
                     return true;
-
                 default:
                 return base.OnOptionsItemSelected(item);
             }   

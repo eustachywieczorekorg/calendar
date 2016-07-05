@@ -47,7 +47,6 @@ namespace Morris
         }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-          // MenuInflater.Inflate(Resource.Menu.actionbar_calendar, menu);
             return base.OnCreateOptionsMenu(menu);
         }
     }

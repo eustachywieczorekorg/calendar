@@ -43,7 +43,6 @@ namespace Morris
         {
             menu.Clear();
             inflater.Inflate(Resource.Menu.actionbar_event, menu);
-            return;
         }
 
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)

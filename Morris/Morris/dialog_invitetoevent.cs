@@ -59,7 +59,6 @@ namespace Morris
             mAdapter = new InviteToEventAdapter(this.Activity, Resource.Layout.row_invitetoevent, mFriends, Eventid);
             mAdapter.onfriendinvited += MAdapter_onfriendinvited;
             mListView.Adapter = mAdapter;
-
          }
 
         private void MAdapter_onfriendinvited(object sender, EventArgs e)
