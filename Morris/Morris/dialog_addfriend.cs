@@ -1,25 +1,20 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using System.Net;
 using System.Collections.Specialized;
-using Newtonsoft.Json;
 
 namespace Morris
 {
 
     class dialog_addfriend : DialogFragment
     {
-        private Button mButtonCreateFriend;
-        private EditText txtFriendUserName;
+         Button mButtonCreateFriend;
+         EditText txtFriendUserName;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -40,10 +35,10 @@ namespace Morris
             WebClient client = new WebClient();
             Uri uri = new Uri("http://217.208.71.183/calendarusers/AddFriend.php");
             NameValueCollection friendparameters = new NameValueCollection();
-            friendparameters.Add("friendone", txtFriendUserName.Text);
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             string getusername = pref.GetString("Username", String.Empty);
             friendparameters.Add("username", getusername);
+            friendparameters.Add("friendone", txtFriendUserName.Text);
             client.UploadValuesCompleted += Client_UploadValuesCompleted1; 
             client.UploadValuesAsync(uri, "POST", friendparameters);   
         }

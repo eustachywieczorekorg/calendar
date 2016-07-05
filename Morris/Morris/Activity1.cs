@@ -1,27 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
-using System.Net;
-using System.Collections.Specialized;
 
 namespace Morris
 {
     [Activity(Label = "Morris EC", Theme ="@style/MyTheme")]
     public class Activity1 : Android.Support.V7.App.AppCompatActivity
     {
-        private Android.Support.V7.Widget.Toolbar mToolbar;
         ViewPager _viewPager;
-        JavaList<Android.Support.V4.App.Fragment> fragments;
         FriendsActivity fa;
         CalendarActivity ca;
         EventActivity ea;
@@ -34,7 +25,7 @@ namespace Morris
         }
         
 
-    protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ViewPager);
@@ -44,6 +35,8 @@ namespace Morris
 
             ca.updateevent += update;
 
+
+            Android.Support.V7.Widget.Toolbar mToolbar;
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(mToolbar);
             SupportActionBar.Title = "Morris EC" + "("+ usernamefromsp + ")";
@@ -64,6 +57,7 @@ namespace Morris
         }
         private JavaList<Android.Support.V4.App.Fragment> getfragments()
         {
+            JavaList<Android.Support.V4.App.Fragment> fragments;
             fragments = new JavaList<Android.Support.V4.App.Fragment>();
             fragments.Add(fa);
             fragments.Add(ca);
