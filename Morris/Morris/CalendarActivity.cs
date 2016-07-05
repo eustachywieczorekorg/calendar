@@ -5,31 +5,21 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using Android.Support.V7.App;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
-using System.Text;
-using Android.Media;
-
 using Newtonsoft.Json;
-using Java.Sql;
-using Android.Support.V4.App;
 
 namespace Morris
 { 
-    
     public class CalendarActivity : Android.Support.V4.App.Fragment, CalendarView.IOnDateChangeListener, DatePicker.IOnDateChangedListener
     {
 
-        private ListView mListView;
-        private CalendarEventListAdapter mAdapter;
-        private List<CalendarEvent> mEvents;
-        public Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEvents.php");
-        public string usernamefromsp;
+        ListView mListView;
+         Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEvents.php");
+        string usernamefromsp;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         public DatePicker mDatePicker;
-        public string senddate;
         public event EventHandler updateevent;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -78,8 +68,9 @@ namespace Morris
         private void Client1_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
             string json1 = System.Text.Encoding.UTF8.GetString(e.Result);
-            mEvents = new List<CalendarEvent>();
+            List<CalendarEvent> mEvents = new List<CalendarEvent>();
             mEvents = JsonConvert.DeserializeObject<List<CalendarEvent>>(json1);
+            CalendarEventListAdapter mAdapter;
             mAdapter = new CalendarEventListAdapter(this.Activity, Resource.Layout.row_event, mEvents, this.Activity.FragmentManager);
             mAdapter.eventremoved += MDatePicker_update;
             mListView.Adapter = mAdapter;
@@ -114,7 +105,6 @@ namespace Morris
 
                 case Resource.Id.addevent:
                     DateTime mDate2 = mDatePicker.DateTime;
-                    Console.WriteLine(mDate2);
                     CreateEventDialog createeventdialog = new CreateEventDialog(mDate2);
                     createeventdialog.Show(transaction, "dialog fragment");
                     createeventdialog.eventcreated += MDatePicker_update;
