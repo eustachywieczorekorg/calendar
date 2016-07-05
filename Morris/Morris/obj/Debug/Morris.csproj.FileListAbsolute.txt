@@ -84,5 +84,6 @@ C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.
 C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\Morris.csprojResolveAssemblyReference.cache
+C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\res\drawable\morris_icon2.png
 C:\Users\patrick\Desktop\calendar\Morris\Morris\obj\Debug\Morris.dll.mdb
 C:\Users\patrick\Desktop\calendar\Morris\Morris\bin\Debug\Morris.dll.mdb

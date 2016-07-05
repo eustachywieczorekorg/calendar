@@ -12,13 +12,13 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <application android:label="Morris EC" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
     <activity android:label="Morris EC" android:theme="@style/MyTheme" android:name="md5eef3c13c0fec5892e1dbe30ce70f8ab4.Activity1" />
-    <activity android:icon="@drawable/morris" android:label="Morris" android:name="md5eef3c13c0fec5892e1dbe30ce70f8ab4.Splash">
+    <activity android:icon="@drawable/morris_icon2" android:label="Morris EC" android:theme="@style/MyTheme" android:name="md5eef3c13c0fec5892e1dbe30ce70f8ab4.Splash">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:label="Login And Register" android:name="md5eef3c13c0fec5892e1dbe30ce70f8ab4.LoginRegisterActivity" />
+    <activity android:label="Login And Register" android:theme="@style/MyTheme" android:name="md5eef3c13c0fec5892e1dbe30ce70f8ab4.LoginRegisterActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="Morris.Morris.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">

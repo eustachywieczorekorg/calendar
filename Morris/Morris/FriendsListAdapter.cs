@@ -24,7 +24,7 @@ namespace Morris
         NameValueCollection parameters2;
         private List<Friend> mFriends;
         public string usernamefromsp;
-
+        public CheckBox cbse;
 
         public FriendsListAdapter(Context context, int layout, List<Friend> friends)
         {
@@ -63,7 +63,6 @@ namespace Morris
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             usernamefromsp = pref.GetString("Username", String.Empty);
             Button btnRemoveFriend = row.FindViewById<Button>(Resource.Id.btnremovefriend);
-
             if(btnRemoveFriend.HasOnClickListeners == false)
             {
                 btnRemoveFriend.Click += (object sender, EventArgs e) =>
@@ -78,7 +77,56 @@ namespace Morris
                 };
             }
 
+            bool canview = true;
+            cbse = row.FindViewById<CheckBox>(Resource.Id.cbse);
+            if (canview)
+            {
+
+                cbse.Checked = true;
+                if (cbse.HasOnClickListeners == false)
+                {
+                    cbse.Click += (object sender, EventArgs e) =>
+                    {
+                        /*WebClient client = new WebClient();
+                                Uri url = new Uri("http://217.208.71.183/calendarusers/UnshareEvents.php");
+                                NameValueCollection parameters = new NameValueCollection();
+                                parameters.Add("username", usernamefromsp);
+                                parameters.Add("friendid", mFriends[position].Id.ToString());
+                                client.UploadValuesCompleted += Client_UploadValuesCompleted1;
+                                client.UploadValuesAsync(url, "POST", parameters);*/
+                        Console.WriteLine("Not sharing events anymore");
+                        canview = false;
+                    };
+                }
+            }
+            else
+            {
+                cbse.Checked = false;
+                if (cbse.HasOnClickListeners == false)
+                {
+                    cbse.Click += (object sender, EventArgs e) =>
+                    {
+                        /*WebClient client = new WebClient();
+                                Uri url = new Uri("http://217.208.71.183/calendarusers/ShareEvents.php");
+                                NameValueCollection parameters = new NameValueCollection();
+                                parameters.Add("username", usernamefromsp);
+                                parameters.Add("friendid", mFriends[position].Id.ToString());
+                                client.UploadValuesCompleted += Client_UploadValuesCompleted1;
+                                client.UploadValuesAsync(url, "POST", parameters);*/
+                        Console.WriteLine("Now Sharing events");
+                        canview = true;
+                    };
+                }
+            }
+           
+
             return row;
+        }
+        
+        private void Client_UploadValuesCompleted1(object sender, UploadValuesCompletedEventArgs e)
+        {
+            string message = Encoding.UTF8.GetString(e.Result);
+            Toast.MakeText(this.mContext, message, ToastLength.Short).Show();
         }
 
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
@@ -207,7 +255,6 @@ namespace Morris
         public FragmentManager mFragmentManager;
         public string usernamefromsp;
         public LinearLayout mLinearLayout;
-        bool bgset = false;
         public event EventHandler eventremoved;
         public CalendarEventListAdapter(Context context, int layout, List<CalendarEvent> events, FragmentManager fragmentmanager)
         {

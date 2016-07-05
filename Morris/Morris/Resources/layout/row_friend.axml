@@ -15,6 +15,22 @@
         android:textColor="#ffffff"
         android:background="@drawable/button_border"
         android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/button_border">
+        <TextView
+            android:id="@+id/txtse"
+            android:text="Share Events"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff" />
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/cbse" />
+    </LinearLayout>
     <Button
         android:text="Remove"
         android:background="@drawable/button_border"

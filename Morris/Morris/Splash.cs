@@ -12,16 +12,22 @@ using Android.Widget;
 using Newtonsoft.Json;
 using System.Net;
 using System.Collections.Specialized;
+using Android.Support.V7.App;
 
 namespace Morris
 {
-    [Activity(Label = "Morris", MainLauncher = true, Icon = "@drawable/morris")]
-    public class Splash : Activity
+    [Activity(Label = "Morris EC", MainLauncher = true, Icon = "@drawable/morris_icon2", Theme = "@style/MyTheme")]
+    public class Splash : AppCompatActivity
     {
+        private Android.Support.V7.Widget.Toolbar mToolbar;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Splash);
+            mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.logintoolbar);
+            SetSupportActionBar(mToolbar);
+            SupportActionBar.Title = "Morris Event Calendar";
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             string userName = pref.GetString("Username", String.Empty);
             string password = pref.GetString("Password", String.Empty);
@@ -70,6 +76,10 @@ namespace Morris
                 this.StartActivity(intent);
                 this.Finish();
             }
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            return base.OnCreateOptionsMenu(menu);
         }
     }
 }
