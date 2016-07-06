@@ -26,7 +26,7 @@ namespace Morris
         Button createeventbtn;
         TimePicker starttp, endtp;
         Spinner mSpinner;
-        TextView startdate, enddate;
+        public TextView startdate, enddate;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         DateTime selecteddate, mEnddate, ddate;
         EditText week;
@@ -86,7 +86,8 @@ namespace Morris
             endtp.Focusable = true;
             starttp.Activated = true;
             endtp.Activated = true;
-            
+
+            ddate = selecteddate;
             startdate.Text = selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString();
 
             ImageButton addday = view.FindViewById<ImageButton>(Resource.Id.btnaddday);
@@ -215,7 +216,6 @@ namespace Morris
         private void Addday_Click(object sender, EventArgs e)
         {
             TimeSpan asd = new TimeSpan(1, 0, 0, 0);
-            ddate = selecteddate;
             ddate.Add(asd);
             enddate.Text = ddate.Year + "-" + ddate.Date.Month + "-" + ddate.Date.Day.ToString();
         }

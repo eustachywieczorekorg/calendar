@@ -48,10 +48,14 @@ namespace Morris
             mEventlist = new List<CalendarEvent>();
             mEventlist = JsonConvert.DeserializeObject<List<CalendarEvent>>(json1);
             mAdapter = new CalendarEventInviteListAdapter(Activity, Resource.Layout.row_eventinvite, mEventlist);
-            mAdapter.update += MAdapter_update;
+            mAdapter.eventad += MAdapter_update;
             mListView.Adapter = mAdapter;
         }
-
+        public override void OnDismiss(IDialogInterface dialog)
+        {
+            eventad.Invoke(this, new EventArgs());
+            base.OnDismiss(dialog);
+        }
         private void MAdapter_update(object sender, EventArgs e)
         {
             usernamefromsp = pref.GetString("Username", String.Empty);
@@ -60,14 +64,13 @@ namespace Morris
             parameters.Add("username", usernamefromsp);
             client.UploadValuesCompleted += Client_UploadValuesCompleted;
             client.UploadValuesAsync(url, "POST", parameters);
-            eventad.Invoke(sender, e);
         }
 
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
             Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
             base.OnActivityCreated(savedInstanceState);
-            Dialog.Window.Attributes.WindowAnimations = Resource.Style.dialog_animation;//Set the animation
+            Dialog.Window.Attributes.WindowAnimations = Resource.Style.dialog_animation;
         }
     }
 }

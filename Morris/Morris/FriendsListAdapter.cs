@@ -141,7 +141,6 @@ namespace Morris
 
     class FriendRequestListAdapter : BaseAdapter<FriendRequest>
     {
-        public event EventHandler update;
         NameValueCollection parameters1;
         private Context mContext;
         private int mLayout;
@@ -229,7 +228,6 @@ namespace Morris
         {
                 string message = Encoding.UTF8.GetString(e.Result);
                 Toast.MakeText(this.mContext, message, ToastLength.Short).Show();
-                update(this, new EventArgs());
                 client6.UploadValuesCompleted -= Client_UploadValuesCompleted;
                 parameters1.Clear();
         }
@@ -238,7 +236,6 @@ namespace Morris
         {
             string message = Encoding.UTF8.GetString(e.Result);
             Toast.MakeText(this.mContext, message, ToastLength.Short).Show();
-            update(this, new EventArgs());
             client5.UploadValuesCompleted -= Client5_UploadValuesCompleted;
             parameters4.Clear();
         }
@@ -325,7 +322,7 @@ namespace Morris
             TimeStart.Text = mEvents[position].StartTime;
 
             TextView EndDate = row.FindViewById<TextView>(Resource.Id.dateend);
-            StartDate.Text = mEvents[position].EndDate.Year + "-" + mEvents[position].EndDate.Month + "-" + mEvents[position].EndDate.Day.ToString();
+            EndDate.Text = mEvents[position].EndDate.Year + "-" + mEvents[position].EndDate.Month + "-" + mEvents[position].EndDate.Day.ToString();
 
             TextView TimeEnd = row.FindViewById<TextView>(Resource.Id.timeend);
             TimeEnd.Text =  mEvents[position].EndTime;
@@ -470,7 +467,6 @@ namespace Morris
 
     class CalendarEventInviteListAdapter : BaseAdapter<CalendarEvent>
     {
-        public event EventHandler update;
         private Context mContext;
         private int mLayout;
         private List<CalendarEvent> mEvents;
@@ -479,6 +475,8 @@ namespace Morris
         WebClient client1;
         NameValueCollection parameters1;
         NameValueCollection parameters2;
+        public event EventHandler eventad;
+
         public CalendarEventInviteListAdapter(Context context, int layout, List<CalendarEvent> events)
         {
             mContext = context;
@@ -583,18 +581,18 @@ namespace Morris
         {
                 string json1 = Encoding.UTF8.GetString(e.Result);
                 Toast.MakeText(mContext, json1, ToastLength.Short).Show();
-                update(sender, new EventArgs());
                 client2.UploadValuesCompleted -= Client2_UploadValuesCompleted;
-                parameters2.Clear(); 
+                parameters2.Clear();
+            eventad.Invoke(sender, e);
         }
 
         private void Client1_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
                 string json1 = Encoding.UTF8.GetString(e.Result);
                 Toast.MakeText(mContext, json1, ToastLength.Short).Show();
-                update(sender, new EventArgs());
                 client1.UploadValuesCompleted -= Client1_UploadValuesCompleted;
                 parameters1.Clear();
+            eventad.Invoke(sender, e);
         }
        
     }

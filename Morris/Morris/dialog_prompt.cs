@@ -88,8 +88,12 @@ namespace Morris
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
             string message = Encoding.UTF8.GetString(e.Result);
-            Toast.MakeText(this.Context, message, ToastLength.Short).Show();
+            Toast.MakeText(this.Activity, message, ToastLength.Short).Show();
             eventremoved.Invoke(sender,e);
+            if (message == "Event Deleted")
+            {
+                this.Dismiss();
+            }
         }
 
         public override void OnActivityCreated(Bundle savedInstanceState)

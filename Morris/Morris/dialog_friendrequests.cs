@@ -18,7 +18,6 @@ namespace Morris
 {
     public class FriendRequestDialog : DialogFragment
     {
-
         public ListView mListView;
         private FriendRequestListAdapter mAdapter;
         private List<FriendRequest> mFriendRequests;
@@ -59,7 +58,6 @@ namespace Morris
             mFriendRequests = new List<FriendRequest>();
             mFriendRequests = JsonConvert.DeserializeObject<List<FriendRequest>>(json);
             mAdapter = new FriendRequestListAdapter(this.Activity, Resource.Layout.row_friendrequest, mFriendRequests);
-            mAdapter.update += MAdapter_update;
             mListView.Adapter = mAdapter;
             
            
