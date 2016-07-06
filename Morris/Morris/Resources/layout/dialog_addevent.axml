@@ -68,7 +68,7 @@
             android:id="@+id/enddate"
             android:textColor="#FFFFFF" />
         <ImageButton
-            android:src="@android:drawable/plus"
+            android:background="@drawable/plus"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="20"

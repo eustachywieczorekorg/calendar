@@ -24,16 +24,16 @@ namespace Morris
         EditText eventDescription;
         EditText location;
         Button createeventbtn;
-        TimePicker fromtp;
-        TimePicker totp;
+        TimePicker starttp, endtp;
         Spinner mSpinner;
-        TextView date;
+        TextView startdate, enddate;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
-        DateTime selecteddate;
+        DateTime selecteddate, mEnddate, ddate;
         EditText week;
         int category, myId;
         string EventName,EventDescription, Location;
-        string TimeFrom, TimeTo;
+        string TimeStart, TimeEnd;
+        string Creator;
         bool editing;
 
         public CreateEventDialog(DateTime getdate)
@@ -41,17 +41,19 @@ namespace Morris
             editing = false;
             selecteddate = getdate;
         }
-        public CreateEventDialog(int id, string ename, string edescription, DateTime edate, string elocation, string timefrom, string timeto, int ecategory)
+        public CreateEventDialog(int id, string ename, string edescription, DateTime estartdate,DateTime eenddate, string elocation, string timestart, string timeend, int ecategory, string creator)
         {
             myId = id;
             editing = true;
-            selecteddate = edate;
+            selecteddate = estartdate;
+            mEnddate = eenddate;
             EventName = ename;
             EventDescription = edescription;
             Location = elocation;
             category = ecategory;
-            TimeFrom = timefrom;
-            TimeTo = timeto;
+            TimeStart = timestart;
+            TimeEnd = timeend;
+            Creator = creator;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -68,29 +70,43 @@ namespace Morris
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             mSpinner.Adapter = adapter;
 
-            date = view.FindViewById<TextView>(Resource.Id.theDate);
+            startdate = view.FindViewById<TextView>(Resource.Id.startdate);
+            enddate = view.FindViewById<TextView>(Resource.Id.enddate);
             location = view.FindViewById<EditText>(Resource.Id.theLocation);
             eventName = view.FindViewById<EditText>(Resource.Id.eventName);
             eventDescription = view.FindViewById<EditText>(Resource.Id.eventDescription);
             createeventbtn = view.FindViewById<Button>(Resource.Id.createEventBtn);
-            fromtp = view.FindViewById<TimePicker>(Resource.Id.fromTimePicker);
-            totp = view.FindViewById<TimePicker>(Resource.Id.toTimePicker);
+            starttp = view.FindViewById<TimePicker>(Resource.Id.fromTimePicker);
+            endtp = view.FindViewById<TimePicker>(Resource.Id.toTimePicker);
             week = view.FindViewById<EditText>(Resource.Id.theweek);
 
-            totp.SetIs24HourView(Java.Lang.Boolean.True);
-            fromtp.SetIs24HourView(Java.Lang.Boolean.True);
-            fromtp.Focusable = true;
-            totp.Focusable = true;
-            fromtp.Activated = true;
-            totp.Activated = true;
+            starttp.SetIs24HourView(Java.Lang.Boolean.True);
+            endtp.SetIs24HourView(Java.Lang.Boolean.True);
+            starttp.Focusable = true;
+            endtp.Focusable = true;
+            starttp.Activated = true;
+            endtp.Activated = true;
             
-            date.Text = selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString();
+            startdate.Text = selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString();
+
+            ImageButton addday = view.FindViewById<ImageButton>(Resource.Id.btnaddday);
+            addday.Click += Addday_Click;
 
             if (editing)
             {
                 eventName.Text = EventName;
                 eventDescription.Text = EventDescription;
                 location.Text = Location;
+                int starthour, startminute, endhour, endminute;
+                int.TryParse(TimeStart.Substring(0, 2), out starthour);
+                int.TryParse(TimeStart.Substring(3, 2), out startminute);
+                int.TryParse(TimeStart.Substring(0, 2), out endhour);
+                int.TryParse(TimeStart.Substring(3, 2), out endminute);
+                starttp.Hour = starthour;
+                starttp.Minute = startminute;
+                endtp.Hour = endhour;
+                endtp.Minute = endminute;
+                enddate.Text = mEnddate.Year + "-" + mEnddate.Date.Month + "-" + mEnddate.Date.Day.ToString();
                 createeventbtn.Text = "Update Event";
                 mSpinner.SetSelection(category);
 
@@ -140,7 +156,7 @@ namespace Morris
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url, "POST", parameters);
                     }
-                    if (fromtp.Hour.ToString() != TimeFrom.Substring(0, 2) || fromtp.Minute.ToString() != TimeFrom.Substring(3, 2))
+                    if (starttp.Hour.ToString() != TimeStart.Substring(0, 2) || starttp.Minute.ToString() != TimeStart.Substring(3, 2))
                     {
                         WebClient client = new WebClient();
                         Uri url = new Uri("http://217.208.71.183/calendarusers/UpdateFromTimeReq.php");
@@ -151,7 +167,7 @@ namespace Morris
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url, "POST", parameters);
                     }
-                    if (totp.Hour.ToString() != TimeTo.Substring(0, 2) || totp.Minute.ToString() != TimeTo.Substring(3, 2))
+                    if (endtp.Hour.ToString() != TimeStart.Substring(0, 2) || endtp.Minute.ToString() != TimeStart.Substring(3, 2))
                     {
                         WebClient client = new WebClient();
                         Uri url = new Uri("http://217.208.71.183/calendarusers/UpdateToTimeReq.php");
@@ -167,6 +183,8 @@ namespace Morris
 
             else
             {
+
+                enddate.Text = selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString();
                 createeventbtn.Click += (object sender, EventArgs e) =>
                 {
                     WebClient client = new WebClient();
@@ -174,15 +192,16 @@ namespace Morris
                     NameValueCollection parameters = new NameValueCollection();
                     string usernamefromsp = pref.GetString("Username", String.Empty);
 
-                    Time fromtime = new Time((int)fromtp.CurrentHour, (int)fromtp.CurrentMinute,0);
-                    Time totime = new Time((int)totp.CurrentHour, (int)totp.CurrentMinute, 0);
+                    Time starttime = new Time((int)starttp.CurrentHour, (int)starttp.CurrentMinute,0);
+                    Time endtime = new Time((int)endtp.CurrentHour, (int)endtp.CurrentMinute, 0);
 
                     parameters.Add("eventname", eventName.Text);
                     parameters.Add("eventdescription", eventDescription.Text);
-                    parameters.Add("date", selecteddate.Year + "-" + selecteddate.Month + "-" + selecteddate.Day);
+                    parameters.Add("startdate", selecteddate.Year + "-" + selecteddate.Month + "-" + selecteddate.Day);
+                    parameters.Add("starttp", starttime.ToString());
+                    parameters.Add("enddate", ddate.Year + "-" + ddate.Month + "-" + ddate.Day);
+                    parameters.Add("endtp", endtime.ToString());
                     parameters.Add("category", category.ToString());
-                    parameters.Add("fromtp", fromtime.ToString());
-                    parameters.Add("totp", totime.ToString());
                     parameters.Add("username", usernamefromsp);
                     parameters.Add("location", location.Text);
                     client.UploadValuesCompleted += Client_UploadValuesCompleted;
@@ -191,6 +210,14 @@ namespace Morris
             }
 
             return view;
+        }
+
+        private void Addday_Click(object sender, EventArgs e)
+        {
+            TimeSpan asd = new TimeSpan(1, 0, 0, 0);
+            ddate = selecteddate;
+            ddate.Add(asd);
+            enddate.Text = ddate.Year + "-" + ddate.Date.Month + "-" + ddate.Date.Day.ToString();
         }
 
         private void Client_UploadValuesCompleted1(object sender, UploadValuesCompletedEventArgs e)

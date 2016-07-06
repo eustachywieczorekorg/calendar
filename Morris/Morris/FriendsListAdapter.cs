@@ -308,7 +308,7 @@ namespace Morris
                 EventName.Click += (object sender, EventArgs e) =>
                 {
                     FragmentTransaction transaction = mFragmentManager.BeginTransaction();
-                    CreateEventDialog changeeventdialog = new CreateEventDialog(mEvents[position].Id, mEvents[position].EventName, mEvents[position].EventDescription, mEvents[position].Date, mEvents[position].Location, mEvents[position].TimeFrom, mEvents[position].TimeTo, mEvents[position].Category);
+                    CreateEventDialog changeeventdialog = new CreateEventDialog(mEvents[position].Id, mEvents[position].EventName, mEvents[position].EventDescription, mEvents[position].StartDate, mEvents[position].EndDate, mEvents[position].Location, mEvents[position].StartTime, mEvents[position].EndTime, mEvents[position].Category, mEvents[position].Creator);
                     changeeventdialog.Show(transaction, "dialog fragment");
                 };
             }
@@ -318,18 +318,20 @@ namespace Morris
             TextView Location = row.FindViewById<TextView>(Resource.Id.textLocation);
             Location.Text = mEvents[position].Location;
 
-            TextView TimeFrom = row.FindViewById<TextView>(Resource.Id.timefrom);
-            TimeFrom.Text = mEvents[position].TimeFrom + " ";
+            TextView StartDate = row.FindViewById<TextView>(Resource.Id.datestart);
+            StartDate.Text = mEvents[position].StartDate.Year + "-" + mEvents[position].StartDate.Month + "-" + mEvents[position].StartDate.Day.ToString();
 
-            TextView TimeTo = row.FindViewById<TextView>(Resource.Id.timeto);
-            TimeTo.Text = " " + mEvents[position].TimeTo;
+            TextView TimeStart = row.FindViewById<TextView>(Resource.Id.timestart);
+            TimeStart.Text = mEvents[position].StartTime;
+
+            TextView EndDate = row.FindViewById<TextView>(Resource.Id.dateend);
+            StartDate.Text = mEvents[position].EndDate.Year + "-" + mEvents[position].EndDate.Month + "-" + mEvents[position].EndDate.Day.ToString();
+
+            TextView TimeEnd = row.FindViewById<TextView>(Resource.Id.timeend);
+            TimeEnd.Text =  mEvents[position].EndTime;
 
             mLinearLayout = row.FindViewById<LinearLayout>(Resource.Id.linearlayout123);
-
-            TextView Date = row.FindViewById<TextView>(Resource.Id.rowdate);
-            Date.Text = mEvents[position].Date.Year + "-" + mEvents[position].Date.Month + "-" + mEvents[position].Date.Day.ToString();
-           
-
+            
             TextView Week = row.FindViewById<TextView>(Resource.Id.theweek);
             Week.Text ="W." + mEvents[position].Week.ToString();
 
@@ -517,12 +519,14 @@ namespace Morris
             EventDescription.Text = mEvents[position].EventDescription;
             TextView Location = row.FindViewById<TextView>(Resource.Id.txtLocation);
             Location.Text = mEvents[position].Location;
-            TextView TimeFrom = row.FindViewById<TextView>(Resource.Id.timefrom1);
-            TimeFrom.Text = mEvents[position].TimeFrom;
-            TextView TimeTo = row.FindViewById<TextView>(Resource.Id.timeto1);
-            TimeTo.Text = mEvents[position].TimeTo;
-            TextView Date = row.FindViewById<TextView>(Resource.Id.rowdate1);
-            Date.Text = mEvents[position].Date.Year + "-" + mEvents[position].Date.Month + "-" + mEvents[position].Date.Day.ToString();
+            TextView StartTime = row.FindViewById<TextView>(Resource.Id.mstarttime);
+            StartTime.Text = mEvents[position].StartTime;
+            TextView EndTime = row.FindViewById<TextView>(Resource.Id.mendtime);
+            EndTime.Text = mEvents[position].EndTime;
+            TextView StartDate = row.FindViewById<TextView>(Resource.Id.mstartdate);
+            StartDate.Text = mEvents[position].StartDate.Year + "-" + mEvents[position].StartDate.Month + "-" + mEvents[position].StartDate.Day.ToString();
+            TextView EndDate = row.FindViewById<TextView>(Resource.Id.menddate);
+            EndDate.Text = mEvents[position].EndDate.Year + "-" + mEvents[position].EndDate.Month + "-" + mEvents[position].EndDate.Day.ToString();
             TextView week = row.FindViewById<TextView>(Resource.Id.theweek1);
             week.Text = mEvents[position].Week.ToString();
 

@@ -32,9 +32,10 @@ namespace Morris
         public string EventName { get; set; }
         public string EventDescription { get; set; }
         public string Location { get; set; }
-        public DateTime Date { get; set; }
-        public string TimeFrom { get; set; }
-        public string TimeTo { get; set; }
+        public DateTime StartDate { get; set; }
+        public string StartTime { get; set; }
+        public DateTime EndDate { get; set; }
+        public string EndTime { get; set; }
         public int Week { get; set; }
         public int Category { get; set; }
         public string Creator { get; set; }

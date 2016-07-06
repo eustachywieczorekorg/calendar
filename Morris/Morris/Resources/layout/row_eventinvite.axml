@@ -4,7 +4,7 @@
     android:background="@drawable/button_border"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-              android:id="@+id/linearlayout111"
+    android:id="@+id/linearlayout111"
     android:minWidth="25px"
     android:minHeight="25px">
     <ImageView
@@ -79,41 +79,42 @@
         android:minWidth="25px"
         android:minHeight="25px">
         <TextView
-            android:text="From"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
-            android:textSize="20dp"
-            android:id="@+id/timefrom1" />
-        <TextView
-            android:text="-"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
-            android:textSize="20dp"
-            android:id="@+id/bindestreck1" />
-        <TextView
-            android:text="To"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
-            android:textSize="20dp"
-            android:id="@+id/timeto1" />
-    </LinearLayout>
-    <RelativeLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minWidth="25px"
-        android:minHeight="25px">
-        <TextView
-            android:text="Date"
+            android:text="Start Date"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ecf0f1"
             android:textSize="20dp"
-            android:id="@+id/rowdate1" />
+            android:id="@+id/mstartdate" />
+      <TextView
+            android:text="Start TIme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="20dp"
+            android:id="@+id/mstarttime" />
+      <TextView
+          android:text="-"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="#ecf0f1"
+          android:textSize="20dp"
+          android:id="@+id/bindestreck1" />
+      <TextView
+            android:text="End Date"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="20dp"
+            android:id="@+id/menddate" />
+      <TextView
+            android:text="End Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="20dp"
+            android:id="@+id/mendtime" />
         <TextView
             android:text="W"
             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -121,7 +122,6 @@
             android:layout_height="wrap_content"
             android:textColor="#ecf0f1"
             android:textSize="25dp"
-            android:layout_alignParentRight="true"
             android:id="@+id/theweek1" />
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>
