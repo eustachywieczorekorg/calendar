@@ -74,6 +74,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity1.cs" />
+    <Compile Include="dialog_comments.cs" />
+    <Compile Include="FriendEventActivity.cs" />
     <Compile Include="dialog_createevent.cs" />
     <Compile Include="dialog_eventinvites.cs" />
     <Compile Include="dialog_prompt.cs" />
@@ -135,6 +137,12 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\dialog_prompt.axml">
       <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\EventActivity2.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_comments.axml">
+      <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>

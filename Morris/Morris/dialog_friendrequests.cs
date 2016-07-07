@@ -24,7 +24,7 @@ namespace Morris
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         
         Uri url = new Uri("http://217.208.71.183/calendarusers/LoadFriendRequests.php");
-        NameValueCollection parameters = new NameValueCollection();
+        
         public event EventHandler updatefriends;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -33,7 +33,7 @@ namespace Morris
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.dialog_friendrequests, container, false);
             mListView = view.FindViewById<ListView>(Resource.Id.FriendRequestlistView);
-
+            NameValueCollection parameters = new NameValueCollection();
             string usernamefromsp = pref.GetString("Username", String.Empty);
             parameters.Add("username", usernamefromsp);
             WebClient client = new WebClient();
@@ -48,7 +48,6 @@ namespace Morris
         {
             base.OnDismiss(dialog);
             updatefriends(this, new EventArgs());
-
         }
 
         public void Client_UploadValuesCompleted12(object sender, UploadValuesCompletedEventArgs e)
@@ -58,18 +57,21 @@ namespace Morris
             mFriendRequests = new List<FriendRequest>();
             mFriendRequests = JsonConvert.DeserializeObject<List<FriendRequest>>(json);
             mAdapter = new FriendRequestListAdapter(this.Activity, Resource.Layout.row_friendrequest, mFriendRequests);
+            mAdapter.friendaddedordeclined += MAdapter_friendaddedordeclined;
             mListView.Adapter = mAdapter;
             
            
         }
 
-        private void MAdapter_update(object sender, EventArgs e)
+        private void MAdapter_friendaddedordeclined(object sender, EventArgs e)
         {
             WebClient client1 = new WebClient();
+            NameValueCollection parameters = new NameValueCollection();
+            string usernamefromsp = pref.GetString("Username", String.Empty);
+            parameters.Add("username", usernamefromsp);
             client1.UploadValuesCompleted += Client_UploadValuesCompleted12;
             client1.UploadValuesAsync(url, "POST", parameters);
         }
-        
 
         public override void OnActivityCreated(Bundle savedInstanceState)
         {

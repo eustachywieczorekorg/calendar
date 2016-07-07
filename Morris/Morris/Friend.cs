@@ -18,6 +18,10 @@ namespace Morris
     {
         public int Id { get; set; }
         public string UserName { get; set; }
+        public int otshare {  get; set; }
+        public int toshare { get; set; }
+        public int friend_one { get; set; }
+                            
     }
 
     class FriendRequest

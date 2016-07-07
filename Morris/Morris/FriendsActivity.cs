@@ -19,7 +19,6 @@ namespace Morris
     {
 
         public LinearLayout mFriendsLayout;
-        public event EventHandler openfriendeventactivity;
         private ListView mListView;
         private FriendsListAdapter mAdapter;
         private List<Friend> mFriends;
@@ -56,9 +55,11 @@ namespace Morris
             mListView.Adapter = mAdapter;
          }
 
-        private void MAdapter_friendusernameclicked(object sender, EventArgs e)
+        private void MAdapter_friendusernameclicked(object sender, string e)
         {
-            //openfriendeventactivity.Invoke(this, new EventArgs());
+            Intent intent = new Intent(this.Activity, typeof(FriendEventActivity));
+            intent.PutExtra("friendusername", e);
+            this.Activity.StartActivity(intent);
         }
 
         private void MAdapter_OnFriendRemoved(object sender, EventArgs e)

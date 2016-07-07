@@ -25,7 +25,8 @@ namespace Morris
         private List<Friend> mFriends;
         public string usernamefromsp, username;
         public CheckBox cbse;
-        public event EventHandler friendusernameclicked;
+        public event EventHandler<string> friendusernameclicked;
+        public event EventHandler anevent;
 
         public FriendsListAdapter(Context context, int layout, List<Friend> friends)
         {
@@ -66,12 +67,37 @@ namespace Morris
             usernamefromsp = pref.GetString("Username", String.Empty);
             Button btnRemoveFriend = row.FindViewById<Button>(Resource.Id.btnremovefriend);
 
-            if(friendusername.HasOnClickListeners == false)
+            if (mFriends[position].otshare == 1 && mFriends[position].friend_one == mFriends[position].Id)
             {
-                friendusername.Click += (object sender, EventArgs e) =>
+                if (friendusername.HasOnClickListeners == false)
                 {
-                    friendusernameclicked.Invoke(this, new EventArgs());
-                };
+                    friendusername.Click += (object sender, EventArgs e) =>
+                    {
+                        friendusernameclicked.Invoke(this, mFriends[position].UserName);
+                    };
+                }
+
+            }
+            else if (mFriends[position].toshare == 1 && mFriends[position].friend_one != mFriends[position].Id)
+            {
+                if (friendusername.HasOnClickListeners == false)
+                {
+                    friendusername.Click += (object sender, EventArgs e) =>
+                    {
+                        friendusernameclicked.Invoke(this, mFriends[position].UserName);
+                    };
+                }
+            }
+            else
+            {
+                if (friendusername.HasOnClickListeners == false)
+                {
+                    friendusername.Click += (object sender, EventArgs e) =>
+                    {
+                        Toast.MakeText(mContext, "User is not sharing events with you", ToastLength.Short).Show();
+                    };
+                }
+
             }
 
             if(btnRemoveFriend.HasOnClickListeners == false)
@@ -87,53 +113,41 @@ namespace Morris
                     client4.UploadValuesAsync(urldecline, "POST", parameters2);
                 };
             }
-
-            bool canview = true;
             cbse = row.FindViewById<CheckBox>(Resource.Id.cbse);
-            if (canview)
-            {
 
+            if(mFriends[position].otshare == 1 && mFriends[position].friend_one != mFriends[position].Id)
+            {
                 cbse.Checked = true;
-                if (cbse.HasOnClickListeners == false)
-                {
-                    cbse.Click += (object sender, EventArgs e) =>
-                    {
-                        /*WebClient client = new WebClient();
-                                Uri url = new Uri("http://217.208.71.183/calendarusers/UnshareEvents.php");
-                                NameValueCollection parameters = new NameValueCollection();
-                                parameters.Add("username", usernamefromsp);
-                                parameters.Add("friendid", mFriends[position].Id.ToString());
-                                client.UploadValuesCompleted += Client_UploadValuesCompleted1;
-                                client.UploadValuesAsync(url, "POST", parameters);*/
-                        Console.WriteLine("Not sharing events anymore");
-                        canview = false;
-                    };
-                }
             }
-            else
+            if(mFriends[position].toshare == 1 && mFriends[position].friend_one == mFriends[position].Id)
             {
-                cbse.Checked = false;
-                if (cbse.HasOnClickListeners == false)
-                {
-                    cbse.Click += (object sender, EventArgs e) =>
-                    {
-                        /*WebClient client = new WebClient();
-                                Uri url = new Uri("http://217.208.71.183/calendarusers/ShareEvents.php");
-                                NameValueCollection parameters = new NameValueCollection();
-                                parameters.Add("username", usernamefromsp);
-                                parameters.Add("friendid", mFriends[position].Id.ToString());
-                                client.UploadValuesCompleted += Client_UploadValuesCompleted1;
-                                client.UploadValuesAsync(url, "POST", parameters);*/
-                        Console.WriteLine("Now Sharing events");
-                        canview = true;
-                    };
-                }
+                cbse.Checked = true;
             }
-           
 
+            if (cbse.HasOnClickListeners == false)
+            {
+                cbse.Click += (object sender, EventArgs e) =>
+                {
+                    WebClient client = new WebClient();
+                    Uri url = new Uri("http://217.208.71.183/calendarusers/ShareEvents.php");
+                    NameValueCollection parameters = new NameValueCollection();
+                    parameters.Add("username", usernamefromsp);
+                    parameters.Add("friendid", mFriends[position].Id.ToString());
+                    client.UploadValuesCompleted += Client_UploadValuesCompleted1;
+                    client.UploadValuesAsync(url, "POST", parameters);
+                };
+            }
+            
             return row;
         }
         
+
+        private void Client_UploadValuesCompleted2(object sender, UploadValuesCompletedEventArgs e)
+        {
+            string message = Encoding.UTF8.GetString(e.Result);
+            Toast.MakeText(this.mContext, message, ToastLength.Short).Show();
+        }
+
         private void Client_UploadValuesCompleted1(object sender, UploadValuesCompletedEventArgs e)
         {
             string message = Encoding.UTF8.GetString(e.Result);
@@ -160,6 +174,7 @@ namespace Morris
         WebClient client5;
         public string usernamefromsp;
         NameValueCollection parameters4;
+        public event EventHandler friendaddedordeclined;
 
 
         public FriendRequestListAdapter(Context context, int layout, List<FriendRequest> friendRequests)
@@ -240,6 +255,7 @@ namespace Morris
                 string message = Encoding.UTF8.GetString(e.Result);
                 Toast.MakeText(this.mContext, message, ToastLength.Short).Show();
                 client6.UploadValuesCompleted -= Client_UploadValuesCompleted;
+                friendaddedordeclined.Invoke(this, new EventArgs());
                 parameters1.Clear();
         }
 
@@ -248,6 +264,7 @@ namespace Morris
             string message = Encoding.UTF8.GetString(e.Result);
             Toast.MakeText(this.mContext, message, ToastLength.Short).Show();
             client5.UploadValuesCompleted -= Client5_UploadValuesCompleted;
+            friendaddedordeclined.Invoke(this, new EventArgs());
             parameters4.Clear();
         }
 
@@ -256,7 +273,6 @@ namespace Morris
 
     class CalendarEventListAdapter : BaseAdapter<CalendarEvent>
     {
-
         private Context mContext;
         private int mLayout;
         private List<CalendarEvent> mEvents;
@@ -264,12 +280,24 @@ namespace Morris
         public string usernamefromsp;
         public LinearLayout mLinearLayout;
         public event EventHandler eventremoved;
+        bool onlyviewing;
+
         public CalendarEventListAdapter(Context context, int layout, List<CalendarEvent> events, FragmentManager fragmentmanager)
+        {
+            onlyviewing = false;
+            mContext = context;
+            mLayout = layout;
+            mEvents = events;
+            mFragmentManager = fragmentmanager;
+        }
+
+        public CalendarEventListAdapter(Context context, int layout, List<CalendarEvent> events, FragmentManager fragmentmanager, bool viewing)
         {
             mContext = context;
             mLayout = layout;
             mEvents = events;
             mFragmentManager = fragmentmanager;
+            onlyviewing = true;
         }
 
         public override CalendarEvent this[int position]
@@ -297,29 +325,12 @@ namespace Morris
             }
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             usernamefromsp = pref.GetString("Username", String.Empty);
-
+           
             ImageButton btndelete = row.FindViewById<ImageButton>(Resource.Id.button1);
-            if (btndelete.HasOnClickListeners == false)
-            {
-                btndelete.Click += (object sender, EventArgs e) =>
-                {
-                    FragmentTransaction transaction = mFragmentManager.BeginTransaction();
-                    dialog_prompt dialogprompt = new dialog_prompt(mEvents[position].Creator, mEvents[position].Id);
-                    dialogprompt.eventremoved += Dialogprompt_eventremoved;
-                    dialogprompt.Show(transaction, "dialog fragment");
-                };
-            }
+           
             TextView EventName = row.FindViewById<TextView>(Resource.Id.roweventname);
             EventName.Text = mEvents[position].EventName;
-            if(EventName.HasOnClickListeners == false)
-            {
-                EventName.Click += (object sender, EventArgs e) =>
-                {
-                    FragmentTransaction transaction = mFragmentManager.BeginTransaction();
-                    CreateEventDialog changeeventdialog = new CreateEventDialog(mEvents[position].Id, mEvents[position].EventName, mEvents[position].EventDescription, mEvents[position].StartDate, mEvents[position].EndDate, mEvents[position].Location, mEvents[position].StartTime, mEvents[position].EndTime, mEvents[position].Category, mEvents[position].Creator);
-                    changeeventdialog.Show(transaction, "dialog fragment");
-                };
-            }
+            
             TextView EventDescription = row.FindViewById<TextView>(Resource.Id.roweventdescription);
             EventDescription.Text = mEvents[position].EventDescription;
 
@@ -359,13 +370,46 @@ namespace Morris
 
             ImageButton btnInviteFriend = row.FindViewById<ImageButton>(Resource.Id.buttonInviteFriend);
             btnInviteFriend.SetBackgroundColor(bgcolor);
-            string kr8er = mEvents[position].Creator;
 
-                if(kr8er == usernamefromsp)
+            ImageButton btncomments = row.FindViewById<ImageButton>(Resource.Id.buttoncomments);
+            btncomments.SetBackgroundColor(bgcolor);
+            if(btncomments.HasOnClickListeners == false)
+            {
+                btncomments.Click += (object sender, EventArgs e) =>
                 {
-                btnInviteFriend.SetBackgroundResource(Resource.Drawable.plus);
-                btnInviteFriend.Clickable = true;
-                if (btnInviteFriend.HasOnClickListeners == false){
+
+                };
+            }
+
+            if (onlyviewing == false)
+            {
+
+                if (btndelete.HasOnClickListeners == false)
+                {
+                    btndelete.Click += (object sender, EventArgs e) =>
+                    {
+                        FragmentTransaction transaction = mFragmentManager.BeginTransaction();
+                        dialog_prompt dialogprompt = new dialog_prompt(mEvents[position].Creator, mEvents[position].Id);
+                        dialogprompt.eventremoved += Dialogprompt_eventremoved;
+                        dialogprompt.Show(transaction, "dialog fragment");
+                    };
+                }
+                if (EventName.HasOnClickListeners == false)
+                {
+                    EventName.Click += (object sender, EventArgs e) =>
+                    {
+                        FragmentTransaction transaction = mFragmentManager.BeginTransaction();
+                        CreateEventDialog changeeventdialog = new CreateEventDialog(mEvents[position].Id, mEvents[position].EventName, mEvents[position].EventDescription, mEvents[position].StartDate, mEvents[position].EndDate, mEvents[position].Location, mEvents[position].StartTime, mEvents[position].EndTime, mEvents[position].Category, mEvents[position].Creator);
+                        changeeventdialog.Show(transaction, "dialog fragment");
+                    };
+                }
+                string kr8er = mEvents[position].Creator;
+                if (kr8er == usernamefromsp)
+                {
+                    btnInviteFriend.SetBackgroundResource(Resource.Drawable.plus);
+                    btnInviteFriend.Clickable = true;
+                    if (btnInviteFriend.HasOnClickListeners == false)
+                    {
 
                         btnInviteFriend.Click += (object sender, EventArgs e) =>
                         {
@@ -375,10 +419,20 @@ namespace Morris
                         };
                     };
                 }
+                else
+                {
+                    btnInviteFriend.Clickable = false;
+                };
+            }
             else
             {
+                btndelete.Clickable = false;
                 btnInviteFriend.Clickable = false;
-            };
+                EventName.Clickable = false;
+                btndelete.SetBackgroundColor(bgcolor);
+            }
+
+           
 
             return row;
         }
