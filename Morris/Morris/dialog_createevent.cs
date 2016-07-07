@@ -28,14 +28,15 @@ namespace Morris
         Spinner mSpinner;
         public TextView startdate, enddate;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
-        DateTime selecteddate, mEnddate, ddate;
+        DateTime selecteddate, mEnddate;
+        public DateTime ddate;
         EditText week;
         int category, myId;
         string EventName,EventDescription, Location;
         string TimeStart, TimeEnd;
         string Creator;
         bool editing;
-
+        Uri url, url2, url3, url4, url5, url6, url7, url8;
         public CreateEventDialog(DateTime getdate)
         {
             editing = false;
@@ -79,18 +80,15 @@ namespace Morris
             starttp = view.FindViewById<TimePicker>(Resource.Id.fromTimePicker);
             endtp = view.FindViewById<TimePicker>(Resource.Id.toTimePicker);
             week = view.FindViewById<EditText>(Resource.Id.theweek);
-
-            starttp.SetIs24HourView(Java.Lang.Boolean.True);
-            endtp.SetIs24HourView(Java.Lang.Boolean.True);
             starttp.Focusable = true;
             endtp.Focusable = true;
             starttp.Activated = true;
             endtp.Activated = true;
-
-            ddate = selecteddate;
+            
             startdate.Text = selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString();
 
-            ImageButton addday = view.FindViewById<ImageButton>(Resource.Id.btnaddday);
+            Button addday = view.FindViewById<Button>(Resource.Id.btnadd);
+            addday.Clickable = true;
             addday.Click += Addday_Click;
 
             if (editing)
@@ -98,86 +96,147 @@ namespace Morris
                 eventName.Text = EventName;
                 eventDescription.Text = EventDescription;
                 location.Text = Location;
+                Java.Lang.Integer shour, smin, ehour, emin;
                 int starthour, startminute, endhour, endminute;
+                
                 int.TryParse(TimeStart.Substring(0, 2), out starthour);
                 int.TryParse(TimeStart.Substring(3, 2), out startminute);
-                int.TryParse(TimeStart.Substring(0, 2), out endhour);
-                int.TryParse(TimeStart.Substring(3, 2), out endminute);
-                starttp.Hour = starthour;
-                starttp.Minute = startminute;
-                endtp.Hour = endhour;
-                endtp.Minute = endminute;
+                int.TryParse(TimeEnd.Substring(0, 2), out endhour);
+                int.TryParse(TimeEnd.Substring(3, 2), out endminute);
+                shour = new Java.Lang.Integer(starthour);
+                smin = new Java.Lang.Integer(startminute);
+                ehour= new Java.Lang.Integer(endhour);
+                emin = new Java.Lang.Integer(endminute);
+
+                starttp.CurrentHour = shour;
+                starttp.CurrentMinute = smin;
+                endtp.CurrentHour = ehour;
+                endtp.CurrentMinute = emin;
+                starttp.SetIs24HourView(Java.Lang.Boolean.True);
+                endtp.SetIs24HourView(Java.Lang.Boolean.True);
                 enddate.Text = mEnddate.Year + "-" + mEnddate.Date.Month + "-" + mEnddate.Date.Day.ToString();
                 createeventbtn.Text = "Update Event";
                 mSpinner.SetSelection(category);
 
+
                 createeventbtn.Click += (object sender, EventArgs e) =>
                 {
+                    string usernamefromsp = pref.GetString("Username", String.Empty);
+                    if (Creator == usernamefromsp)
+                    {
+                        url = new Uri("http://217.208.71.183/calendarusers/UpdateEventName.php");
+                        url2 = new Uri("http://217.208.71.183/calendarusers/UpdateEventDescription.php");
+                        url3 = new Uri("http://217.208.71.183/calendarusers/UpdateLocation.php");
+                        url4 = new Uri("http://217.208.71.183/calendarusers/UpdateCategory.php");
+                        url5 = new Uri("http://217.208.71.183/calendarusers/UpdateToTime.php");
+                        url6 = new Uri("http://217.208.71.183/calendarusers/UpdateEndDate.php");
+                        url7 = new Uri("http://217.208.71.183/calendarusers/UpdateFromTime.php");
+                        url8 = new Uri("http://217.208.71.183/calendarusers/UpdateStartDate.php");
+                    }
+                    else
+                    {
+                        url = new Uri("http://217.208.71.183/calendarusers/UpdateEventNameReq.php");
+                        url2 = new Uri("http://217.208.71.183/calendarusers/UpdateEventDescriptionReq.php");
+                        url3 = new Uri("http://217.208.71.183/calendarusers/UpdateLocationReq.php");
+                        url4 = new Uri("http://217.208.71.183/calendarusers/UpdateCategoryReq.php");
+                        url5 = new Uri("http://217.208.71.183/calendarusers/UpdateToTimeReq.php");
+                        url6 = new Uri("http://217.208.71.183/calendarusers/UpdateEndDateReq.php");
+                        url7 = new Uri("http://217.208.71.183/calendarusers/UpdateFromTimeReq.php");
+                        url8 = new Uri("http://217.208.71.183/calendarusers/UpdateStartDateReq.php");
+                    }
                     if (eventName.Text != EventName)
                     {
                         WebClient client = new WebClient();
-                        Uri url = new Uri("http://217.208.71.183/calendarusers/UpdateEventNameReq.php");
                         NameValueCollection parameters = new NameValueCollection();
                         parameters.Add("eventid", myId.ToString());
                         //parameters.Add("", );
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url, "POST", parameters);
+                        this.Dismiss();
+                        Console.WriteLine("eventname changed");
                     }
                     if (eventDescription.Text != EventDescription)
                     {
                         WebClient client = new WebClient();
-                        Uri url = new Uri("http://217.208.71.183/calendarusers/UpdateEventDescriptionReq.php");
                         NameValueCollection parameters = new NameValueCollection();
                         parameters.Add("eventid", myId.ToString());
                         //parameters.Add("", );
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
-                        client.UploadValuesAsync(url, "POST", parameters);
+                        client.UploadValuesAsync(url2, "POST", parameters);
+                        this.Dismiss();
+                        Console.WriteLine("eventdesc changed");
                     }
                     if (location.Text != Location)
                     {
                         WebClient client = new WebClient();
-                        Uri url = new Uri("http://217.208.71.183/calendarusers/UpdateLocationReq.php");
                         NameValueCollection parameters = new NameValueCollection();
                         parameters.Add("eventid", myId.ToString());
                         //parameters.Add("", );
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
-                        client.UploadValuesAsync(url, "POST", parameters);
+                        client.UploadValuesAsync(url3, "POST", parameters);
+                        this.Dismiss();
+                        Console.WriteLine("location changed");
                     }
                     if (mSpinner.Id != category)
                     {
                         WebClient client = new WebClient();
-                        Uri url = new Uri("http://217.208.71.183/calendarusers/UpdateCategoryReq.php");
                         NameValueCollection parameters = new NameValueCollection();
                         parameters.Add("eventid", myId.ToString());
                         //parameters.Add("", );
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
-                        client.UploadValuesAsync(url, "POST", parameters);
+                        client.UploadValuesAsync(url4, "POST", parameters);
+                        this.Dismiss();
+                        Console.WriteLine("category changed");
                     }
-                    if (starttp.Hour.ToString() != TimeStart.Substring(0, 2) || starttp.Minute.ToString() != TimeStart.Substring(3, 2))
+                    if (startdate.Text != selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString())
                     {
                         WebClient client = new WebClient();
-                        Uri url = new Uri("http://217.208.71.183/calendarusers/UpdateFromTimeReq.php");
                         NameValueCollection parameters = new NameValueCollection();
                         parameters.Add("eventid", myId.ToString());
                         //parameters.Add("", );
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
-                        client.UploadValuesAsync(url, "POST", parameters);
+                        client.UploadValuesAsync(url5, "POST", parameters);
+                        this.Dismiss();
+                        Console.WriteLine("start date changed");
                     }
-                    if (endtp.Hour.ToString() != TimeStart.Substring(0, 2) || endtp.Minute.ToString() != TimeStart.Substring(3, 2))
+                        if (starttp.CurrentHour.ToString() != TimeStart.Substring(0, 2) || starttp.CurrentMinute.ToString() != TimeStart.Substring(3, 2))
                     {
                         WebClient client = new WebClient();
-                        Uri url = new Uri("http://217.208.71.183/calendarusers/UpdateToTimeReq.php");
                         NameValueCollection parameters = new NameValueCollection();
                         parameters.Add("eventid", myId.ToString());
                         //parameters.Add("", );
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
-                        client.UploadValuesAsync(url, "POST", parameters);
+                        client.UploadValuesAsync(url6, "POST", parameters);
+                        this.Dismiss();
+                        Console.WriteLine("start time changed");
+                    }
+                    if (enddate.Text != mEnddate.Year + "-" + mEnddate.Date.Month + "-" + mEnddate.Date.Day.ToString())
+                    {
+                        WebClient client = new WebClient();
+                        NameValueCollection parameters = new NameValueCollection();
+                        parameters.Add("eventid", myId.ToString());
+                        //parameters.Add("", );
+                        //parameters.Add("", );
+                        client.UploadValuesCompleted += Client_UploadValuesCompleted1;
+                        client.UploadValuesAsync(url7, "POST", parameters);
+                        this.Dismiss();
+                        Console.WriteLine("end date changed");
+                    }
+                        if (endtp.CurrentHour.ToString() != TimeStart.Substring(0, 2) || endtp.CurrentMinute.ToString() != TimeStart.Substring(3, 2))
+                    {
+                        WebClient client = new WebClient();
+                        NameValueCollection parameters = new NameValueCollection();
+                        parameters.Add("eventid", myId.ToString());
+                        //parameters.Add("", );
+                        //parameters.Add("", );
+                        client.UploadValuesCompleted += Client_UploadValuesCompleted1;
+                        client.UploadValuesAsync(url8, "POST", parameters);
                     }
                 };
             }
@@ -185,7 +244,10 @@ namespace Morris
             else
             {
 
+                starttp.SetIs24HourView(Java.Lang.Boolean.True);
+                endtp.SetIs24HourView(Java.Lang.Boolean.True);
                 enddate.Text = selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString();
+                ddate = selecteddate;
                 createeventbtn.Click += (object sender, EventArgs e) =>
                 {
                     WebClient client = new WebClient();
@@ -216,7 +278,7 @@ namespace Morris
         private void Addday_Click(object sender, EventArgs e)
         {
             TimeSpan asd = new TimeSpan(1, 0, 0, 0);
-            ddate.Add(asd);
+            ddate = ddate.Add(asd);
             enddate.Text = ddate.Year + "-" + ddate.Date.Month + "-" + ddate.Date.Day.ToString();
         }
 

@@ -19,7 +19,7 @@ namespace Morris
     {
 
         public LinearLayout mFriendsLayout;
-        
+        public event EventHandler openfriendeventactivity;
         private ListView mListView;
         private FriendsListAdapter mAdapter;
         private List<Friend> mFriends;
@@ -44,7 +44,6 @@ namespace Morris
             return view;
         }
         
-        
 
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
          {
@@ -53,8 +52,14 @@ namespace Morris
             mFriends = JsonConvert.DeserializeObject<List<Friend>>(json);
             mAdapter = new FriendsListAdapter(this.Activity, Resource.Layout.row_friend, mFriends);
             mAdapter.OnFriendRemoved += MAdapter_OnFriendRemoved;
+            mAdapter.friendusernameclicked += MAdapter_friendusernameclicked;
             mListView.Adapter = mAdapter;
          }
+
+        private void MAdapter_friendusernameclicked(object sender, EventArgs e)
+        {
+            //openfriendeventactivity.Invoke(this, new EventArgs());
+        }
 
         private void MAdapter_OnFriendRemoved(object sender, EventArgs e)
         {

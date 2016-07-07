@@ -34,7 +34,8 @@ namespace Morris
             string usernamefromsp = pref.GetString("Username", String.Empty);
 
             ca.updateevent += update;
-
+            ea.eventremoved += update;
+            fa.openfriendeventactivity += Fa_openfriendeventactivity;
 
             Android.Support.V7.Widget.Toolbar mToolbar;
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
@@ -46,10 +47,18 @@ namespace Morris
             _viewPager.Adapter = new LayoutFragmentadapter(SupportFragmentManager, getfragments());
             _viewPager.SetCurrentItem(1, false);
         }
+
+        private void Fa_openfriendeventactivity(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(EventActivity));
+            StartActivity(intent);
+        }
+
         public void update(object sender, EventArgs e)
         {
+            int i = _viewPager.CurrentItem;
             _viewPager.Adapter = new LayoutFragmentadapter(SupportFragmentManager, getfragments());
-            _viewPager.SetCurrentItem(1, false);
+            _viewPager.SetCurrentItem(i, false);
         }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {

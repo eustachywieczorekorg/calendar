@@ -34,9 +34,9 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF" />
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
+        android:layout_marginTop="10dp"
         android:text="@string/category_prompt"
         android:textColor="#FFFFFF" />
     <Spinner
@@ -47,32 +47,34 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="100">
+        android:layout_height="wrap_content">
         <TextView
             android:text="StartDate"
             android:inputType="date"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:layout_marginTop="10dp"
             android:id="@+id/startdate"
             android:textColor="#FFFFFF" />
         <TextView
-            android:text="Enddate"
-            android:inputType="date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:layout_marginTop="10dp"
-            android:id="@+id/enddate"
-            android:textColor="#FFFFFF" />
-        <ImageButton
-            android:background="@drawable/plus"
+            android:text="-"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="20"
-            android:id="@+id/btnaddday" />
+            android:id="@+id/textViewbindestreck"
+            android:layout_marginLeft="10dp" />
+        <TextView
+            android:text="Enddate"
+            android:inputType="date"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/enddate"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="10dp" />
+      <Button
+                android:background="@drawable/plus"
+                android:layout_toRightOf="@+id/enddate"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/btnadd" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"

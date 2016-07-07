@@ -7,12 +7,25 @@
     android:id="@+id/linearlayout111"
     android:minWidth="25px"
     android:minHeight="25px">
-    <ImageView
-        android:src="@drawable/morris_head"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:id="@+id/imageView2"
-        android:layout_gravity="center" />
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <ImageView
+            android:src="@drawable/morris_head"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/imageView2"
+            android:layout_centerInParent="true" />
+        <ImageView
+            android:src="@drawable/settingskoncept1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/imageView3"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
     <TextView
         android:text="Eventname"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -23,25 +36,19 @@
         android:id="@+id/roweventinvitename" />
     <RelativeLayout
         android:orientation="horizontal"
+        android:layout_below="@+id/roweventinvitename"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minWidth="25px"
-            android:minHeight="25px">
-            <TextView
-                android:text="Eventdescription"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:id="@+id/roweventinvitedescription"
-                android:textColor="#ecf0f1"
-                android:textSize="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+        <TextView
+            android:text="Eventdescription"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/roweventinvitedescription"
+            android:textColor="#ecf0f1"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -74,6 +81,7 @@
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
+        android:id="@+id/newlinearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"
@@ -86,21 +94,31 @@
             android:textColor="#ecf0f1"
             android:textSize="20dp"
             android:id="@+id/mstartdate" />
-      <TextView
+        <TextView
             android:text="Start TIme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ecf0f1"
             android:textSize="20dp"
-            android:id="@+id/mstarttime" />
-      <TextView
-          android:text="-"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textColor="#ecf0f1"
-          android:textSize="20dp"
-          android:id="@+id/bindestreck1" />
-      <TextView
+            android:id="@+id/mstarttime"
+            android:layout_marginLeft="5dp" />
+        <TextView
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ecf0f1"
+            android:textSize="20dp"
+            android:id="@+id/bindestreck1"
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_below="@+id/newlinearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <TextView
             android:text="End Date"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
@@ -108,13 +126,15 @@
             android:textColor="#ecf0f1"
             android:textSize="20dp"
             android:id="@+id/menddate" />
-      <TextView
+        <TextView
             android:text="End Time"
+            android:layout_toRightOf="@+id/menddate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ecf0f1"
             android:textSize="20dp"
-            android:id="@+id/mendtime" />
+            android:id="@+id/mendtime"
+            android:layout_marginLeft="5dp" />
         <TextView
             android:text="W"
             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -122,6 +142,7 @@
             android:layout_height="wrap_content"
             android:textColor="#ecf0f1"
             android:textSize="25dp"
-            android:id="@+id/theweek1" />
-    </LinearLayout>
+            android:id="@+id/theweek1"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
 </LinearLayout>

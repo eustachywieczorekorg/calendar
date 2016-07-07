@@ -39,15 +39,8 @@ namespace Morris
             return view;
         }
 
-        private void MDatePicker_update(object sender, EventArgs e)
+        public void MDatePicker_update(object sender, EventArgs e)
         {
-            WebClient client1 = new WebClient();
-            NameValueCollection parameters1 = new NameValueCollection();
-            usernamefromsp = pref.GetString("Username", String.Empty);
-            parameters1.Add("username", usernamefromsp);
-            parameters1.Add("selecteddate", mDatePicker.Year + "-" + (mDatePicker.Month + 1) + "-" + mDatePicker.DayOfMonth);
-            client1.UploadValuesCompleted += Client1_UploadValuesCompleted;
-            client1.UploadValuesAsync(url, "POST", parameters1);
             updateevent.Invoke(sender, e);
         }
 

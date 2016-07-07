@@ -23,8 +23,9 @@ namespace Morris
         private int mLayout;
         NameValueCollection parameters2;
         private List<Friend> mFriends;
-        public string usernamefromsp;
+        public string usernamefromsp, username;
         public CheckBox cbse;
+        public event EventHandler friendusernameclicked;
 
         public FriendsListAdapter(Context context, int layout, List<Friend> friends)
         {
@@ -60,9 +61,19 @@ namespace Morris
             TextView friendusername;
             friendusername = row.FindViewById<TextView>(Resource.Id.txtName);
             friendusername.Text = mFriends[position].UserName;
+            username = mFriends[position].UserName;
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             usernamefromsp = pref.GetString("Username", String.Empty);
             Button btnRemoveFriend = row.FindViewById<Button>(Resource.Id.btnremovefriend);
+
+            if(friendusername.HasOnClickListeners == false)
+            {
+                friendusername.Click += (object sender, EventArgs e) =>
+                {
+                    friendusernameclicked.Invoke(this, new EventArgs());
+                };
+            }
+
             if(btnRemoveFriend.HasOnClickListeners == false)
             {
                 btnRemoveFriend.Click += (object sender, EventArgs e) =>
@@ -368,15 +379,13 @@ namespace Morris
             {
                 btnInviteFriend.Clickable = false;
             };
-            
-           
 
             return row;
         }
 
-        private void Dialogprompt_eventremoved(object sender, EventArgs e)
+        public void Dialogprompt_eventremoved(object sender, EventArgs e)
         {
-            eventremoved.Invoke(sender, e);
+            eventremoved.Invoke(this, new EventArgs());
         }
     }
 
@@ -526,7 +535,7 @@ namespace Morris
             TextView EndDate = row.FindViewById<TextView>(Resource.Id.menddate);
             EndDate.Text = mEvents[position].EndDate.Year + "-" + mEvents[position].EndDate.Month + "-" + mEvents[position].EndDate.Day.ToString();
             TextView week = row.FindViewById<TextView>(Resource.Id.theweek1);
-            week.Text = mEvents[position].Week.ToString();
+            week.Text = "W."+ mEvents[position].Week.ToString();
 
             LinearLayout mLinearLayout = row.FindViewById<LinearLayout>(Resource.Id.linearlayout111);
             List<Color> mColors = new List<Color>();

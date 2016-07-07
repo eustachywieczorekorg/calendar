@@ -22,14 +22,36 @@ namespace Morris
         string usernamefromsp;
         private CalendarEventListAdapter mAdapter;
         private List<CalendarEvent> mEvents;
+        public event EventHandler eventremoved;
+        string mFriend = null;
+
+        public EventActivity(string friend)
+        {
+            mFriend = friend;
+        }
+
+        public EventActivity()
+        {
+
+        }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.EventActivity, container, false);
             HasOptionsMenu = true;
             mListview = view.FindViewById<ListView>(Resource.Id.listView1);
+            
+            if(mFriend != null)
+            {
+                 usernamefromsp = mFriend;
+                //this.Activity.ActionBar.SetDisplayShowHomeEnabled(true);
+            }
+            else
+            {
 
-            usernamefromsp = pref.GetString("Username", String.Empty);
+                 usernamefromsp = pref.GetString("Username", String.Empty);
+            }
+
             WebClient client = new WebClient();
             Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEventList.php");
             NameValueCollection parameters = new NameValueCollection();
@@ -52,7 +74,13 @@ namespace Morris
             mEvents = new List<CalendarEvent>();
             mEvents = JsonConvert.DeserializeObject<List<CalendarEvent>>(json1);
             mAdapter = new CalendarEventListAdapter(this.Activity, Resource.Layout.row_event, mEvents, this.Activity.FragmentManager);
+            mAdapter.eventremoved += MAdapter_eventremoved;
             mListview.Adapter = mAdapter;
+        }
+
+        private void MAdapter_eventremoved(object sender, EventArgs e)
+        {
+            eventremoved.Invoke(this, new EventArgs());
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
