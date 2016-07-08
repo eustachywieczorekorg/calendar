@@ -55,6 +55,18 @@
             android:layout_height="wrap_content"
             android:id="@+id/startdate"
             android:textColor="#FFFFFF" />
+        <Button
+            android:background="@drawable/cross"
+            android:layout_toRightOf="@+id/startdate"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnsub1" />
+        <Button
+            android:background="@drawable/plus"
+            android:layout_toRightOf="@+id/btnsub1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnadd1" />
         <TextView
             android:text="-"
             android:layout_width="wrap_content"
@@ -69,12 +81,18 @@
             android:id="@+id/enddate"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="10dp" />
-      <Button
-                android:background="@drawable/plus"
-                android:layout_toRightOf="@+id/enddate"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:id="@+id/btnadd" />
+        <Button
+            android:background="@drawable/cross"
+            android:layout_toRightOf="@+id/enddate"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnsub" />
+        <Button
+            android:background="@drawable/plus"
+            android:layout_toRightOf="@+id/btnsub"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnadd" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"

@@ -6,6 +6,10 @@ Morris.LayoutFragmentadapter, Morris;md5eef3c13c0fec5892e1dbe30ce70f8ab4.LayoutF
 Morris.LayoutFragmentadapter, Morris, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5eef3c13c0fec5892e1dbe30ce70f8ab4.LayoutFragmentadapter
 Morris.LayoutFragmentadapter;md5eef3c13c0fec5892e1dbe30ce70f8ab4.LayoutFragmentadapter
 morris.LayoutFragmentadapter;md5eef3c13c0fec5892e1dbe30ce70f8ab4.LayoutFragmentadapter
+Morris.dialog_comments, Morris;md5eef3c13c0fec5892e1dbe30ce70f8ab4.dialog_comments
+Morris.dialog_comments, Morris, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5eef3c13c0fec5892e1dbe30ce70f8ab4.dialog_comments
+Morris.dialog_comments;md5eef3c13c0fec5892e1dbe30ce70f8ab4.dialog_comments
+morris.dialog_comments;md5eef3c13c0fec5892e1dbe30ce70f8ab4.dialog_comments
 Morris.FriendEventActivity, Morris;md5eef3c13c0fec5892e1dbe30ce70f8ab4.FriendEventActivity
 Morris.FriendEventActivity, Morris, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5eef3c13c0fec5892e1dbe30ce70f8ab4.FriendEventActivity
 Morris.FriendEventActivity;md5eef3c13c0fec5892e1dbe30ce70f8ab4.FriendEventActivity

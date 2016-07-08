@@ -24,6 +24,7 @@ namespace Morris
         string usernamefromsp;
         private CalendarEventListAdapter mAdapter;
         private List<CalendarEvent> mEvents;
+        string friendusername;
 
         public FriendEventActivity()
         {
@@ -39,7 +40,10 @@ namespace Morris
             Android.Support.V7.Widget.Toolbar mToolbar;
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbarEA2);
             SetSupportActionBar(mToolbar);
-            string friendusername = Intent.GetStringExtra("friendusername");
+            if (Intent.GetStringExtra("friendusername") != null)
+            {
+                 friendusername = Intent.GetStringExtra("friendusername");
+            }
             usernamefromsp = pref.GetString("Username", String.Empty);
             SupportActionBar.Title = "Morris EC" + " (" + friendusername + ")";
             SupportActionBar.SetDisplayShowHomeEnabled(true);

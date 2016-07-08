@@ -28,7 +28,7 @@ namespace Morris
         Spinner mSpinner;
         public TextView startdate, enddate;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
-        DateTime selecteddate, mEnddate;
+        DateTime mStartDate, mEndDate;
         public DateTime ddate;
         EditText week;
         int category, myId;
@@ -40,20 +40,21 @@ namespace Morris
         public CreateEventDialog(DateTime getdate)
         {
             editing = false;
-            selecteddate = getdate;
+            mStartDate = getdate;
+            mEndDate = getdate;
         }
         public CreateEventDialog(int id, string ename, string edescription, DateTime estartdate,DateTime eenddate, string elocation, string timestart, string timeend, int ecategory, string creator)
         {
-            myId = id;
             editing = true;
-            selecteddate = estartdate;
-            mEnddate = eenddate;
+            myId = id;
             EventName = ename;
             EventDescription = edescription;
             Location = elocation;
-            category = ecategory;
+            mStartDate = estartdate;
             TimeStart = timestart;
+            mEndDate = eenddate;
             TimeEnd = timeend;
+            category = ecategory;
             Creator = creator;
         }
 
@@ -85,11 +86,15 @@ namespace Morris
             starttp.Activated = true;
             endtp.Activated = true;
             
-            startdate.Text = selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString();
 
             Button addday = view.FindViewById<Button>(Resource.Id.btnadd);
-            addday.Clickable = true;
+            Button addday1 = view.FindViewById<Button>(Resource.Id.btnadd1);
+            Button subday = view.FindViewById<Button>(Resource.Id.btnsub);
+            Button subday1 = view.FindViewById<Button>(Resource.Id.btnsub1);
             addday.Click += Addday_Click;
+            addday1.Click += Addday_Click1;
+            subday.Click += RMday_Click;
+            subday1.Click += RMday_Click1;
 
             if (editing)
             {
@@ -114,10 +119,10 @@ namespace Morris
                 endtp.CurrentMinute = emin;
                 starttp.SetIs24HourView(Java.Lang.Boolean.True);
                 endtp.SetIs24HourView(Java.Lang.Boolean.True);
-                enddate.Text = mEnddate.Year + "-" + mEnddate.Date.Month + "-" + mEnddate.Date.Day.ToString();
+                enddate.Text = mEndDate.Year + "-" + mEndDate.Date.Month + "-" + mEndDate.Date.Day.ToString();
+                startdate.Text = mStartDate.Year + "-" + mStartDate.Date.Month + "-" + mStartDate.Date.Day.ToString();
                 createeventbtn.Text = "Update Event";
                 mSpinner.SetSelection(category);
-
 
                 createeventbtn.Click += (object sender, EventArgs e) =>
                 {
@@ -192,7 +197,7 @@ namespace Morris
                         this.Dismiss();
                         Console.WriteLine("category changed");
                     }
-                    if (startdate.Text != selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString())
+                    if (startdate.Text != mStartDate.Year + "-" + mStartDate.Date.Month + "-" + mStartDate.Date.Day.ToString())
                     {
                         WebClient client = new WebClient();
                         NameValueCollection parameters = new NameValueCollection();
@@ -216,7 +221,7 @@ namespace Morris
                         this.Dismiss();
                         Console.WriteLine("start time changed");
                     }
-                    if (enddate.Text != mEnddate.Year + "-" + mEnddate.Date.Month + "-" + mEnddate.Date.Day.ToString())
+                    if (enddate.Text != mEndDate.Year + "-" + mEndDate.Date.Month + "-" + mEndDate.Date.Day.ToString())
                     {
                         WebClient client = new WebClient();
                         NameValueCollection parameters = new NameValueCollection();
@@ -246,8 +251,10 @@ namespace Morris
 
                 starttp.SetIs24HourView(Java.Lang.Boolean.True);
                 endtp.SetIs24HourView(Java.Lang.Boolean.True);
-                enddate.Text = selecteddate.Year + "-" + selecteddate.Date.Month + "-" + selecteddate.Date.Day.ToString();
-                ddate = selecteddate;
+
+                startdate.Text = mStartDate.Year + "-" + mStartDate.Date.Month + "-" + mStartDate.Date.Day.ToString();
+                enddate.Text = mEndDate.Year + "-" + mEndDate.Date.Month + "-" + mEndDate.Date.Day.ToString();
+
                 createeventbtn.Click += (object sender, EventArgs e) =>
                 {
                     WebClient client = new WebClient();
@@ -260,9 +267,9 @@ namespace Morris
 
                     parameters.Add("eventname", eventName.Text);
                     parameters.Add("eventdescription", eventDescription.Text);
-                    parameters.Add("startdate", selecteddate.Year + "-" + selecteddate.Month + "-" + selecteddate.Day);
+                    parameters.Add("startdate", mStartDate.Year + "-" + mStartDate.Month + "-" + mStartDate.Day);
                     parameters.Add("starttp", starttime.ToString());
-                    parameters.Add("enddate", ddate.Year + "-" + ddate.Month + "-" + ddate.Day);
+                    parameters.Add("enddate", mEndDate.Year + "-" + mEndDate.Month + "-" + mEndDate.Day);
                     parameters.Add("endtp", endtime.ToString());
                     parameters.Add("category", category.ToString());
                     parameters.Add("username", usernamefromsp);
@@ -274,12 +281,31 @@ namespace Morris
 
             return view;
         }
+        
 
         private void Addday_Click(object sender, EventArgs e)
         {
             TimeSpan asd = new TimeSpan(1, 0, 0, 0);
-            ddate = ddate.Add(asd);
-            enddate.Text = ddate.Year + "-" + ddate.Date.Month + "-" + ddate.Date.Day.ToString();
+            mEndDate = mEndDate.Add(asd);
+            enddate.Text = mEndDate.Year + "-" + mEndDate.Date.Month + "-" + mEndDate.Date.Day.ToString();
+        }
+        private void RMday_Click(object sender, EventArgs e)
+        {
+            TimeSpan asd = new TimeSpan(1, 0, 0, 0);
+            mEndDate = mEndDate.Subtract(asd);
+            enddate.Text = mEndDate.Year + "-" + mEndDate.Date.Month + "-" + mEndDate.Date.Day.ToString();
+        }
+        private void Addday_Click1(object sender, EventArgs e)
+        {
+            TimeSpan asd = new TimeSpan(1, 0, 0, 0);
+            mStartDate = mStartDate.Add(asd);
+            startdate.Text = mStartDate.Year + "-" + mStartDate.Date.Month + "-" + mStartDate.Date.Day.ToString();
+        }
+        private void RMday_Click1(object sender, EventArgs e)
+        {
+            TimeSpan asd = new TimeSpan(1, 0, 0, 0);
+            mStartDate = mStartDate.Subtract(asd);
+            startdate.Text = mStartDate.Year + "-" + mStartDate.Date.Month + "-" + mStartDate.Date.Day.ToString();
         }
 
         private void Client_UploadValuesCompleted1(object sender, UploadValuesCompletedEventArgs e)

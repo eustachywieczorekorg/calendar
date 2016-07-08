@@ -48,8 +48,8 @@ namespace Morris
                     WebClient client = new WebClient();
                     Uri url = new Uri("http://217.208.71.183/calendarusers/DeleteEvent.php");
                     NameValueCollection parameters = new NameValueCollection();
-                    parameters.Add("eventid", mId.ToString());
                     parameters.Add("username", usernamefromsp);
+                    parameters.Add("eventid", mId.ToString());
                     client.UploadValuesCompleted += Client_UploadValuesCompleted;
                     client.UploadValuesAsync(url, "POST", parameters);
                 };

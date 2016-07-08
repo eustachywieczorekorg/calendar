@@ -377,7 +377,9 @@ namespace Morris
             {
                 btncomments.Click += (object sender, EventArgs e) =>
                 {
-
+                    FragmentTransaction transaction = mFragmentManager.BeginTransaction();
+                    dialog_comments dialogprompt = new dialog_comments(mEvents[position].Id);
+                    dialogprompt.Show(transaction, "dialog fragment");
                 };
             }
 
@@ -426,6 +428,7 @@ namespace Morris
             }
             else
             {
+                btncomments.Clickable = false;
                 btndelete.Clickable = false;
                 btnInviteFriend.Clickable = false;
                 EventName.Clickable = false;
