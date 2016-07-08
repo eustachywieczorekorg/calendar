@@ -12,6 +12,7 @@ using System.Net;
 using System.Collections.Specialized;
 using System.Text;
 using Newtonsoft.Json;
+using Android.Support.V4.Widget;
 
 namespace Morris
 {
@@ -34,6 +35,9 @@ namespace Morris
             HasOptionsMenu = true;
             mListView = view.FindViewById<ListView>(Resource.Id.listView);
             mFriendsLayout = view.FindViewById<LinearLayout>(Resource.Id.FriendsLayout);
+            var swipeContainer = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeContainer);
+            swipeContainer.SetColorSchemeResources(Android.Resource.Color.HoloBlueLight, Android.Resource.Color.HoloBlueBright, Android.Resource.Color.HoloOrangeLight, Android.Resource.Color.HoloRedLight);
+            swipeContainer.Refresh += SwipeContainer_Refresh;
             NameValueCollection parameters = new NameValueCollection();
             usernamefromsp = pref.GetString("Username", String.Empty);
             parameters.Add("username", usernamefromsp);
@@ -42,7 +46,17 @@ namespace Morris
             client.UploadValuesAsync(url, "POST", parameters);
             return view;
         }
-        
+
+        private void SwipeContainer_Refresh(object sender, EventArgs e)
+        {
+            WebClient client = new WebClient();
+            Uri url = new Uri("http://217.208.71.183/calendarusers/LoadFriends.php");
+            NameValueCollection parameters = new NameValueCollection();
+            parameters.Add("username", usernamefromsp);
+            client.UploadValuesCompleted += Client_UploadValuesCompleted;
+            client.UploadValuesAsync(url, "POST", parameters);
+            (sender as SwipeRefreshLayout).Refreshing = false;
+        }
 
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
          {

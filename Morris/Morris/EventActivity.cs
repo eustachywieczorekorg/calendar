@@ -12,6 +12,7 @@ using Android.Widget;
 using System.Net;
 using System.Collections.Specialized;
 using Newtonsoft.Json;
+using Android.Support.V4.Widget;
 
 namespace Morris
 {
@@ -29,6 +30,9 @@ namespace Morris
             var view = inflater.Inflate(Resource.Layout.EventActivity, container, false);
             HasOptionsMenu = true;
             mListview = view.FindViewById<ListView>(Resource.Id.listView1);
+            var swipeContainer = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeContainer);
+            swipeContainer.SetColorSchemeResources(Android.Resource.Color.HoloBlueLight, Android.Resource.Color.HoloBlueBright, Android.Resource.Color.HoloOrangeLight, Android.Resource.Color.HoloRedLight);
+            swipeContainer.Refresh += SwipeContainer_Refresh;
             usernamefromsp = pref.GetString("Username", String.Empty);
             WebClient client = new WebClient();
             Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEventList.php");
@@ -37,6 +41,17 @@ namespace Morris
             client.UploadValuesCompleted += Client_UploadValuesCompleted;
             client.UploadValuesAsync(url, "POST", parameters);
             return view;
+        }
+
+        private void SwipeContainer_Refresh(object sender, EventArgs e)
+        {
+            WebClient client = new WebClient();
+            Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEventList.php");
+            NameValueCollection parameters = new NameValueCollection();
+            parameters.Add("username", usernamefromsp);
+            client.UploadValuesCompleted += Client_UploadValuesCompleted;
+            client.UploadValuesAsync(url, "POST", parameters);
+            (sender as SwipeRefreshLayout).Refreshing = false;
         }
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)

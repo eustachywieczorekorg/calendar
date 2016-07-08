@@ -11,6 +11,7 @@ using Android.Widget;
 using System.Net;
 using System.Collections.Specialized;
 using Newtonsoft.Json;
+using Android.Support.V4.Widget;
 
 namespace Morris
 {
@@ -31,7 +32,6 @@ namespace Morris
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.dialog_eventinvites, container, false);
             mListView = view.FindViewById<ListView>(Resource.Id.listView1);
-
             usernamefromsp = pref.GetString("Username", String.Empty);
             WebClient client = new WebClient();
             NameValueCollection parameters = new NameValueCollection();
@@ -41,6 +41,7 @@ namespace Morris
 
             return view;
         }
+        
 
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
