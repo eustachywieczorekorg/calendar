@@ -8,13 +8,14 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
 using Newtonsoft.Json;
+using Android.Support.V4.Widget;
 
 namespace Morris
 { 
     public class CalendarActivity : Android.Support.V4.App.Fragment, CalendarView.IOnDateChangeListener, DatePicker.IOnDateChangedListener
     {
         ListView mListView;
-         Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEvents.php");
+        Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEvents.php");
         string usernamefromsp;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         public DatePicker mDatePicker;
@@ -26,8 +27,10 @@ namespace Morris
             HasOptionsMenu = true;
             mDatePicker = view.FindViewById<DatePicker>(Resource.Id.datePicker1); 
             mDatePicker.CalendarView.SetOnDateChangeListener(this);
-
             mListView = view.FindViewById<ListView>(Resource.Id.EventsListView);
+            var swipeContainer = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeContainer);
+            swipeContainer.SetColorSchemeResources(Android.Resource.Color.HoloBlueLight, Android.Resource.Color.HoloBlueBright, Android.Resource.Color.HoloOrangeLight, Android.Resource.Color.HoloRedLight);
+            swipeContainer.Refresh += SwipeContainer_Refresh;
             NameValueCollection parameters = new NameValueCollection();
             usernamefromsp = pref.GetString("Username", String.Empty);
             parameters.Add("username", usernamefromsp);
@@ -37,6 +40,18 @@ namespace Morris
             client.UploadValuesAsync(url, "POST", parameters);
 
             return view;
+        }
+
+        private void SwipeContainer_Refresh(object sender, EventArgs e)
+        {
+            NameValueCollection parameters = new NameValueCollection();
+            usernamefromsp = pref.GetString("Username", String.Empty);
+            parameters.Add("username", usernamefromsp);
+            parameters.Add("selecteddate", mDatePicker.Year + "-" + (mDatePicker.Month + 1) + "-" + mDatePicker.DayOfMonth);
+            WebClient client = new WebClient();
+            client.UploadValuesCompleted += Client1_UploadValuesCompleted;
+            client.UploadValuesAsync(url, "POST", parameters);
+            (sender as SwipeRefreshLayout).Refreshing = false;
         }
 
         public void MDatePicker_update(object sender, EventArgs e)
