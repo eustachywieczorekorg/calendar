@@ -21,6 +21,7 @@ namespace Morris
         string mCreator;
         int mId;
         public event EventHandler eventremoved;
+        Uri url;
 
         public dialog_prompt(string creator, int aids)
         {
@@ -42,44 +43,30 @@ namespace Morris
 
             if (mCreator == usernamefromsp)
             {
-                yes.Click += (object sender, EventArgs e) =>
-                {
-
-                    WebClient client = new WebClient();
-                    Uri url = new Uri("http://217.208.71.183/calendarusers/DeleteEvent.php");
-                    NameValueCollection parameters = new NameValueCollection();
-                    parameters.Add("username", usernamefromsp);
-                    parameters.Add("eventid", mId.ToString());
-                    client.UploadValuesCompleted += Client_UploadValuesCompleted;
-                    client.UploadValuesAsync(url, "POST", parameters);
-                };
-
-                no.Click += (object sender, EventArgs e) =>
-                {
-                    this.Dismiss();
-                };
+                 url = new Uri("http://217.208.71.183/calendarusers/DeleteEvent.php");
             }
             else
             {
                 pmessage.Text = "Are You Sure You Want To Leave This Event?";
-                yes.Click += (object sender, EventArgs e) =>
-                {
-
-                    WebClient client = new WebClient();
-                    Uri url = new Uri("http://217.208.71.183/calendarusers/ExitEvent.php");
-                    NameValueCollection parameters = new NameValueCollection();
-                    parameters.Add("eventid", mId.ToString());
-                    parameters.Add("username", usernamefromsp);
-                    client.UploadValuesCompleted += Client_UploadValuesCompleted;
-                    client.UploadValuesAsync(url, "POST", parameters);
-                };
-
-                no.Click += (object sender, EventArgs e) =>
-                {
-                    this.Dismiss();
-                };
+                 url = new Uri("http://217.208.71.183/calendarusers/ExitEvent.php");
             }
-            
+
+            yes.Click += (object sender, EventArgs e) =>
+            {
+
+                WebClient client = new WebClient();
+                NameValueCollection parameters = new NameValueCollection();
+                parameters.Add("eventid", mId.ToString());
+                parameters.Add("username", usernamefromsp);
+                client.UploadValuesCompleted += Client_UploadValuesCompleted;
+                client.UploadValuesAsync(url, "POST", parameters);
+            };
+
+            no.Click += (object sender, EventArgs e) =>
+            {
+                this.Dismiss();
+            };
+
 
             return view;
         }
