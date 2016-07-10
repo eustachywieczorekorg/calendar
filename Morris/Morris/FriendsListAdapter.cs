@@ -372,19 +372,19 @@ namespace Morris
             btnInviteFriend.SetBackgroundColor(bgcolor);
 
             ImageButton btncomments = row.FindViewById<ImageButton>(Resource.Id.buttoncomments);
-            if(btncomments.HasOnClickListeners == false)
-            {
-                btncomments.Click += (object sender, EventArgs e) =>
-                {
-                    FragmentTransaction transaction = mFragmentManager.BeginTransaction();
-                    dialog_comments dialogprompt = new dialog_comments(mEvents[position].Id);
-                    dialogprompt.Show(transaction, "dialog fragment");
-                };
-            }
 
             if (onlyviewing == false)
             {
 
+                if (btncomments.HasOnClickListeners == false)
+                {
+                    btncomments.Click += (object sender, EventArgs e) =>
+                    {
+                        FragmentTransaction transaction = mFragmentManager.BeginTransaction();
+                        dialog_comments dialogprompt = new dialog_comments(mEvents[position].Id);
+                        dialogprompt.Show(transaction, "dialogprompt");
+                    };
+                }
                 if (btndelete.HasOnClickListeners == false)
                 {
                     btndelete.Click += (object sender, EventArgs e) =>

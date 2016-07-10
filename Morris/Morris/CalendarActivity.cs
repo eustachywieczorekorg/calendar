@@ -21,6 +21,7 @@ namespace Morris
         public DatePicker mDatePicker;
         public event EventHandler updateevent;
         public event EventHandler<DateTime> opencreateevents;
+        public bool closed;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -40,6 +41,7 @@ namespace Morris
             WebClient client = new WebClient();
             client.UploadValuesCompleted += Client1_UploadValuesCompleted;
             client.UploadValuesAsync(url, "POST", parameters);
+            closed = true;
 
             return view;
         }
@@ -99,11 +101,21 @@ namespace Morris
                     this.Dispose();
                     return true;
                 case Resource.Id.addevent:
-                    DateTime mDate2 = mDatePicker.DateTime;
-                    CreateEventDialog ced = new CreateEventDialog(mDate2);
-                    Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout, ced, "swag").AddToBackStack(null);
-                    trans.Commit();
-                    //opencreateevents.Invoke(this , ced);
+                    if (closed)
+                    {
+                        DateTime mDate2 = mDatePicker.DateTime;
+                        CreateEventDialog ced = new CreateEventDialog(mDate2);
+                        ced.eventcreated += UpdateCalendar;
+                        Android.Support.V4.App.FragmentTransaction trans;
+                        trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout, ced, "swag").AddToBackStack(null);
+                        trans.Commit();
+                        closed = !closed;
+                    }
+                    else
+                    {
+                        this.Activity.SupportFragmentManager.PopBackStack();
+                        closed = !closed;
+                    }
                     return true;
                 case Resource.Id.eventinvites:
                     dialog_eventinvites eventinvitedialog = new dialog_eventinvites();

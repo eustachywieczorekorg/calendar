@@ -309,7 +309,7 @@ namespace Morris
             Toast.MakeText(this.Activity, response, ToastLength.Short).Show();
             if (response == "Event updated / Event update req sent")
             {
-                eventcreated(sender, new EventArgs());
+                eventcreated(this, new EventArgs());
             }
         }
 
@@ -324,7 +324,7 @@ namespace Morris
             Toast.MakeText(this.Activity, response, ToastLength.Short).Show();
             if (response == "Event created")
             {
-                eventcreated(sender, new EventArgs());
+                eventcreated(this, new EventArgs());
                 this.Dispose();
             }
         }
