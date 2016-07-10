@@ -16,6 +16,8 @@ namespace Morris
         FriendsActivity fa;
         CalendarActivity ca;
         EventActivity ea;
+        JavaList<Android.Support.V4.App.Fragment> fragments;
+
         public Activity1()
         {
             fa = new FriendsActivity();
@@ -34,7 +36,6 @@ namespace Morris
 
             ca.updateevent += update;
             ea.eventremoved += update;
-            //ca.opencreateevents += ShowFragment;
 
             Android.Support.V7.Widget.Toolbar mToolbar;
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
@@ -52,6 +53,7 @@ namespace Morris
             if (SupportFragmentManager.BackStackEntryCount > 0)
             {
                 SupportFragmentManager.PopBackStack();
+                ca.closed = true;
             }
             else
             {
@@ -64,19 +66,14 @@ namespace Morris
             ca.UpdateCalendar(sender, e);
             ea.UpdateEventList(sender, e);
         }
-
-        public void ShowFragment(object sender , Android.Support.V4.App.Fragment f)
-        {
-            
-        }
-
+        
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             return base.OnCreateOptionsMenu(menu);
         }
+
         private JavaList<Android.Support.V4.App.Fragment> getfragments()
         {
-            JavaList<Android.Support.V4.App.Fragment> fragments;
             fragments = new JavaList<Android.Support.V4.App.Fragment>();
             fragments.Add(fa);
             fragments.Add(ca);
