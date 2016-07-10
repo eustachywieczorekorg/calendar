@@ -9,5 +9,5 @@
 	<uses-permission android:name="android.permission.CLEAR_APP_USER_DATA" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="android.permission.VIBRATE" />
-	<application android:label="Morris EC"></application>
+	<application android:label="Morris EC" android:icon="@drawable/morris_icon4"></application>
 </manifest>

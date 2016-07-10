@@ -39,7 +39,8 @@ namespace Morris
             Android.Support.V7.Widget.Toolbar mToolbar;
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(mToolbar);
-            SupportActionBar.Title = "Morris EC" + " ("+ usernamefromsp + ")";
+            SupportActionBar.Title = "Morris" + " ("+ usernamefromsp + ")";
+            
 
 
             _viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);

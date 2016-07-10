@@ -93,6 +93,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CalendarActivity.cs" />
+    <Compile Include="SupportFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\CalendarActivity.axml" />
@@ -133,7 +134,7 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ViewPager.axml">
-      <SubType>AndroidResource</SubType>
+      <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\dialog_prompt.axml">
       <SubType>AndroidResource</SubType>

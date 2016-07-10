@@ -58,6 +58,13 @@ namespace Morris
             Creator = creator;
         }
 
+        public override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            // Create your fragment here
+        }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
@@ -133,9 +140,9 @@ namespace Morris
                         url2 = new Uri("http://217.208.71.183/calendarusers/UpdateEventDescription.php");
                         url3 = new Uri("http://217.208.71.183/calendarusers/UpdateLocation.php");
                         url4 = new Uri("http://217.208.71.183/calendarusers/UpdateCategory.php");
-                        url5 = new Uri("http://217.208.71.183/calendarusers/UpdateToTime.php");
+                        url5 = new Uri("http://217.208.71.183/calendarusers/UpdateEndTime.php");
                         url6 = new Uri("http://217.208.71.183/calendarusers/UpdateEndDate.php");
-                        url7 = new Uri("http://217.208.71.183/calendarusers/UpdateFromTime.php");
+                        url7 = new Uri("http://217.208.71.183/calendarusers/UpdateStartTime.php");
                         url8 = new Uri("http://217.208.71.183/calendarusers/UpdateStartDate.php");
                     }
                     else
@@ -144,9 +151,9 @@ namespace Morris
                         url2 = new Uri("http://217.208.71.183/calendarusers/UpdateEventDescriptionReq.php");
                         url3 = new Uri("http://217.208.71.183/calendarusers/UpdateLocationReq.php");
                         url4 = new Uri("http://217.208.71.183/calendarusers/UpdateCategoryReq.php");
-                        url5 = new Uri("http://217.208.71.183/calendarusers/UpdateToTimeReq.php");
+                        url5 = new Uri("http://217.208.71.183/calendarusers/UpdateEndTimeReq.php");
                         url6 = new Uri("http://217.208.71.183/calendarusers/UpdateEndDateReq.php");
-                        url7 = new Uri("http://217.208.71.183/calendarusers/UpdateFromTimeReq.php");
+                        url7 = new Uri("http://217.208.71.183/calendarusers/UpdateStartimeReq.php");
                         url8 = new Uri("http://217.208.71.183/calendarusers/UpdateStartDateReq.php");
                     }
                     if (eventName.Text != EventName)
@@ -158,8 +165,6 @@ namespace Morris
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url, "POST", parameters);
-                        this.Dismiss();
-                        Console.WriteLine("eventname changed");
                     }
                     if (eventDescription.Text != EventDescription)
                     {
@@ -170,8 +175,6 @@ namespace Morris
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url2, "POST", parameters);
-                        this.Dismiss();
-                        Console.WriteLine("eventdesc changed");
                     }
                     if (location.Text != Location)
                     {
@@ -182,8 +185,6 @@ namespace Morris
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url3, "POST", parameters);
-                        this.Dismiss();
-                        Console.WriteLine("location changed");
                     }
                     if (mSpinner.Id != category)
                     {
@@ -194,8 +195,6 @@ namespace Morris
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url4, "POST", parameters);
-                        this.Dismiss();
-                        Console.WriteLine("category changed");
                     }
                     if (startdate.Text != mStartDate.Year + "-" + mStartDate.Date.Month + "-" + mStartDate.Date.Day.ToString())
                     {
@@ -206,8 +205,6 @@ namespace Morris
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url5, "POST", parameters);
-                        this.Dismiss();
-                        Console.WriteLine("start date changed");
                     }
                         if (starttp.CurrentHour.ToString() != TimeStart.Substring(0, 2) || starttp.CurrentMinute.ToString() != TimeStart.Substring(3, 2))
                     {
@@ -218,8 +215,6 @@ namespace Morris
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url6, "POST", parameters);
-                        this.Dismiss();
-                        Console.WriteLine("start time changed");
                     }
                     if (enddate.Text != mEndDate.Year + "-" + mEndDate.Date.Month + "-" + mEndDate.Date.Day.ToString())
                     {
@@ -230,8 +225,6 @@ namespace Morris
                         //parameters.Add("", );
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url7, "POST", parameters);
-                        this.Dismiss();
-                        Console.WriteLine("end date changed");
                     }
                         if (endtp.CurrentHour.ToString() != TimeStart.Substring(0, 2) || endtp.CurrentMinute.ToString() != TimeStart.Substring(3, 2))
                     {
@@ -243,6 +236,7 @@ namespace Morris
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url8, "POST", parameters);
                     }
+                    this.Dismiss();
                 };
             }
 
@@ -315,7 +309,6 @@ namespace Morris
             if (response == "Event updated / Event update req sent")
             {
                 eventcreated(this, new EventArgs());
-                this.Dismiss();
             }
         }
 
@@ -333,13 +326,6 @@ namespace Morris
                 eventcreated(this, new EventArgs());
                 this.Dismiss();
             }
-        }
-
-        public override void OnActivityCreated(Bundle savedInstanceState)
-        {
-            Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
-            base.OnActivityCreated(savedInstanceState);
-            Dialog.Window.Attributes.WindowAnimations = Resource.Style.dialog_animation;
         }
     }
 }

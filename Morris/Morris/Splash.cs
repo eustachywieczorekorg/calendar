@@ -16,7 +16,7 @@ using Android.Support.V7.App;
 
 namespace Morris
 {
-    [Activity(Label = "Morris EC", MainLauncher = true, Icon = "@drawable/morris_icon4", Theme = "@style/MyTheme")]
+    [Activity(Label = "Morris", MainLauncher = true, Icon = "@drawable/morris_icon4", Theme = "@style/MyTheme")]
     public class Splash : AppCompatActivity
     {
         private Android.Support.V7.Widget.Toolbar mToolbar;

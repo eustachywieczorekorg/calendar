@@ -372,7 +372,6 @@ namespace Morris
             btnInviteFriend.SetBackgroundColor(bgcolor);
 
             ImageButton btncomments = row.FindViewById<ImageButton>(Resource.Id.buttoncomments);
-            btncomments.SetBackgroundColor(bgcolor);
             if(btncomments.HasOnClickListeners == false)
             {
                 btncomments.Click += (object sender, EventArgs e) =>
@@ -400,9 +399,9 @@ namespace Morris
                 {
                     EventName.Click += (object sender, EventArgs e) =>
                     {
-                        FragmentTransaction transaction = mFragmentManager.BeginTransaction();
+                        Android.App.FragmentTransaction transaction = mFragmentManager.BeginTransaction();
                         CreateEventDialog changeeventdialog = new CreateEventDialog(mEvents[position].Id, mEvents[position].EventName, mEvents[position].EventDescription, mEvents[position].StartDate, mEvents[position].EndDate, mEvents[position].Location, mEvents[position].StartTime, mEvents[position].EndTime, mEvents[position].Category, mEvents[position].Creator);
-                        changeeventdialog.Show(transaction, "dialog fragment");
+                        //transaction.Replace(Resource.Layout.CalendarActivity, changeeventdialog);
                     };
                 }
                 string kr8er = mEvents[position].Creator;

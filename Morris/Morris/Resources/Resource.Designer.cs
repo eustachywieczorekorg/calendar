@@ -1619,20 +1619,17 @@ namespace Morris
 			// aapt resource value: 0x7f0b0019
 			public const int beginning = 2131427353;
 			
-			// aapt resource value: 0x7f0b009d
-			public const int bindestreck = 2131427485;
+			// aapt resource value: 0x7f0b00aa
+			public const int bindestreck1 = 2131427498;
 			
-			// aapt resource value: 0x7f0b00ab
-			public const int bindestreck1 = 2131427499;
-			
-			// aapt resource value: 0x7f0b00b3
-			public const int btnAccept = 2131427507;
+			// aapt resource value: 0x7f0b00b2
+			public const int btnAccept = 2131427506;
 			
 			// aapt resource value: 0x7f0b0065
 			public const int btnCreateContact = 2131427429;
 			
-			// aapt resource value: 0x7f0b00b4
-			public const int btnDecline = 2131427508;
+			// aapt resource value: 0x7f0b00b3
+			public const int btnDecline = 2131427507;
 			
 			// aapt resource value: 0x7f0b0077
 			public const int btnDialogEmail = 2131427447;
@@ -1655,11 +1652,11 @@ namespace Morris
 			// aapt resource value: 0x7f0b005a
 			public const int btnadd1 = 2131427418;
 			
-			// aapt resource value: 0x7f0b00b6
-			public const int btninvite = 2131427510;
+			// aapt resource value: 0x7f0b00b5
+			public const int btninvite = 2131427509;
 			
-			// aapt resource value: 0x7f0b00b2
-			public const int btnremovefriend = 2131427506;
+			// aapt resource value: 0x7f0b00b1
+			public const int btnremovefriend = 2131427505;
 			
 			// aapt resource value: 0x7f0b005d
 			public const int btnsub = 2131427421;
@@ -1670,11 +1667,14 @@ namespace Morris
 			// aapt resource value: 0x7f0b0094
 			public const int button1 = 2131427476;
 			
-			// aapt resource value: 0x7f0b00a5
-			public const int buttonAccept1 = 2131427493;
+			// aapt resource value: 0x7f0b00a4
+			public const int buttonAccept1 = 2131427492;
 			
-			// aapt resource value: 0x7f0b00a6
-			public const int buttonDecline1 = 2131427494;
+			// aapt resource value: 0x7f0b0098
+			public const int buttonChangeReqs = 2131427480;
+			
+			// aapt resource value: 0x7f0b00a5
+			public const int buttonDecline1 = 2131427493;
 			
 			// aapt resource value: 0x7f0b0097
 			public const int buttonInviteFriend = 2131427479;
@@ -1682,8 +1682,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b002b
 			public const int buttonPanel = 2131427371;
 			
-			// aapt resource value: 0x7f0b0098
-			public const int buttoncomments = 2131427480;
+			// aapt resource value: 0x7f0b009a
+			public const int buttoncomments = 2131427482;
 			
 			// aapt resource value: 0x7f0b0050
 			public const int calendarlayout = 2131427408;
@@ -1691,8 +1691,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b0084
 			public const int cancel_action = 2131427460;
 			
-			// aapt resource value: 0x7f0b00b1
-			public const int cbse = 2131427505;
+			// aapt resource value: 0x7f0b00b0
+			public const int cbse = 2131427504;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int checkbox = 2131427385;
@@ -1724,8 +1724,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b0051
 			public const int datePicker1 = 2131427409;
 			
-			// aapt resource value: 0x7f0b009e
-			public const int dateend = 2131427486;
+			// aapt resource value: 0x7f0b009d
+			public const int dateend = 2131427485;
 			
 			// aapt resource value: 0x7f0b009b
 			public const int datestart = 2131427483;
@@ -1772,8 +1772,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b00bc
 			public const int friendrequests = 2131427516;
 			
-			// aapt resource value: 0x7f0b00b5
-			public const int friendusername = 2131427509;
+			// aapt resource value: 0x7f0b00b4
+			public const int friendusername = 2131427508;
 			
 			// aapt resource value: 0x7f0b0061
 			public const int fromTimePicker = 2131427425;
@@ -1796,8 +1796,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b0073
 			public const int imageView1 = 2131427443;
 			
-			// aapt resource value: 0x7f0b00a2
-			public const int imageView2 = 2131427490;
+			// aapt resource value: 0x7f0b00a1
+			public const int imageView2 = 2131427489;
 			
 			// aapt resource value: 0x7f0b0093
 			public const int imageView3 = 2131427475;
@@ -1817,8 +1817,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b006d
 			public const int linearLayout1 = 2131427437;
 			
-			// aapt resource value: 0x7f0b00a1
-			public const int linearlayout111 = 2131427489;
+			// aapt resource value: 0x7f0b00a0
+			public const int linearlayout111 = 2131427488;
 			
 			// aapt resource value: 0x7f0b0090
 			public const int linearlayout123 = 2131427472;
@@ -1847,17 +1847,14 @@ namespace Morris
 			// aapt resource value: 0x7f0b0086
 			public const int media_actions = 2131427462;
 			
-			// aapt resource value: 0x7f0b00ac
-			public const int menddate = 2131427500;
+			// aapt resource value: 0x7f0b00ab
+			public const int menddate = 2131427499;
 			
-			// aapt resource value: 0x7f0b00ad
-			public const int mendtime = 2131427501;
+			// aapt resource value: 0x7f0b00ac
+			public const int mendtime = 2131427500;
 			
 			// aapt resource value: 0x7f0b001b
 			public const int middle = 2131427355;
-			
-			// aapt resource value: 0x7f0b009a
-			public const int mlinearlayout1 = 2131427482;
 			
 			// aapt resource value: 0x7f0b0091
 			public const int mlinearlayout2 = 2131427473;
@@ -1865,11 +1862,11 @@ namespace Morris
 			// aapt resource value: 0x7f0b0095
 			public const int mlinearlayout3 = 2131427477;
 			
-			// aapt resource value: 0x7f0b00a9
-			public const int mstartdate = 2131427497;
+			// aapt resource value: 0x7f0b00a8
+			public const int mstartdate = 2131427496;
 			
-			// aapt resource value: 0x7f0b00aa
-			public const int mstarttime = 2131427498;
+			// aapt resource value: 0x7f0b00a9
+			public const int mstarttime = 2131427497;
 			
 			// aapt resource value: 0x7f0b0014
 			public const int multiply = 2131427348;
@@ -1877,8 +1874,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b001f
 			public const int never = 2131427359;
 			
-			// aapt resource value: 0x7f0b00a8
-			public const int newlinearlayout = 2131427496;
+			// aapt resource value: 0x7f0b00a7
+			public const int newlinearlayout = 2131427495;
 			
 			// aapt resource value: 0x7f0b000e
 			public const int none = 2131427342;
@@ -1907,11 +1904,11 @@ namespace Morris
 			// aapt resource value: 0x7f0b0096
 			public const int roweventdescription = 2131427478;
 			
-			// aapt resource value: 0x7f0b00a4
-			public const int roweventinvitedescription = 2131427492;
-			
 			// aapt resource value: 0x7f0b00a3
-			public const int roweventinvitename = 2131427491;
+			public const int roweventinvitedescription = 2131427491;
+			
+			// aapt resource value: 0x7f0b00a2
+			public const int roweventinvitename = 2131427490;
 			
 			// aapt resource value: 0x7f0b0092
 			public const int roweventname = 2131427474;
@@ -2027,17 +2024,17 @@ namespace Morris
 			// aapt resource value: 0x7f0b0056
 			public const int theLocation = 2131427414;
 			
-			// aapt resource value: 0x7f0b00a0
-			public const int theweek = 2131427488;
+			// aapt resource value: 0x7f0b009f
+			public const int theweek = 2131427487;
 			
-			// aapt resource value: 0x7f0b00ae
-			public const int theweek1 = 2131427502;
+			// aapt resource value: 0x7f0b00ad
+			public const int theweek1 = 2131427501;
 			
 			// aapt resource value: 0x7f0b0089
 			public const int time = 2131427465;
 			
-			// aapt resource value: 0x7f0b009f
-			public const int timeend = 2131427487;
+			// aapt resource value: 0x7f0b009e
+			public const int timeend = 2131427486;
 			
 			// aapt resource value: 0x7f0b009c
 			public const int timestart = 2131427484;
@@ -2063,11 +2060,11 @@ namespace Morris
 			// aapt resource value: 0x7f0b0080
 			public const int txtCreateAccount = 2131427456;
 			
-			// aapt resource value: 0x7f0b00a7
-			public const int txtLocation = 2131427495;
+			// aapt resource value: 0x7f0b00a6
+			public const int txtLocation = 2131427494;
 			
-			// aapt resource value: 0x7f0b00af
-			public const int txtName = 2131427503;
+			// aapt resource value: 0x7f0b00ae
+			public const int txtName = 2131427502;
 			
 			// aapt resource value: 0x7f0b0081
 			public const int txtOr = 2131427457;
@@ -2090,8 +2087,8 @@ namespace Morris
 			// aapt resource value: 0x7f0b0060
 			public const int txtendtime = 2131427424;
 			
-			// aapt resource value: 0x7f0b00b0
-			public const int txtse = 2131427504;
+			// aapt resource value: 0x7f0b00af
+			public const int txtse = 2131427503;
 			
 			// aapt resource value: 0x7f0b005f
 			public const int txtstarttime = 2131427423;
@@ -2107,6 +2104,9 @@ namespace Morris
 			
 			// aapt resource value: 0x7f0b00b8
 			public const int viewpager = 2131427512;
+			
+			// aapt resource value: 0x7f0b00b6
+			public const int viewpager_layout = 2131427510;
 			
 			// aapt resource value: 0x7f0b0020
 			public const int withText = 2131427360;

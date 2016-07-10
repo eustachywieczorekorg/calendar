@@ -24,6 +24,7 @@ namespace Morris
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.CalendarActivity, container, false);
+
             HasOptionsMenu = true;
             mDatePicker = view.FindViewById<DatePicker>(Resource.Id.datePicker1); 
             mDatePicker.CalendarView.SetOnDateChangeListener(this);
@@ -79,7 +80,6 @@ namespace Morris
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            Android.App.FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
             switch (item.ItemId)
             {
                 case Resource.Id.action_logout:
@@ -94,12 +94,13 @@ namespace Morris
                 case Resource.Id.addevent:
                     DateTime mDate2 = mDatePicker.DateTime;
                     CreateEventDialog createeventdialog = new CreateEventDialog(mDate2);
-                    createeventdialog.Show(transaction, "dialog fragment");
-                    createeventdialog.eventcreated += MDatePicker_update;
+                    FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
+                    transaction.Show(createeventdialog);
                     return true;
                 case Resource.Id.eventinvites:
                     dialog_eventinvites eventinvitedialog = new dialog_eventinvites();
-                    eventinvitedialog.Show(transaction, "dialog fragment");
+                    FragmentTransaction transaction1 = this.Activity.FragmentManager.BeginTransaction();
+                    eventinvitedialog.Show(transaction1, "dialog fragment");
                     eventinvitedialog.eventad += MDatePicker_update;
                     return true;
                 default:
