@@ -22,7 +22,7 @@ namespace Morris
         List<string> mStrings;
         ArrayAdapter<string> mAdapter;
         ListView mlistview;
-
+        
         public dialog_comments(int id)
         {
             EventId = id;
@@ -31,7 +31,6 @@ namespace Morris
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.dialog_comments, container, false);
-
             mlistview = view.FindViewById<ListView>(Resource.Id.commentslistview);
             EditText message = view.FindViewById<EditText>(Resource.Id.txtcomment);
             Button send = view.FindViewById<Button>(Resource.Id.comment);

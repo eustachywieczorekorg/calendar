@@ -213,8 +213,8 @@ namespace Morris
             usernamefromsp = pref.GetString("Username", String.Empty);
             TextView usernametext = row.FindViewById<TextView>(Resource.Id.txtName);
             usernametext.Text = mFriendRequests[position].UserName;
-            Button btnAccept, btnDecline;
-            btnAccept = row.FindViewById<Button>(Resource.Id.btnAccept);
+            ImageButton btnAccept, btnDecline;
+            btnAccept = row.FindViewById<ImageButton>(Resource.Id.btnAccept);
             if(btnAccept.HasOnClickListeners == false)
             {
                 btnAccept.Click += (object sender, EventArgs e) =>
@@ -229,7 +229,7 @@ namespace Morris
                 };
             }
 
-            btnDecline = row.FindViewById<Button>(Resource.Id.btnDecline);
+            btnDecline = row.FindViewById<ImageButton>(Resource.Id.btnDecline);
 
             if(btnDecline.HasOnClickListeners == false)
             {

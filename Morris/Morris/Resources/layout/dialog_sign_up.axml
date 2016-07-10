@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#2278b1"
+    android:background="@color/AppBgColor"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:minWidth="300dp"
@@ -9,7 +9,6 @@
         android:id="@+id/txtUsername"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#ecf0f1"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -18,20 +17,21 @@
         android:paddingLeft="10dp"
         android:textColor="#2c3e50"
         android:shadowColor="#7fff00ff"
-        android:textColorHint="#2c3e50" />
+        android:textColorHint="#2c3e50"
+        android:background="#ecf0f1" />
     <EditText
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/txtPassword"
-        android:background="#ecf0f1"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Password"
         android:paddingLeft="10dp"
         android:textColor="#2c3e50"
         android:layout_below="@id/txtUsername"
-        android:textColorHint="#2c3e50" />
+        android:textColorHint="#2c3e50"
+        android:background="#ecf0f1" />
     <ImageView
         android:src="@drawable/morris_head"
         android:layout_width="220dp"

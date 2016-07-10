@@ -12,9 +12,9 @@
         android:layout_height="match_parent"
         android:layout_weight="90"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textColor="#ffffff"
-        android:textStyle="bold"
+        android:textStyle="normal"
         android:background="@drawable/button_border" />
     <ImageButton
         android:layout_width="30dp"

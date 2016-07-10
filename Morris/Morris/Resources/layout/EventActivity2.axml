@@ -22,7 +22,7 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#2278b1"
+        android:background="@color/AppBgColor"
         android:divider="@android:color/transparent"
         android:dividerHeight="10dp"
         android:id="@+id/listView4" />

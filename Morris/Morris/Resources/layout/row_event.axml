@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#2278b1"
+    android:background="@color/AppBgColor"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minWidth="25px"
@@ -89,6 +89,7 @@
             android:minHeight="25px">
             <TextView
                 android:text="Date"
+                android:layout_above="@+id/timestart"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,6 +99,8 @@
                 android:id="@+id/datestart" />
             <TextView
                 android:text="Time"
+                android:layout_below="@+id/datestart"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -120,6 +123,7 @@
             android:minHeight="25px">
             <TextView
                 android:text="Date"
+                android:layout_above="@+id/timeend"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -128,20 +132,19 @@
                 android:id="@+id/dateend" />
             <TextView
                 android:text="Time"
+                android:layout_below="@+id/dateend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#ecf0f1"
                 android:textSize="20dp"
                 android:id="@+id/timeend" />
         </LinearLayout>
-        <TextView
-            android:text="W"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
-            android:textColor="#ecf0f1"
-            android:textSize="20dp"
-            android:id="@+id/theweek" />
     </RelativeLayout>
+    <TextView
+        android:text="W"
+        android:textColor="#ecf0f1"
+        android:textSize="20dp"
+        android:id="@+id/theweek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

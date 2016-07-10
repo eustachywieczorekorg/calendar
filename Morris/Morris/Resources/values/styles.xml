@@ -8,11 +8,12 @@
   <style name="MyTheme" parent="Theme.AppCompat.Light">
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
-    <item name="colorPrimary">#2278b1</item>
+    <item name="colorPrimary">#0CCE54</item>
+    <item name="android:textColorPrimary">#f2f2f2</item>
   </style>
 
   <style name="DatePickerTheme" parent="android:Theme.Holo.NoActionBar">
-    <item name="android:textColorPrimary">#ffffff</item>
+    <item name="android:textColorPrimary">#f2f2f2</item>
   </style>
   
   

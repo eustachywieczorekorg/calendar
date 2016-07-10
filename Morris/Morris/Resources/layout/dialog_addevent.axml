@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-    android:background="#2278b1">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/AppBgColor">
     <EditText
         android:hint="Eventname"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/eventName"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHint="@android:color/darker_gray" />
     <EditText
         android:hint="Event Description"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -22,7 +22,7 @@
         android:id="@+id/eventDescription"
         android:layout_marginTop="5dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHint="@android:color/darker_gray" />
     <EditText
         android:hint="Location"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -32,7 +32,7 @@
         android:layout_marginTop="5dp"
         android:id="@+id/theLocation"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHint="@android:color/darker_gray" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,91 +48,91 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-      <TextView
-          android:text="StartDate"
-          android:inputType="date"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:id="@+id/startdate"
-          android:textColor="#FFFFFF" />
-      <Button
-          android:background="@drawable/cross"
-          android:layout_toRightOf="@+id/startdate"
-          android:layout_width="30dp"
-          android:layout_height="30dp"
-          android:id="@+id/btnsub1" />
-      <Button
-          android:background="@drawable/plus"
-          android:layout_toRightOf="@+id/btnsub1"
-          android:layout_width="30dp"
-          android:layout_height="30dp"
-          android:id="@+id/btnadd1" />
-      <TextView
-          android:text="-"
-          android:layout_width="wrap_content"
-          android:layout_height="match_parent"
-          android:id="@+id/textViewbindestreck"
-          android:layout_marginLeft="10dp" />
-      <TextView
-          android:text="Enddate"
-          android:inputType="date"
-          android:layout_width="wrap_content"
-          android:layout_height="30dp"
-          android:id="@+id/enddate"
-          android:textColor="#FFFFFF"
-          android:layout_marginLeft="10dp" />
-      <Button
-          android:background="@drawable/cross"
-          android:layout_toRightOf="@+id/enddate"
-          android:layout_width="30dp"
-          android:layout_height="30dp"
-          android:id="@+id/btnsub" />
-      <Button
-          android:background="@drawable/plus"
-          android:layout_toRightOf="@+id/btnsub"
-          android:layout_width="30dp"
-          android:layout_height="30dp"
-          android:id="@+id/btnadd" />
+        <TextView
+            android:text="StartDate"
+            android:inputType="date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/startdate"
+            android:textColor="#FFFFFF" />
+        <Button
+            android:background="@drawable/cross"
+            android:layout_toRightOf="@+id/startdate"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnsub1" />
+        <Button
+            android:background="@drawable/plus"
+            android:layout_toRightOf="@+id/btnsub1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnadd1" />
+        <TextView
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textViewbindestreck"
+            android:layout_marginLeft="10dp" />
+        <TextView
+            android:text="Enddate"
+            android:inputType="date"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/enddate"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="10dp" />
+        <Button
+            android:background="@drawable/cross"
+            android:layout_toRightOf="@+id/enddate"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnsub" />
+        <Button
+            android:background="@drawable/plus"
+            android:layout_toRightOf="@+id/btnsub"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnadd" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="100">
-      <TextView
-          android:text="Start Time:"
-          android:textAppearance="?android:attr/textAppearanceSmall"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/txtstarttime"
-          android:layout_weight="50"
-          android:textColor="#FFFFFF" />
-      <TextView
-          android:text="End Time:"
-          android:textAppearance="?android:attr/textAppearanceSmall"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/txtendtime"
-          android:layout_weight="50"
-          android:textColor="#FFFFFF" />
+        <TextView
+            android:text="Start Time:"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtstarttime"
+            android:layout_weight="50"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:text="End Time:"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtendtime"
+            android:layout_weight="50"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:weightSum="100">
-      <TimePicker
-          android:layout_width="wrap_content"
-          android:layout_height="130dp"
-          android:id="@+id/fromTimePicker"
-          android:layout_weight="50"
-          android:theme="@style/DatePickerTheme" />
-      <TimePicker
-          android:layout_width="wrap_content"
-          android:layout_height="130dp"
-          android:id="@+id/toTimePicker"
-          android:layout_weight="50"
-          android:theme="@style/DatePickerTheme" />
+        <TimePicker
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:id="@+id/fromTimePicker"
+            android:layout_weight="50"
+            android:theme="@style/DatePickerTheme" />
+        <TimePicker
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:id="@+id/toTimePicker"
+            android:layout_weight="50"
+            android:theme="@style/DatePickerTheme" />
     </LinearLayout>
     <Button
         android:text="Create Event"
@@ -142,4 +142,4 @@
         android:layout_gravity="center"
         android:textColor="#FFFFFF"
         android:background="@drawable/button_border" />
-  </LinearLayout>
+</LinearLayout>

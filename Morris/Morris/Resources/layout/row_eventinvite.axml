@@ -33,7 +33,8 @@
         android:layout_height="wrap_content"
         android:textColor="#ecf0f1"
         android:textSize="25dp"
-        android:id="@+id/roweventinvitename" />
+        android:id="@+id/roweventinvitename"
+        android:layout_marginLeft="3.0dp" />
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_below="@+id/roweventinvitename"

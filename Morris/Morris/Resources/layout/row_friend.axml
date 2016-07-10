@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="60dp"
-    android:background="#ecf0f1">
+    android:layout_height="wrap_content"
+    android:background="@color/AppBgColor"
+    android:layout_width="match_parent"
+    android:weightSum="100">
     <TextView
         android:id="@+id/txtName"
         android:text="Username"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="95"
-        android:gravity="center"
         android:textSize="18sp"
-        android:textColor="#ffffff"
         android:background="@drawable/button_border"
-        android:textStyle="bold" />
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_weight="60" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/button_border">
+        android:background="@drawable/button_border"
+        android:layout_weight="10">
         <TextView
             android:id="@+id/txtse"
+            android:layout_toLeftOf="@+id/txtName"
             android:text="Share Events"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ffffff" />
+            android:layout_gravity="center" />
         <CheckBox
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:id="@+id/cbse" />
+            android:layout_width="wrap_content"
+            android:id="@+id/cbse"
+            android:layout_gravity="center" />
     </LinearLayout>
     <Button
         android:text="Remove"
+        android:layout_toLeftOf="@+id/txtse"
         android:background="@drawable/button_border"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/btnremovefriend"
-        android:textColor="#ffffff" />
+        android:textStyle="normal"
+        android:layout_weight="30" />
 </LinearLayout>
