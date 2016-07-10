@@ -17,7 +17,7 @@ using Java.Sql;
 namespace Morris
 {
 
-    public class CreateEventDialog : DialogFragment
+    public class CreateEventDialog : Android.Support.V4.App.Fragment
     {
         public event EventHandler eventcreated;
         EditText eventName;
@@ -37,6 +37,7 @@ namespace Morris
         string Creator;
         bool editing;
         Uri url, url2, url3, url4, url5, url6, url7, url8;
+
         public CreateEventDialog(DateTime getdate)
         {
             editing = false;
@@ -236,7 +237,7 @@ namespace Morris
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url8, "POST", parameters);
                     }
-                    this.Dismiss();
+                    this.Dispose();
                 };
             }
 
@@ -308,7 +309,7 @@ namespace Morris
             Toast.MakeText(this.Activity, response, ToastLength.Short).Show();
             if (response == "Event updated / Event update req sent")
             {
-                eventcreated(this, new EventArgs());
+                eventcreated(sender, new EventArgs());
             }
         }
 
@@ -323,8 +324,8 @@ namespace Morris
             Toast.MakeText(this.Activity, response, ToastLength.Short).Show();
             if (response == "Event created")
             {
-                eventcreated(this, new EventArgs());
-                this.Dismiss();
+                eventcreated(sender, new EventArgs());
+                this.Dispose();
             }
         }
     }

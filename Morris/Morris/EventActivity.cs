@@ -71,6 +71,17 @@ namespace Morris
             mListview.Adapter = mAdapter;
         }
 
+        public void UpdateEventList(object sender, EventArgs e)
+        {
+            usernamefromsp = pref.GetString("Username", String.Empty);
+            WebClient client = new WebClient();
+            Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEventList.php");
+            NameValueCollection parameters = new NameValueCollection();
+            parameters.Add("username", usernamefromsp);
+            client.UploadValuesCompleted += Client_UploadValuesCompleted;
+            client.UploadValuesAsync(url, "POST", parameters);
+        }
+
         private void MAdapter_eventremoved(object sender, EventArgs e)
         {
             eventremoved.Invoke(this, new EventArgs());

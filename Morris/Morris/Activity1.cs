@@ -16,7 +16,6 @@ namespace Morris
         FriendsActivity fa;
         CalendarActivity ca;
         EventActivity ea;
-
         public Activity1()
         {
             fa = new FriendsActivity();
@@ -35,6 +34,7 @@ namespace Morris
 
             ca.updateevent += update;
             ea.eventremoved += update;
+            //ca.opencreateevents += ShowFragment;
 
             Android.Support.V7.Widget.Toolbar mToolbar;
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
@@ -47,13 +47,29 @@ namespace Morris
             _viewPager.Adapter = new LayoutFragmentadapter(SupportFragmentManager, getfragments());
             _viewPager.SetCurrentItem(1, false);
         }
+        public override void OnBackPressed()
+        {
+            if (SupportFragmentManager.BackStackEntryCount > 0)
+            {
+                SupportFragmentManager.PopBackStack();
+            }
+            else
+            {
+                base.OnBackPressed();
+            }
+        }
 
         public void update(object sender, EventArgs e)
         {
-            int i = _viewPager.CurrentItem;
-            _viewPager.Adapter = new LayoutFragmentadapter(SupportFragmentManager, getfragments());
-            _viewPager.SetCurrentItem(i, false);
+            ca.UpdateCalendar(sender, e);
+            ea.UpdateEventList(sender, e);
         }
+
+        public void ShowFragment(object sender , Android.Support.V4.App.Fragment f)
+        {
+            
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             return base.OnCreateOptionsMenu(menu);

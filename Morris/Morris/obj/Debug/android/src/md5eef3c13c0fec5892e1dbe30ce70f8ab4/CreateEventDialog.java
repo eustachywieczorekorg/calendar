@@ -2,7 +2,7 @@ package md5eef3c13c0fec5892e1dbe30ce70f8ab4;
 
 
 public class CreateEventDialog
-	extends android.app.DialogFragment
+	extends android.support.v4.app.Fragment
 	implements
 		mono.android.IGCUserPeer
 {

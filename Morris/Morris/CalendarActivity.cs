@@ -20,6 +20,7 @@ namespace Morris
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         public DatePicker mDatePicker;
         public event EventHandler updateevent;
+        public event EventHandler<DateTime> opencreateevents;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -55,9 +56,15 @@ namespace Morris
             (sender as SwipeRefreshLayout).Refreshing = false;
         }
 
-        public void MDatePicker_update(object sender, EventArgs e)
+        public void UpdateCalendar(object sender, EventArgs e)
         {
-            updateevent.Invoke(sender, e);
+            NameValueCollection parameters = new NameValueCollection();
+            usernamefromsp = pref.GetString("Username", String.Empty);
+            parameters.Add("username", usernamefromsp);
+            parameters.Add("selecteddate", mDatePicker.Year + "-" + (mDatePicker.Month + 1) + "-" + mDatePicker.DayOfMonth);
+            WebClient client = new WebClient();
+            client.UploadValuesCompleted += Client1_UploadValuesCompleted;
+            client.UploadValuesAsync(url, "POST", parameters);
         }
 
         private void Client1_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
@@ -67,7 +74,7 @@ namespace Morris
             mEvents = JsonConvert.DeserializeObject<List<CalendarEvent>>(json1);
             CalendarEventListAdapter mAdapter;
             mAdapter = new CalendarEventListAdapter(this.Activity, Resource.Layout.row_event, mEvents, this.Activity.FragmentManager);
-            mAdapter.eventremoved += MDatePicker_update;
+            mAdapter.eventremoved += UpdateCalendar;
             mListView.Adapter = mAdapter;
         }
 
@@ -93,15 +100,16 @@ namespace Morris
                     return true;
                 case Resource.Id.addevent:
                     DateTime mDate2 = mDatePicker.DateTime;
-                    CreateEventDialog createeventdialog = new CreateEventDialog(mDate2);
-                    FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
-                    transaction.Show(createeventdialog);
+                    CreateEventDialog ced = new CreateEventDialog(mDate2);
+                    Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout, ced, "swag").AddToBackStack(null);
+                    trans.Commit();
+                    //opencreateevents.Invoke(this , ced);
                     return true;
                 case Resource.Id.eventinvites:
                     dialog_eventinvites eventinvitedialog = new dialog_eventinvites();
                     FragmentTransaction transaction1 = this.Activity.FragmentManager.BeginTransaction();
                     eventinvitedialog.Show(transaction1, "dialog fragment");
-                    eventinvitedialog.eventad += MDatePicker_update;
+                    eventinvitedialog.eventad += UpdateCalendar;
                     return true;
                 default:
                 return base.OnOptionsItemSelected(item);
