@@ -13,7 +13,13 @@
   </style>
 
   <style name="DatePickerTheme" parent="android:Theme.Holo.NoActionBar">
+    <item name="colorAccent">#ffffff</item>
     <item name="android:textColorPrimary">#ffffff</item>
+  </style>
+
+  <style name="checkBoxStyle" parent="Base.Theme.AppCompat">
+    <item name="colorAccent">#ffffff</item>
+    <item name="android:textColorSecondary">#ffffff</item>
   </style>
   
   

@@ -15,12 +15,12 @@
         <DatePicker
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:headerBackground="#2278b1"
+            android:headerBackground="#ffffff"
             android:datePickerMode="spinner"
             android:id="@+id/datePicker1"
-            style="@style/DatePickerTheme"
-            android:theme="@style/DatePickerTheme"
-            headerTextColor="#ffffff" />
+            headerTextColor="#ffffff"
+            android:foregroundTint="#ffffffff"
+            android:theme="@style/DatePickerTheme" />
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeContainer"
             android:layout_width="match_parent"

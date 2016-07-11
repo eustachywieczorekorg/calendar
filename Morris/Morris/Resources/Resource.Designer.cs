@@ -2899,14 +2899,14 @@ namespace Morris
 			// aapt resource value: 0x7f080079
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131230841;
 			
-			// aapt resource value: 0x7f080141
-			public const int CustomActionBarTheme = 2131231041;
+			// aapt resource value: 0x7f080142
+			public const int CustomActionBarTheme = 2131231042;
 			
 			// aapt resource value: 0x7f080140
 			public const int DatePickerTheme = 2131231040;
 			
-			// aapt resource value: 0x7f080142
-			public const int MyActionBar = 2131231042;
+			// aapt resource value: 0x7f080143
+			public const int MyActionBar = 2131231043;
 			
 			// aapt resource value: 0x7f08013f
 			public const int MyTheme = 2131231039;
@@ -3426,6 +3426,9 @@ namespace Morris
 			
 			// aapt resource value: 0x7f08013d
 			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131231037;
+			
+			// aapt resource value: 0x7f080141
+			public const int checkBoxStyle = 2131231041;
 			
 			// aapt resource value: 0x7f08013e
 			public const int dialog_animation = 2131231038;
