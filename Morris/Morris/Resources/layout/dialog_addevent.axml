@@ -11,8 +11,8 @@
         android:inputType="text"
         android:layout_height="wrap_content"
         android:id="@+id/eventName"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@android:color/darker_gray" />
+        android:textColor="@color/AppTxtColor"
+        android:textColorHint="#E5E5E5" />
     <EditText
         android:hint="Event Description"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -21,8 +21,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/eventDescription"
         android:layout_marginTop="5dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@android:color/darker_gray" />
+        android:textColor="@color/AppTxtColor"
+        android:textColorHint="#E5E5E5" />
     <EditText
         android:hint="Location"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -31,14 +31,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:id="@+id/theLocation"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@android:color/darker_gray" />
+        android:textColor="@color/AppTxtColor"
+        android:textColorHint="#E5E5E5" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/category_prompt"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/AppTxtColor" />
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/startdate"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/AppTxtColor" />
         <Button
             android:background="@drawable/cross"
             android:layout_toRightOf="@+id/startdate"
@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:id="@+id/enddate"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/AppTxtColor"
             android:layout_marginLeft="10dp" />
         <Button
             android:background="@drawable/cross"
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtstarttime"
             android:layout_weight="50"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/AppTxtColor" />
         <TextView
             android:text="End Time:"
             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtendtime"
             android:layout_weight="50"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/AppTxtColor" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -140,6 +140,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/createEventBtn"
         android:layout_gravity="center"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/AppTxtColor"
         android:background="@drawable/button_border" />
 </LinearLayout>

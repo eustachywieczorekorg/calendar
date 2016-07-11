@@ -31,7 +31,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#ecf0f1"
+        android:textColor="@color/AppTxtColor"
         android:textSize="25dp"
         android:id="@+id/roweventinvitename"
         android:layout_marginLeft="3.0dp" />
@@ -46,7 +46,7 @@
             android:text="Eventdescription"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/roweventinvitedescription"
-            android:textColor="#ecf0f1"
+            android:textColor="@color/AppTxtColor"
             android:textSize="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -76,7 +76,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
+            android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
             android:id="@+id/txtLocation" />
     </LinearLayout>
@@ -92,24 +92,16 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
+            android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
             android:id="@+id/mstartdate" />
         <TextView
-            android:text="Start TIme"
+            android:text="Start Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
+            android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
             android:id="@+id/mstarttime"
-            android:layout_marginLeft="5dp" />
-        <TextView
-            android:text="-"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
-            android:textSize="20dp"
-            android:id="@+id/bindestreck1"
             android:layout_marginLeft="5dp" />
     </LinearLayout>
     <RelativeLayout
@@ -124,7 +116,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
+            android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
             android:id="@+id/menddate" />
         <TextView
@@ -132,7 +124,7 @@
             android:layout_toRightOf="@+id/menddate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
+            android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
             android:id="@+id/mendtime"
             android:layout_marginLeft="5dp" />
@@ -141,7 +133,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ecf0f1"
+            android:textColor="@color/AppTxtColor"
             android:textSize="25dp"
             android:id="@+id/theweek1"
             android:layout_alignParentRight="true" />

@@ -17,7 +17,7 @@
             android:text="Username"
             android:layout_width="match_parent"
             android:layout_height="50.0dp"
-            android:textColor="#ffffff"
+            android:textColor="@color/AppTxtColor"
             android:textSize="20sp"
             android:gravity="fill"
             android:layout_marginStart="10dp" />

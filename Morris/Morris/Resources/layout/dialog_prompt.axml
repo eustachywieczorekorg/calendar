@@ -18,11 +18,13 @@
             android:text="Yes"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/btnYes" />
+            android:id="@+id/btnYes"
+            android:background="@drawable/button_border" />
         <Button
             android:text="No"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/btnNo" />
+            android:id="@+id/btnNo"
+            android:background="@drawable/button_border" />
     </LinearLayout>
 </LinearLayout>

@@ -6,13 +6,6 @@
     android:background="@color/AppBgColor"
     android:minWidth="25px"
     android:minHeight="25px">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/logintoolbar"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:background="@color/AppBgColor"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:layout_width="match_parent" />
     <ImageView
         android:src="@drawable/morris"
         android:layout_width="match_parent"
