@@ -75,6 +75,7 @@ C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.ServiceModel
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.Xml.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\System.Xml.Linq.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\Java.Interop.dll.mdb
+C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\Mono.Android.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\Morris.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\mscorlib.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb

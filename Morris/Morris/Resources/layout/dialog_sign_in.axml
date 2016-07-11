@@ -61,6 +61,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp"
             android:text="Sign In!"
-            android:layout_marginTop="150dp" />
+            android:layout_marginTop="140dp"
+            android:shadowColor="#a9a9a9ff" />
     </RelativeLayout>
 </RelativeLayout>
