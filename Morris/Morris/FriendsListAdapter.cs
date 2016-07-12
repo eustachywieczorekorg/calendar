@@ -349,13 +349,15 @@ namespace Morris
             TextView TimeEnd = row.FindViewById<TextView>(Resource.Id.timeend);
             TimeEnd.Text =  mEvents[position].EndTime;
 
+            ImageButton BtnChangeReq = row.FindViewById<ImageButton>(Resource.Id.buttonChangeReqs);
+
             mLinearLayout = row.FindViewById<LinearLayout>(Resource.Id.linearlayout123);
             
             TextView Week = row.FindViewById<TextView>(Resource.Id.theweek);
             Week.Text ="W." + mEvents[position].Week.ToString();
 
             List<Color> mColors = new List<Color>();
-            mColors.Add(new Color(170, 170, 170));
+            mColors.Add(new Color(231, 76, 60));
             mColors.Add(new Color(210, 84, 00));
             mColors.Add(new Color(232, 76, 61));
             mColors.Add(new Color(53, 152, 219));
@@ -399,10 +401,11 @@ namespace Morris
                 {
                     EventName.Click += (object sender, EventArgs e) =>
                     {
-                        Android.App.FragmentTransaction transaction = mFragmentManager.BeginTransaction();
+                        FragmentTransaction transaction = mFragmentManager.BeginTransaction();
                         CreateEventDialog changeeventdialog = new CreateEventDialog(mEvents[position].Id, mEvents[position].EventName, mEvents[position].EventDescription, mEvents[position].StartDate, mEvents[position].EndDate, mEvents[position].Location, mEvents[position].StartTime, mEvents[position].EndTime, mEvents[position].Category, mEvents[position].Creator);
                         //transaction.Replace(Resource.Layout.CalendarActivity, changeeventdialog);
                     };
+                }
                 }
                 string kr8er = mEvents[position].Creator;
                 if (kr8er == usernamefromsp)
@@ -419,19 +422,32 @@ namespace Morris
                             invitetoeventdialog.Show(transaction, "dialog fragment");
                         };
                     };
-                }
+
+                BtnChangeReq.SetBackgroundResource(Resource.Drawable.settingskoncept1);
+                BtnChangeReq.Clickable = true;
+                if (BtnChangeReq.HasOnClickListeners == false)
+                    {
+                        BtnChangeReq.Click += (object sender, EventArgs e) =>
+                        {
+
+                        };
+                    }
                 else
                 {
                     btnInviteFriend.Clickable = false;
+                    BtnChangeReq.Clickable = false;
                 };
             }
             else
             {
+                BtnChangeReq.Clickable = false;
                 btncomments.Clickable = false;
                 btndelete.Clickable = false;
                 btnInviteFriend.Clickable = false;
                 EventName.Clickable = false;
                 btndelete.SetBackgroundColor(bgcolor);
+                BtnChangeReq.SetBackgroundColor(bgcolor);
+                btncomments.SetBackgroundColor(bgcolor);
             }
 
            
