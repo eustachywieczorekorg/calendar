@@ -36,7 +36,7 @@
         android:layout_height="0dp"
         android:layout_weight="15"
         android:id="@+id/btnSignIn"
-        android:background="@drawable/button_border"
+        android:background="@drawable/button_selector"
         android:textSize="20sp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
@@ -60,7 +60,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:textColor="@color/AppTxtColor"
-        android:background="@drawable/button_border" />
+        android:background="@drawable/button_selector" />
     <RelativeLayout
         android:layout_height="0dp"
         android:layout_weight="35"

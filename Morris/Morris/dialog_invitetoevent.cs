@@ -23,6 +23,7 @@ namespace Morris
         List<Friend> mFriends;
         InviteToEventAdapter mAdapter;
         ListView mListView;
+        Button mButton;
 
         public Invitetoeventdialog(int eventid)
         {
@@ -36,6 +37,7 @@ namespace Morris
             var view = inflater.Inflate(Resource.Layout.Invitetoevent, container, false);
             mListView = view.FindViewById<ListView>(Resource.Id.invitetoeventlistview);
 
+            mButton = view.FindViewById<Button>(Resource.Id.btninvite);
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             usernamefromsp = pref.GetString("Username", String.Empty);
 

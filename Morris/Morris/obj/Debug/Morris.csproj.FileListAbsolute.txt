@@ -87,5 +87,7 @@ C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\Syst
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\Morris.csprojResolveAssemblyReference.cache
+C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\res\drawable\button_selector.xml
+C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\res\drawable\button_state_clicked.xml
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\obj\Debug\Morris.dll.mdb
 C:\Users\eerikhjort\Desktop\calendar\Morris\Morris\bin\Debug\Morris.dll.mdb

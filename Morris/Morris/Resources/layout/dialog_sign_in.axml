@@ -57,7 +57,7 @@
             android:paddingRight="5dp"
             android:height="70dp"
             android:paddingTop="2dp"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_selector"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp"
             android:text="Sign In!"
