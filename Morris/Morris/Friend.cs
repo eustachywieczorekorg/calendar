@@ -52,4 +52,11 @@ namespace Morris
         public string Usernamer { get; set; }
         public string Friendusername { get; set; }
     }
+
+    class Comment
+    {
+        public string Message { get; set; }
+        public string Username { get; set; }
+        public DateTime SendDate { get; set; }
+    }
 }

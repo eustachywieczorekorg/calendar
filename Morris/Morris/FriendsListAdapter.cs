@@ -293,11 +293,11 @@ namespace Morris
 
         public CalendarEventListAdapter(Context context, int layout, List<CalendarEvent> events, FragmentManager fragmentmanager, bool viewing)
         {
+            onlyviewing = true;
             mContext = context;
             mLayout = layout;
             mEvents = events;
             mFragmentManager = fragmentmanager;
-            onlyviewing = true;
         }
 
         public override CalendarEvent this[int position]
@@ -377,7 +377,6 @@ namespace Morris
 
             if (onlyviewing == false)
             {
-
                 if (btncomments.HasOnClickListeners == false)
                 {
                     btncomments.Click += (object sender, EventArgs e) =>
@@ -406,15 +405,12 @@ namespace Morris
                         //transaction.Replace(Resource.Layout.CalendarActivity, changeeventdialog);
                     };
                 }
-                }
-                string kr8er = mEvents[position].Creator;
-                if (kr8er == usernamefromsp)
+                if (mEvents[position].Creator == usernamefromsp)
                 {
                     btnInviteFriend.SetBackgroundResource(Resource.Drawable.plus);
                     btnInviteFriend.Clickable = true;
                     if (btnInviteFriend.HasOnClickListeners == false)
                     {
-
                         btnInviteFriend.Click += (object sender, EventArgs e) =>
                         {
                             FragmentTransaction transaction = mFragmentManager.BeginTransaction();
@@ -423,20 +419,16 @@ namespace Morris
                         };
                     };
 
-                BtnChangeReq.SetBackgroundResource(Resource.Drawable.settingskoncept1);
-                BtnChangeReq.Clickable = true;
-                if (BtnChangeReq.HasOnClickListeners == false)
+                    BtnChangeReq.SetBackgroundResource(Resource.Drawable.settingskoncept1);
+                    BtnChangeReq.Clickable = true;
+                    if (BtnChangeReq.HasOnClickListeners == false)
                     {
                         BtnChangeReq.Click += (object sender, EventArgs e) =>
                         {
-
+                            //TODO
                         };
                     }
-                else
-                {
-                    btnInviteFriend.Clickable = false;
-                    BtnChangeReq.Clickable = false;
-                };
+                }
             }
             else
             {
@@ -450,8 +442,7 @@ namespace Morris
                 btncomments.SetBackgroundColor(bgcolor);
             }
 
-           
-
+            
             return row;
         }
 
@@ -463,14 +454,12 @@ namespace Morris
 
     class InviteToEventAdapter : BaseAdapter<Friend>
     {
-        public event EventHandler onfriendinvited;
+        public EventHandler onfriendinvited;
         private Context mContext;
         private int mLayout;
         private List<Friend> mFriends;
         public string usernamefromsp;
         public int Eventid;
-        private NameValueCollection parameters2;
-        private WebClient client5;
         TextView txtUsername;
         private CheckBox mCheckBox;
         string message;
@@ -518,32 +507,40 @@ namespace Morris
             txtUsername.Text = mFriends[position].UserName;
             
             mCheckBox = row.FindViewById<CheckBox>(Resource.Id.FriendCheckBox);
-            /*if (mCheckBox.HasOnClickListeners == false)
+            if(mCheckBox.HasOnClickListeners == false)
             {
                 mCheckBox.Click += (object sender, EventArgs e) =>
                 {
-                    parameters2 = new NameValueCollection();
-                    parameters2.Add("username", usernamefromsp);
-                    parameters2.Add("friendusername", mFriends[position].UserName);
-                    parameters2.Add("eventid", Eventid.ToString());
-                    client5 = new WebClient();
-                    client5.UploadValuesCompleted += Client5_UploadValuesCompleted;
-                    client5.UploadValuesAsync(url, "POST", parameters2);
+                    if (mCheckBox.Checked == false)
+                    {
+                        onfriendinvited += (object qwe, EventArgs q) =>
+                        {
+                            WebClient client5 = new WebClient();
+                            NameValueCollection parameters2 = new NameValueCollection();
+                            parameters2 = new NameValueCollection();
+                            parameters2.Add("username", usernamefromsp);
+                            parameters2.Add("friendusername", mFriends[position].UserName);
+                            parameters2.Add("eventid", Eventid.ToString());
+                            client5 = new WebClient();
+                            client5.UploadValuesCompleted += Client5_UploadValuesCompleted;
+                            client5.UploadValuesAsync(url, "POST", parameters2);
+                        };
+                    }
+                    else
+                    {
+                        NameValueCollection parameters2 = new NameValueCollection();
+                    }
                 };
-            }*/
+            }
 
             return row;
         }
 
         private void Client5_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
-                 message = Encoding.UTF8.GetString(e.Result);
-                 Toast.MakeText(mContext, message, ToastLength.Short).Show();
-                 client5.UploadValuesCompleted -= Client5_UploadValuesCompleted;
-                 parameters2.Clear();
-                 onfriendinvited.Invoke(sender,new EventArgs());
+            string json1 = Encoding.UTF8.GetString(e.Result);
+            Toast.MakeText(mContext, json1, ToastLength.Short).Show();
         }
-
     }
 
     class CalendarEventInviteListAdapter : BaseAdapter<CalendarEvent>
