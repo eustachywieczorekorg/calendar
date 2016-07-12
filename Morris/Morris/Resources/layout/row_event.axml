@@ -100,7 +100,8 @@
             android:layout_toRightOf="@+id/datestart"
             android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
-            android:id="@+id/timestart" />
+            android:id="@+id/timestart"
+            android:paddingLeft="15dp" />
     </RelativeLayout>
     <RelativeLayout
         android:orientation="horizontal"
@@ -125,7 +126,8 @@
             android:layout_toRightOf="@+id/dateend"
             android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
-            android:id="@+id/timeend" />
+            android:id="@+id/timeend"
+            android:paddingLeft="15dp" />
         <ImageButton
             android:background="@drawable/settingskoncept1"
             android:layout_width="30dp"

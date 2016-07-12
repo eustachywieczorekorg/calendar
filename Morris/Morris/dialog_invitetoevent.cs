@@ -37,7 +37,7 @@ namespace Morris
             var view = inflater.Inflate(Resource.Layout.Invitetoevent, container, false);
             mListView = view.FindViewById<ListView>(Resource.Id.invitetoeventlistview);
 
-            mButton = view.FindViewById<Button>(Resource.Id.btninvite);
+            mButton = view.FindViewById<Button>(Resource.Id.btnInvite);
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             usernamefromsp = pref.GetString("Username", String.Empty);
 

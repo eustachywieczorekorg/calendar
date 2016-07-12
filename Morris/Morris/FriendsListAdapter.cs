@@ -456,7 +456,7 @@ namespace Morris
         private NameValueCollection parameters2;
         private WebClient client5;
         TextView txtUsername;
-        private ImageButton btnInvite;
+        private CheckBox mCheckBox;
         string message;
         Uri url = new Uri("http://217.208.71.183/calendarusers/InviteToEvent.php");
 
@@ -501,10 +501,10 @@ namespace Morris
             txtUsername = row.FindViewById<TextView>(Resource.Id.friendusername);
             txtUsername.Text = mFriends[position].UserName;
             
-            btnInvite = row.FindViewById<ImageButton>(Resource.Id.btninvite);
-            if (btnInvite.HasOnClickListeners == false)
+            mCheckBox = row.FindViewById<CheckBox>(Resource.Id.FriendCheckBox);
+            /*if (mCheckBox.HasOnClickListeners == false)
             {
-                btnInvite.Click += (object sender, EventArgs e) =>
+                mCheckBox.Click += (object sender, EventArgs e) =>
                 {
                     parameters2 = new NameValueCollection();
                     parameters2.Add("username", usernamefromsp);
@@ -514,7 +514,7 @@ namespace Morris
                     client5.UploadValuesCompleted += Client5_UploadValuesCompleted;
                     client5.UploadValuesAsync(url, "POST", parameters2);
                 };
-            }
+            }*/
 
             return row;
         }

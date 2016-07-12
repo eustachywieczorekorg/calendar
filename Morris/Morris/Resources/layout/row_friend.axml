@@ -13,10 +13,10 @@
         android:text="Username"
         android:layout_width="0px"
         android:layout_height="match_parent"
-        android:textSize="18sp"
         android:background="@drawable/button_selector"
         android:textColor="@color/AppTxtColor"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textSize="20sp" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_height="wrap_content"

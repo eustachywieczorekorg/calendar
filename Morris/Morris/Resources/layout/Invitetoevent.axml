@@ -18,15 +18,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@color/AppBgColor"
         android:gravity="center">
         <Button
-            android:id="@+id/btninvite"
+            android:id="@+id/btnInvite"
             android:layout_alignParentBottom="true"
             android:background="@drawable/button_selector"
             android:text="Invite"
             android:textColor="@color/AppTxtColor"
             android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_width="70dp"
+            android:layout_height="40dp" />
     </LinearLayout>
 </LinearLayout>
