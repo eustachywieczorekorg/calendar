@@ -310,6 +310,7 @@ namespace Morris
             if (response == "Event updated / Event update req sent")
             {
                 eventcreated(this, new EventArgs());
+                ChildFragmentManager.PopBackStack();
             }
         }
 
@@ -325,7 +326,7 @@ namespace Morris
             if (response == "Event created")
             {
                 eventcreated(this, new EventArgs());
-                this.Dispose();
+                ChildFragmentManager.PopBackStack();
             }
         }
     }

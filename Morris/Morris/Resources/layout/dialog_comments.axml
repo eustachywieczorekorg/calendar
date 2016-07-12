@@ -15,17 +15,19 @@
         android:orientation="horizontal"
         android:layout_below="@+id/commentslistview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="200dp"
         android:gravity="bottom"
         android:minWidth="25px"
-        android:minHeight="25px">
-        <EditText
-            android:hint="Write a message"
+        android:minHeight="25px"
+        android:background="@color/AppBgColor">
+        <AutoCompleteTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtcomment"
-            android:layout_weight="20"
-            android:textColorHint="@android:color/darker_gray" />
+            android:textColor="@color/AppTxtColor"
+            android:textColorHint="@android:color/darker_gray"
+            android:hint="Write a message"
+            android:layout_weight="20" />
         <Button
             android:text="Send"
             android:layout_width="40dp"
