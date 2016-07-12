@@ -310,7 +310,11 @@ namespace Morris
             if (response == "Event updated / Event update req sent")
             {
                 eventcreated(this, new EventArgs());
+<<<<<<< HEAD
                 this.Activity.SupportFragmentManager.PopBackStack();
+=======
+                ChildFragmentManager.PopBackStack();
+>>>>>>> 5aaccd09a0dcd348551b57c1fc3ace0de3f72c30
             }
         }
 
@@ -326,7 +330,11 @@ namespace Morris
             if (response == "Event created")
             {
                 eventcreated(this, new EventArgs());
+<<<<<<< HEAD
                 this.Activity.SupportFragmentManager.PopBackStack();
+=======
+                ChildFragmentManager.PopBackStack();
+>>>>>>> 5aaccd09a0dcd348551b57c1fc3ace0de3f72c30
             }
         }
     }

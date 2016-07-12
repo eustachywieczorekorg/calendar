@@ -28,8 +28,6 @@
             <ListView
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:divider="@android:color/transparent"
-                android:dividerHeight="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/EventsListView" />
