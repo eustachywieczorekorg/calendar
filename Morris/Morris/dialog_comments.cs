@@ -19,9 +19,10 @@ namespace Morris
     public class dialog_comments : DialogFragment
     {
         int EventId;
-        List<string> mStrings;
-        ArrayAdapter<string> mAdapter;
+        List<Comment> mComments;
+        CommentsAdapter mAdapter;
         ListView mlistview;
+        ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         
         public dialog_comments(int id)
         {
@@ -34,6 +35,7 @@ namespace Morris
             mlistview = view.FindViewById<ListView>(Resource.Id.commentslistview);
             EditText message = view.FindViewById<EditText>(Resource.Id.txtcomment);
             Button send = view.FindViewById<Button>(Resource.Id.comment);
+            string usernamefromsp = pref.GetString("Username", String.Empty);
 
             send.Click += (object sender, EventArgs e) => 
             {
@@ -42,6 +44,7 @@ namespace Morris
                 NameValueCollection parameters1 = new NameValueCollection();
                 parameters1.Add("eventid", EventId.ToString());
                 parameters1.Add("message", message.Text);
+                parameters1.Add("username", usernamefromsp);
                 client1.UploadValuesCompleted += Client1_UploadValuesCompleted;
                 client1.UploadValuesAsync(url1, "POST", parameters1);
                 message.Text = "";
@@ -71,11 +74,11 @@ namespace Morris
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
             string json1 = Encoding.UTF8.GetString(e.Result);
-            mStrings = new List<string>();
-            mStrings = JsonConvert.DeserializeObject<List<string>>(json1);
-            if(mStrings != null)
+            mComments = new List<Comment>();
+            mComments = JsonConvert.DeserializeObject<List<Comment>>(json1);
+            if(mComments != null)
             {
-                mAdapter = new ArrayAdapter<string>(this.Activity, Android.Resource.Layout.SimpleListItem1, mStrings);
+                mAdapter = new CommentsAdapter(this.Activity, Resource.Layout.row_comment, mComments);
                 mlistview.Adapter = mAdapter;
             }
         }
@@ -87,4 +90,60 @@ namespace Morris
             Dialog.Window.Attributes.WindowAnimations = Resource.Style.dialog_animation;
         }
     }
+
+    class CommentsAdapter : BaseAdapter<Comment>
+    {
+        List<Comment> mComments;
+        Context mContext;
+        int mLayout;
+
+        public CommentsAdapter(Context context, int layout, List<Comment> comments)
+        {
+            mContext = context;
+            mComments = comments;
+            mLayout = layout;
+
+        }
+        public override Comment this[int position]
+        {
+            get
+            {
+                return mComments[position];
+            }
+        }
+
+        public override int Count
+        {
+            get
+            {
+                return mComments.Count;
+            }
+        }
+
+        public override long GetItemId(int position)
+        {
+            return position;
+        }
+
+        public override View GetView(int position, View convertView, ViewGroup parent)
+        {
+            View row = convertView;
+
+            if (row == null)
+            {
+                row = LayoutInflater.From(mContext).Inflate(mLayout, parent, false);
+            }
+
+            TextView mMessage = row.FindViewById<TextView>(Resource.Id.txtMessage);
+            TextView mDate = row.FindViewById<TextView>(Resource.Id.txtDate);
+            TextView mUser = row.FindViewById<TextView>(Resource.Id.txtUser);
+
+            mMessage.Text = mComments[position].Message;
+            mDate.Text = mComments[position].SendDate.TimeOfDay.ToString();
+            mUser.Text = mComments[position].Username;
+
+            return row;
+        }
+    }
+
 }

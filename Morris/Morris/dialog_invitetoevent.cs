@@ -38,6 +38,8 @@ namespace Morris
             mListView = view.FindViewById<ListView>(Resource.Id.invitetoeventlistview);
 
             mButton = view.FindViewById<Button>(Resource.Id.btnInvite);
+            mButton.Click += MButton_Click;
+
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             usernamefromsp = pref.GetString("Username", String.Empty);
 
@@ -51,6 +53,12 @@ namespace Morris
             client.UploadValuesAsync(url, "POST", parameters);
             return view;
       
+        }
+
+        private void MButton_Click(object sender, EventArgs e)
+        {
+            mAdapter.onfriendinvited.Invoke(this, e);
+            this.Dismiss();
         }
 
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
