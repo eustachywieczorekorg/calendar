@@ -9,7 +9,7 @@
   <item android:id="@+id/add"
         android:title="add"
         app:showAsAction="always"
-        android:icon="@drawable/ic_action_new"/>
+        android:icon="@drawable/friendrequest"/>
   
   <item android:id="@+id/action_logout"
         android:icon="@drawable/settingskoncept1"
