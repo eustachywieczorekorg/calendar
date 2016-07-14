@@ -106,6 +106,7 @@
     </LinearLayout>
     <RelativeLayout
         android:orientation="horizontal"
+        android:id="@+id/hejfa"
         android:layout_below="@+id/newlinearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -128,14 +129,37 @@
             android:textSize="20dp"
             android:id="@+id/mendtime"
             android:layout_marginLeft="5dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/hejfa"
+        android:id="@+id/mrl4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_centerHorizontal="true">
+        <ImageButton
+            android:background="@drawable/settingskoncept1"
+            android:layout_width="35dp"
+            android:id="@+id/buttoncomments1"
+            android:layout_marginRight="5dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true" />
+        <ImageButton
+            android:layout_toRightOf="@+id/buttoncomments1"
+            android:background="@drawable/settingskoncept1"
+            android:layout_width="35dp"
+            android:id="@+id/btnMembers1"
+            android:layout_marginLeft="5dp"
+            android:layout_centerInParent="true"
+            android:layout_height="35dp" />
         <TextView
             android:text="W"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:textColor="@color/AppTxtColor"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:id="@+id/theweek1"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 </LinearLayout>
