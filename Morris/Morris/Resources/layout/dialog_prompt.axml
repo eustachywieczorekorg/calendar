@@ -9,22 +9,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textprompt" />
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1">
+        android:id="@+id/linearLayout1"
+        android:gravity="center">
         <Button
             android:text="Yes"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/btnYes"
             android:background="@drawable/button_selector" />
         <Button
             android:text="No"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/btnNo"
-            android:background="@drawable/button_selector" />
-    </LinearLayout>
+            android:background="@drawable/button_selector"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/btnYes" />
+    </RelativeLayout>
 </LinearLayout>

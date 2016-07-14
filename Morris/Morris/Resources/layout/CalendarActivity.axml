@@ -28,6 +28,7 @@
             <ListView
                 android:minWidth="25px"
                 android:minHeight="25px"
+                android:background="@color/ListViewColor"
                 android:divider="@color/AppTxtColor"
                 android:dividerHeight="6px"
                 android:layout_width="match_parent"
