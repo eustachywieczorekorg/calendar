@@ -66,6 +66,7 @@ namespace Morris
             mAdapter = new CalendarEventListAdapter(this, Resource.Layout.row_event, mEvents, FragmentManager, true);
             mListview.Adapter = mAdapter;
         }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.actionbar_event, menu);

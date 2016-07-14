@@ -44,19 +44,19 @@ namespace Morris
             mStartDate = getdate;
             mEndDate = getdate;
         }
-        public CreateEventFragment(int id, string ename, string edescription, DateTime estartdate,DateTime eenddate, string elocation, string timestart, string timeend, int ecategory, string creator)
+        public CreateEventFragment(CalendarEvent ce)
         {
             editing = true;
-            myId = id;
-            EventName = ename;
-            EventDescription = edescription;
-            Location = elocation;
-            mStartDate = estartdate;
-            TimeStart = timestart;
-            mEndDate = eenddate;
-            TimeEnd = timeend;
-            category = ecategory;
-            Creator = creator;
+            myId = ce.Id;
+            EventName = ce.EventName;
+            EventDescription = ce.EventDescription;
+            Location = ce.Location;
+            mStartDate = ce.StartDate;
+            TimeStart = ce.StartTime;
+            mEndDate = ce.EndDate;
+            TimeEnd = ce.EndTime;
+            category = ce.Category;
+            Creator = ce.Creator;
         }
 
         public override void OnCreate(Bundle savedInstanceState)

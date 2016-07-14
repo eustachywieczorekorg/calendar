@@ -16,7 +16,7 @@ using Android.Support.V4.Widget;
 namespace Morris
 {
 
-    public class dialog_eventinvites : DialogFragment
+    public class fragment_eventinvites : Android.Support.V4.App.Fragment
     {
         List<CalendarEvent> mEventlist;
         private ListView mListView;
@@ -28,9 +28,10 @@ namespace Morris
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.dialog_eventinvites, container, false);
+            ((Activity1)this.Activity).SupportActionBar.Hide();
+
             mListView = view.FindViewById<ListView>(Resource.Id.listView1);
             usernamefromsp = pref.GetString("Username", String.Empty);
             WebClient client = new WebClient();
@@ -52,10 +53,13 @@ namespace Morris
             mAdapter.eventad += MAdapter_update;
             mListView.Adapter = mAdapter;
         }
-        public override void OnDismiss(IDialogInterface dialog)
+
+        public override void OnDestroy()
         {
             eventad.Invoke(this, new EventArgs());
-            base.OnDismiss(dialog);
+            ((Activity1)this.Activity).SupportActionBar.Show();
+            base.OnDestroy();
+            
         }
         private void MAdapter_update(object sender, EventArgs e)
         {
@@ -66,12 +70,6 @@ namespace Morris
             client.UploadValuesCompleted += Client_UploadValuesCompleted;
             client.UploadValuesAsync(url, "POST", parameters);
         }
-
-        public override void OnActivityCreated(Bundle savedInstanceState)
-        {
-            Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
-            base.OnActivityCreated(savedInstanceState);
-            Dialog.Window.Attributes.WindowAnimations = Resource.Style.dialog_animation;
-        }
+        
     }
 }
