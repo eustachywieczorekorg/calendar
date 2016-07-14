@@ -74,14 +74,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity1.cs" />
-    <Compile Include="dialog_comments.cs" />
+    <Compile Include="fragment_comments.cs" />
     <Compile Include="FriendEventActivity.cs" />
     <Compile Include="fragment_createevent.cs" />
     <Compile Include="dialog_eventinvites.cs" />
     <Compile Include="dialog_prompt.cs" />
     <Compile Include="EventActivity.cs" />
     <Compile Include="Friend.cs" />
-    <Compile Include="dialog_invitetoevent.cs" />
+    <Compile Include="fragment_invitetoevent.cs" />
     <Compile Include="FriendsListAdapter.cs" />
     <Compile Include="dialog_addfriend.cs" />
     <Compile Include="dialog_friendrequests.cs" />

@@ -17,7 +17,7 @@ using Java.Sql;
 namespace Morris
 {
 
-    public class CreateEventDialog : Android.Support.V4.App.Fragment
+    public class CreateEventFragment : Android.Support.V4.App.Fragment
     {
         public event EventHandler eventcreated;
         EditText eventName;
@@ -38,13 +38,13 @@ namespace Morris
         bool editing;
         Uri url, url2, url3, url4, url5, url6, url7, url8;
 
-        public CreateEventDialog(DateTime getdate)
+        public CreateEventFragment(DateTime getdate)
         {
             editing = false;
             mStartDate = getdate;
             mEndDate = getdate;
         }
-        public CreateEventDialog(int id, string ename, string edescription, DateTime estartdate,DateTime eenddate, string elocation, string timestart, string timeend, int ecategory, string creator)
+        public CreateEventFragment(int id, string ename, string edescription, DateTime estartdate,DateTime eenddate, string elocation, string timestart, string timeend, int ecategory, string creator)
         {
             editing = true;
             myId = id;
@@ -70,7 +70,8 @@ namespace Morris
         {
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.dialog_addevent, container, false);
-            
+            ((Activity1)this.Activity).SupportActionBar.Hide();
+
             mSpinner = view.FindViewById<Spinner>(Resource.Id.spinner);
             if(mSpinner.HasOnClickListeners == false)
             {
@@ -237,7 +238,6 @@ namespace Morris
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url8, "POST", parameters);
                     }
-                    this.Dispose();
                 };
             }
 
@@ -328,6 +328,13 @@ namespace Morris
                 eventcreated(this, new EventArgs());
                 this.Activity.SupportFragmentManager.PopBackStack();
             }
+        }
+
+        public override void OnDestroy()
+        {
+
+            ((Activity1)this.Activity).SupportActionBar.Show();
+            base.OnDestroy();
         }
     }
 }

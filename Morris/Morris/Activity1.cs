@@ -48,12 +48,12 @@ namespace Morris
             _viewPager.Adapter = new LayoutFragmentadapter(SupportFragmentManager, getfragments());
             _viewPager.SetCurrentItem(1, false);
         }
+
         public override void OnBackPressed()
         {
             if (SupportFragmentManager.BackStackEntryCount > 0)
             {
                 SupportFragmentManager.PopBackStack();
-                ca.closed = true;
             }
             else
             {
