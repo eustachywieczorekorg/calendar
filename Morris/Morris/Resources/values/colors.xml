@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <color name="actionbar_background">#ffffff</color>
-  <color name="AppBgColor">#e74c3c</color>
+  <color name="AppBgColor">#E44C4C</color>
   <color name="AppTxtColor">#ffffff</color>
+  <color name="ListViewColor">#e75d5d</color>
 
 </resources>

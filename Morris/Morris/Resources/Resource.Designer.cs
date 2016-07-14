@@ -780,31 +780,34 @@ namespace Morris
 			public const int AppTxtColor = 2131361852;
 			
 			// aapt resource value: 0x7f0a003d
-			public const int abc_background_cache_hint_selector_material_dark = 2131361853;
+			public const int ListViewColor = 2131361853;
 			
 			// aapt resource value: 0x7f0a003e
-			public const int abc_background_cache_hint_selector_material_light = 2131361854;
+			public const int abc_background_cache_hint_selector_material_dark = 2131361854;
 			
 			// aapt resource value: 0x7f0a003f
-			public const int abc_color_highlight_material = 2131361855;
+			public const int abc_background_cache_hint_selector_material_light = 2131361855;
+			
+			// aapt resource value: 0x7f0a0040
+			public const int abc_color_highlight_material = 2131361856;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int abc_input_method_navigation_guard = 2131361792;
 			
-			// aapt resource value: 0x7f0a0040
-			public const int abc_primary_text_disable_only_material_dark = 2131361856;
-			
 			// aapt resource value: 0x7f0a0041
-			public const int abc_primary_text_disable_only_material_light = 2131361857;
+			public const int abc_primary_text_disable_only_material_dark = 2131361857;
 			
 			// aapt resource value: 0x7f0a0042
-			public const int abc_primary_text_material_dark = 2131361858;
+			public const int abc_primary_text_disable_only_material_light = 2131361858;
 			
 			// aapt resource value: 0x7f0a0043
-			public const int abc_primary_text_material_light = 2131361859;
+			public const int abc_primary_text_material_dark = 2131361859;
 			
 			// aapt resource value: 0x7f0a0044
-			public const int abc_search_url_text = 2131361860;
+			public const int abc_primary_text_material_light = 2131361860;
+			
+			// aapt resource value: 0x7f0a0045
+			public const int abc_search_url_text = 2131361861;
 			
 			// aapt resource value: 0x7f0a0001
 			public const int abc_search_url_text_normal = 2131361793;
@@ -815,11 +818,11 @@ namespace Morris
 			// aapt resource value: 0x7f0a0003
 			public const int abc_search_url_text_selected = 2131361795;
 			
-			// aapt resource value: 0x7f0a0045
-			public const int abc_secondary_text_material_dark = 2131361861;
-			
 			// aapt resource value: 0x7f0a0046
-			public const int abc_secondary_text_material_light = 2131361862;
+			public const int abc_secondary_text_material_dark = 2131361862;
+			
+			// aapt resource value: 0x7f0a0047
+			public const int abc_secondary_text_material_light = 2131361863;
 			
 			// aapt resource value: 0x7f0a0004
 			public const int accent_material_dark = 2131361796;
@@ -980,11 +983,11 @@ namespace Morris
 			// aapt resource value: 0x7f0a0037
 			public const int switch_thumb_disabled_material_light = 2131361847;
 			
-			// aapt resource value: 0x7f0a0047
-			public const int switch_thumb_material_dark = 2131361863;
-			
 			// aapt resource value: 0x7f0a0048
-			public const int switch_thumb_material_light = 2131361864;
+			public const int switch_thumb_material_dark = 2131361864;
+			
+			// aapt resource value: 0x7f0a0049
+			public const int switch_thumb_material_light = 2131361865;
 			
 			// aapt resource value: 0x7f0a0038
 			public const int switch_thumb_normal_material_dark = 2131361848;
@@ -1490,61 +1493,94 @@ namespace Morris
 			public const int checkbox_style = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int cross = 2130837586;
+			public const int chill = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int crossMini = 2130837587;
+			public const int cogwheel = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int crossMinida = 2130837588;
+			public const int cross = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int edit_text_style = 2130837589;
+			public const int crossMini = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int edit_text_style1 = 2130837590;
+			public const int crossMinida = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int edit_text_style2 = 2130837591;
+			public const int edit_text_style = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int event_border = 2130837592;
+			public const int edit_text_style1 = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int ic_action_new = 2130837593;
+			public const int edit_text_style2 = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int ic_action_overflow = 2130837594;
+			public const int education = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int knappkoncept3 = 2130837595;
+			public const int entertainment = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int morris = 2130837596;
+			public const int event_border = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int morris_head = 2130837597;
+			public const int food = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int morris_icon4 = 2130837598;
+			public const int friendrequest = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int morris_moving = 2130837599;
-			
-			// aapt resource value: 0x7f020064
-			public const int notification_template_icon_bg = 2130837604;
+			public const int ic_action_new = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int plus = 2130837600;
+			public const int ic_action_overflow = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int ProgressBarStyle = 2130837601;
+			public const int knappkoncept3 = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int settingskoncept1 = 2130837602;
+			public const int morris = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int tick = 2130837603;
+			public const int morris_head = 2130837603;
+			
+			// aapt resource value: 0x7f020064
+			public const int morris_icon4 = 2130837604;
+			
+			// aapt resource value: 0x7f020065
+			public const int morris_moving = 2130837605;
+			
+			// aapt resource value: 0x7f02006f
+			public const int notification_template_icon_bg = 2130837615;
+			
+			// aapt resource value: 0x7f020066
+			public const int plus = 2130837606;
+			
+			// aapt resource value: 0x7f020067
+			public const int ProgressBarStyle = 2130837607;
+			
+			// aapt resource value: 0x7f020068
+			public const int settingskoncept1 = 2130837608;
+			
+			// aapt resource value: 0x7f020069
+			public const int sports = 2130837609;
+			
+			// aapt resource value: 0x7f02006a
+			public const int standard = 2130837610;
+			
+			// aapt resource value: 0x7f02006b
+			public const int tick = 2130837611;
+			
+			// aapt resource value: 0x7f02006c
+			public const int time = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int travel = 2130837613;
+			
+			// aapt resource value: 0x7f02006e
+			public const int work = 2130837614;
 			
 			static Drawable()
 			{

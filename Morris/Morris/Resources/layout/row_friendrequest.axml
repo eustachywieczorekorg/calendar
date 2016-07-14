@@ -19,8 +19,8 @@
             android:layout_height="50.0dp"
             android:textColor="@color/AppTxtColor"
             android:textSize="20sp"
-            android:gravity="fill"
-            android:layout_marginStart="10dp" />
+            android:layout_marginStart="10dp"
+            android:gravity="fill" />
         <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
