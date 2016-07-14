@@ -21,11 +21,6 @@
             headerTextColor="#ffffff"
             android:foregroundTint="#ffffffff"
             android:theme="@style/DatePickerTheme" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/AppTxtColor"
-            android:id="@+id/view_calendar" />
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeContainer"
             android:layout_width="match_parent"

@@ -281,6 +281,8 @@ namespace Morris
         public LinearLayout mLinearLayout;
         public event EventHandler eventremoved;
         bool onlyviewing;
+        public event EventHandler<int> btncommentspressed;
+        public event EventHandler<int> btninvitefriendspressed;
 
         public CalendarEventListAdapter(Context context, int layout, List<CalendarEvent> events, FragmentManager fragmentmanager)
         {
@@ -349,7 +351,6 @@ namespace Morris
             TextView TimeEnd = row.FindViewById<TextView>(Resource.Id.timeend);
             TimeEnd.Text =  mEvents[position].EndTime;
 
-            ImageButton BtnChangeReq = row.FindViewById<ImageButton>(Resource.Id.buttonChangeReqs);
 
             mLinearLayout = row.FindViewById<LinearLayout>(Resource.Id.linearlayout123);
             
@@ -372,6 +373,9 @@ namespace Morris
 
             ImageButton btnInviteFriend = row.FindViewById<ImageButton>(Resource.Id.buttonInviteFriend);
             btnInviteFriend.SetBackgroundColor(bgcolor);
+            
+            ImageButton BtnChangeReq = row.FindViewById<ImageButton>(Resource.Id.buttonChangeReqs);
+            BtnChangeReq.SetBackgroundColor(bgcolor);
 
             ImageButton btncomments = row.FindViewById<ImageButton>(Resource.Id.buttoncomments);
 
@@ -381,9 +385,7 @@ namespace Morris
                 {
                     btncomments.Click += (object sender, EventArgs e) =>
                     {
-                        FragmentTransaction transaction = mFragmentManager.BeginTransaction();
-                        dialog_comments dialogprompt = new dialog_comments(mEvents[position].Id);
-                        dialogprompt.Show(transaction, "dialogprompt");
+                        btncommentspressed.Invoke(this, mEvents[position].Id);
                     };
                 }
                 if (btndelete.HasOnClickListeners == false)
@@ -401,7 +403,7 @@ namespace Morris
                     EventName.Click += (object sender, EventArgs e) =>
                     {
                         FragmentTransaction transaction = mFragmentManager.BeginTransaction();
-                        CreateEventDialog changeeventdialog = new CreateEventDialog(mEvents[position].Id, mEvents[position].EventName, mEvents[position].EventDescription, mEvents[position].StartDate, mEvents[position].EndDate, mEvents[position].Location, mEvents[position].StartTime, mEvents[position].EndTime, mEvents[position].Category, mEvents[position].Creator);
+                        CreateEventFragment changeeventdialog = new CreateEventFragment(mEvents[position].Id, mEvents[position].EventName, mEvents[position].EventDescription, mEvents[position].StartDate, mEvents[position].EndDate, mEvents[position].Location, mEvents[position].StartTime, mEvents[position].EndTime, mEvents[position].Category, mEvents[position].Creator);
                         //transaction.Replace(Resource.Layout.CalendarActivity, changeeventdialog);
                     };
                 }
@@ -413,9 +415,7 @@ namespace Morris
                     {
                         btnInviteFriend.Click += (object sender, EventArgs e) =>
                         {
-                            FragmentTransaction transaction = mFragmentManager.BeginTransaction();
-                            Invitetoeventdialog invitetoeventdialog = new Invitetoeventdialog(mEvents[position].Id);
-                            invitetoeventdialog.Show(transaction, "dialog fragment");
+                            btninvitefriendspressed.Invoke(this, mEvents[position].Id);
                         };
                     };
 

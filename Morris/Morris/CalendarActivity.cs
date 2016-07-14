@@ -20,8 +20,6 @@ namespace Morris
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         public DatePicker mDatePicker;
         public event EventHandler updateevent;
-        public event EventHandler<DateTime> opencreateevents;
-        public bool closed;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -41,7 +39,6 @@ namespace Morris
             WebClient client = new WebClient();
             client.UploadValuesCompleted += Client1_UploadValuesCompleted;
             client.UploadValuesAsync(url, "POST", parameters);
-            closed = true;
 
             return view;
         }
@@ -77,10 +74,25 @@ namespace Morris
             CalendarEventListAdapter mAdapter;
             mAdapter = new CalendarEventListAdapter(this.Activity, Resource.Layout.row_event, mEvents, this.Activity.FragmentManager);
             mAdapter.eventremoved += UpdateCalendar;
+            mAdapter.btncommentspressed += MAdapter_btncommentspressed1;
+            mAdapter.btninvitefriendspressed += MAdapter_btninvitefriendspressed1;
             mListView.Adapter = mAdapter;
         }
 
-        
+        private void MAdapter_btninvitefriendspressed1(object sender, int e)
+        {
+            Invitetoeventdialog invitefrag = new Invitetoeventdialog(e);
+            Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Replace(Resource.Id.calendarframelayout, invitefrag, "invitefrag").AddToBackStack(null);
+            trans.Commit();
+        }
+
+        private void MAdapter_btncommentspressed1(object sender, int e)
+        {
+            fragment_comments commentsfragment = new fragment_comments(e);
+            Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout, commentsfragment, "commentsfrag").AddToBackStack(null);
+            trans.Commit();
+        }
+
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
             menu.Clear();
@@ -101,21 +113,12 @@ namespace Morris
                     this.Dispose();
                     return true;
                 case Resource.Id.addevent:
-                    if (closed)
-                    {
                         DateTime mDate2 = mDatePicker.DateTime;
-                        CreateEventDialog ced = new CreateEventDialog(mDate2);
+                        CreateEventFragment ced = new CreateEventFragment(mDate2);
                         ced.eventcreated += UpdateCalendar;
                         Android.Support.V4.App.FragmentTransaction trans;
                         trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout, ced, "swag").AddToBackStack(null);
                         trans.Commit();
-                        closed = !closed;
-                    }
-                    else
-                    {
-                        this.Activity.SupportFragmentManager.PopBackStack();
-                        closed = !closed;
-                    }
                     return true;
                 case Resource.Id.eventinvites:
                     dialog_eventinvites eventinvitedialog = new dialog_eventinvites();

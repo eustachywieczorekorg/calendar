@@ -68,7 +68,22 @@ namespace Morris
             mEvents = JsonConvert.DeserializeObject<List<CalendarEvent>>(json1);
             mAdapter = new CalendarEventListAdapter(this.Activity, Resource.Layout.row_event, mEvents, this.Activity.FragmentManager);
             mAdapter.eventremoved += MAdapter_eventremoved;
+            mAdapter.btncommentspressed += MAdapter_btncommentspressed;
+            mAdapter.btninvitefriendspressed += MAdapter_btninvitefriendspressed;
             mListview.Adapter = mAdapter;
+        }
+        
+        private void MAdapter_btninvitefriendspressed(object sender, int e)
+        {
+            Invitetoeventdialog invitefrag = new Invitetoeventdialog(e);
+            Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.eventactivityframelayout, invitefrag, "invitefrag").AddToBackStack(null);
+            trans.Commit();
+        }
+        private void MAdapter_btncommentspressed(object sender, int e)
+        {
+            fragment_comments commentsfragment = new fragment_comments(e);
+            Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.eventactivityframelayout, commentsfragment, "commentsfrag").AddToBackStack(null);
+            trans.Commit();
         }
 
         public void UpdateEventList(object sender, EventArgs e)
