@@ -76,7 +76,15 @@ namespace Morris
             mAdapter.eventremoved += UpdateCalendar;
             mAdapter.btncommentspressed += MAdapter_btncommentspressed1;
             mAdapter.btninvitefriendspressed += MAdapter_btninvitefriendspressed1;
+            mAdapter.eventnamepressed += MAdapter_eventnamepressed;
             mListView.Adapter = mAdapter;
+        }
+
+        private void MAdapter_eventnamepressed(object sender, CalendarEvent e)
+        {
+            CreateEventFragment createeventfrag = new CreateEventFragment(e);
+            Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Replace(Resource.Id.calendarframelayout, createeventfrag, "createeventfrag").AddToBackStack(null);
+            trans.Commit();
         }
 
         private void MAdapter_btninvitefriendspressed1(object sender, int e)
@@ -121,10 +129,10 @@ namespace Morris
                         trans.Commit();
                     return true;
                 case Resource.Id.eventinvites:
-                    dialog_eventinvites eventinvitedialog = new dialog_eventinvites();
-                    FragmentTransaction transaction1 = this.Activity.FragmentManager.BeginTransaction();
-                    eventinvitedialog.Show(transaction1, "dialog fragment");
-                    eventinvitedialog.eventad += UpdateCalendar;
+                    fragment_eventinvites eventinvitefrag = new fragment_eventinvites();
+                    Android.Support.V4.App.FragmentTransaction transaction1 = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout,eventinvitefrag,"eventinvitefrag").AddToBackStack(null);
+                    eventinvitefrag.eventad += UpdateCalendar;
+                    transaction1.Commit();
                     return true;
                 default:
                 return base.OnOptionsItemSelected(item);

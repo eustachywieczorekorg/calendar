@@ -70,9 +70,17 @@ namespace Morris
             mAdapter.eventremoved += MAdapter_eventremoved;
             mAdapter.btncommentspressed += MAdapter_btncommentspressed;
             mAdapter.btninvitefriendspressed += MAdapter_btninvitefriendspressed;
+            mAdapter.eventnamepressed += MAdapter_eventnamepressed;
             mListview.Adapter = mAdapter;
         }
-        
+
+        private void MAdapter_eventnamepressed(object sender, CalendarEvent e)
+        {
+            CreateEventFragment createeventfrag = new CreateEventFragment(e);
+            Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Replace(Resource.Id.eventactivityframelayout, createeventfrag, "createeventfrag").AddToBackStack(null);
+            trans.Commit();
+        }
+
         private void MAdapter_btninvitefriendspressed(object sender, int e)
         {
             Invitetoeventdialog invitefrag = new Invitetoeventdialog(e);

@@ -77,7 +77,7 @@
     <Compile Include="fragment_comments.cs" />
     <Compile Include="FriendEventActivity.cs" />
     <Compile Include="fragment_createevent.cs" />
-    <Compile Include="dialog_eventinvites.cs" />
+    <Compile Include="fragment_eventinvites.cs" />
     <Compile Include="dialog_prompt.cs" />
     <Compile Include="EventActivity.cs" />
     <Compile Include="Friend.cs" />
