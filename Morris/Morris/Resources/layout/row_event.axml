@@ -160,19 +160,19 @@
         android:layout_centerHorizontal="true">
         <ImageButton
             android:background="@drawable/settingskoncept1"
-            android:layout_width="30dp"
+            android:layout_width="35dp"
             android:id="@+id/buttoncomments"
             android:layout_marginRight="5dp"
             android:layout_centerInParent="true"
-            android:layout_height="30dp" />
+            android:layout_height="35dp" />
         <ImageButton
             android:layout_toRightOf="@+id/buttoncomments"
             android:background="@drawable/settingskoncept1"
-            android:layout_width="30dp"
+            android:layout_width="35dp"
             android:id="@+id/btnMembers"
             android:layout_marginLeft="5dp"
             android:layout_centerInParent="true"
-            android:layout_height="30dp" />
+            android:layout_height="35dp" />
         <TextView
             android:text="W"
             android:textColor="@color/AppTxtColor"
