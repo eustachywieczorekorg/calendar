@@ -358,12 +358,8 @@ namespace Morris
             
             TextView Week = row.FindViewById<TextView>(Resource.Id.theweek);
             Week.Text ="W." + mEvents[position].Week.ToString();
-
-            List<Color> mColors = new List<Color>();
-            mColors.Add(new Color(237, 74, 54));
-            mColors.Add(new Color(26, 198, 181));
-
-            Color bgcolor = new Color(mColors[position%2]);
+           
+            Color bgcolor = new Color(228, 76, 76);
             mLinearLayout.SetBackgroundColor(bgcolor);
 
             ImageButton btnInviteFriend = row.FindViewById<ImageButton>(Resource.Id.buttonInviteFriend);
@@ -416,7 +412,7 @@ namespace Morris
                         };
                     };
 
-                    BtnChangeReq.SetBackgroundResource(Resource.Drawable.settingskoncept1);
+                    BtnChangeReq.SetBackgroundResource(Resource.Drawable.edit);
                     BtnChangeReq.Clickable = true;
                     if (BtnChangeReq.HasOnClickListeners == false)
                     {
@@ -424,6 +420,11 @@ namespace Morris
                         {
                             //TODO
                         };
+                    }
+
+                    else
+                    {
+                        BtnChangeReq.SetBackgroundResource(Resource.Drawable.standard);
                     }
                 }
             }

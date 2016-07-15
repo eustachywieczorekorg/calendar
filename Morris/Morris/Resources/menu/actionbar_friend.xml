@@ -4,7 +4,7 @@
   <item android:id="@+id/friendrequests"
         android:title="friendrequests"
         app:showAsAction="always"
-        android:icon="@drawable/knappkoncept3"/>
+        android:icon="@drawable/invited"/>
   
   <item android:id="@+id/add"
         android:title="add"

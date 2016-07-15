@@ -36,7 +36,6 @@ namespace Morris
             string usernamefromsp = pref.GetString("Username", String.Empty);
 
             updateall += update;
-
             Android.Support.V7.Widget.Toolbar mToolbar;
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(mToolbar);

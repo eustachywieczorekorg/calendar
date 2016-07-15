@@ -19,54 +19,44 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textColor="@color/AppTxtColor"
             android:id="@+id/roweventname" />
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/categoryicon"
-            android:layout_toRightOf="@+id/roweventname"
-            android:background="@drawable/crossminida" />
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:id="@+id/button1"
             android:layout_alignParentRight="true"
             android:adjustViewBounds="true"
             android:background="@drawable/crossminida" />
     </RelativeLayout>
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/mrl2"
         android:layout_below="@+id/mrl"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"
-        android:minHeight="25px">
+        android:minHeight="25px"
+        android:weightSum="100">
         <TextView
             android:text="Eventdescription"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/roweventdescription"
             android:textColor="@color/AppTxtColor"
+            android:layout_weight="85"
             android:textSize="20dp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
+            android:layout_weight="15"
             android:id="@+id/buttonInviteFriend"
-            android:background="@drawable/button_selector" />
-        <ImageButton
-            android:layout_width="50dp"
+            android:background="@drawable/button_selector"
             android:layout_height="50dp"
-            android:layout_toLeftOf="@+id/buttonInviteFriend"
-            android:layout_marginRight="5dp"
-            android:id="@+id/buttonChangeReqs"
-            android:background="@drawable/button_selector" />
-    </RelativeLayout>
+            android:layout_width="0dp"
+            android:layout_marginRight="5dp" />
+    </LinearLayout>
     <TextView
         android:text="Location"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -76,7 +66,7 @@
         android:textColor="@color/AppTxtColor"
         android:textSize="20dp"
         android:id="@+id/textLocation" />
-    <RelativeLayout
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_below="@+id/textLocation"
         android:id="@+id/mrl3"
@@ -84,9 +74,13 @@
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px">
+        <ImageView
+            android:src="@drawable/date"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imgDate" />
         <TextView
             android:text="Date"
-            android:layout_toRightOf="@+id/imgDate"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,8 +89,9 @@
             android:id="@+id/datestart" />
         <ImageView
             android:src="@drawable/time"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/imgTime"
             android:layout_toRightOf="@+id/datestart" />
         <TextView
@@ -104,17 +99,11 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imgTime"
             android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
             android:id="@+id/timestart" />
-        <ImageView
-            android:src="@android:drawable/ic_menu_gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imgDate" />
-    </RelativeLayout>
-    <RelativeLayout
+    </LinearLayout>
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_below="@+id/mrl3"
         android:id="@+id/mrl4"
@@ -122,9 +111,13 @@
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px">
+        <ImageView
+            android:src="@drawable/date"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imgDate2" />
         <TextView
             android:text="Date"
-            android:layout_toRightOf="@+id/imgDate2"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,54 +126,73 @@
             android:id="@+id/dateend" />
         <ImageView
             android:src="@drawable/time"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imgTime2"
-            android:layout_toRightOf="@+id/dateend" />
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/imgTime2" />
         <TextView
             android:text="Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imgTime2"
             android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
             android:id="@+id/timeend" />
-        <ImageView
-            android:src="@android:drawable/ic_menu_gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imgDate2" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_below="@+id/mr13"
-        android:id="@+id/mrl4"
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@+id/mr14"
+        android:id="@+id/mrl5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="25px"
+        android:weightSum="100"
         android:minHeight="25px"
-        android:layout_centerHorizontal="true">
-        <ImageButton
-            android:background="@drawable/settingskoncept1"
-            android:layout_width="35dp"
-            android:id="@+id/buttoncomments"
-            android:layout_marginRight="5dp"
-            android:layout_centerInParent="true"
-            android:layout_height="35dp" />
-        <ImageButton
-            android:layout_toRightOf="@+id/buttoncomments"
-            android:background="@drawable/settingskoncept1"
-            android:layout_width="35dp"
-            android:id="@+id/btnMembers"
-            android:layout_marginLeft="5dp"
-            android:layout_centerInParent="true"
-            android:layout_height="35dp" />
-        <TextView
-            android:text="W"
-            android:textColor="@color/AppTxtColor"
-            android:textSize="20dp"
-            android:id="@+id/theweek"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
+        android:minWidth="25px"
+        android:layout_marginBottom="5dp">
+        <LinearLayout
+            android:layout_weight="25"
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:gravity="center">
+            <TextView
+                android:text="Week"
+                android:textColor="@color/AppTxtColor"
+                android:textSize="20dp"
+                android:id="@+id/theweek"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:gravity="bottom" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:layout_weight="25"
+            android:gravity="center">
+            <ImageButton
+                android:background="@drawable/comments"
+                android:layout_width="35dp"
+                android:id="@+id/buttoncomments"
+                android:layout_height="35dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:layout_weight="25"
+            android:gravity="center">
+            <ImageButton
+                android:background="@drawable/invited"
+                android:layout_width="35dp"
+                android:id="@+id/btnMembers"
+                android:layout_height="35dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="25"
+            android:layout_width="0px">
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/buttonChangeReqs"
+                android:background="@drawable/button_selector" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

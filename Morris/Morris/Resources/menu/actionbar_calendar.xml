@@ -4,7 +4,7 @@
   <item android:id="@+id/eventinvites"
         android:title="eventrequests"
         app:showAsAction="always"
-        android:icon="@drawable/settingskoncept1"/>
+        android:icon="@drawable/eventrequest"/>
 
   <item android:id="@+id/addevent"
         android:title="add"
@@ -12,7 +12,6 @@
         android:icon="@drawable/ic_action_new"/>
 
   <item android:id="@+id/action_logout"
-        android:icon="@drawable/settingskoncept1"
         android:title="Logout"
         android:showAsAction="never"/>
 </menu>

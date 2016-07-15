@@ -12,7 +12,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/eventName"
         android:textColor="@color/AppTxtColor"
-        android:textColorHint="#E5E5E5" />
+        android:textColorHint="@color/AppTintColor"
+        android:backgroundTint="#ffffff"
+        android:layout_marginTop="20dp"
+        android:theme="@style/EditTextTheme" />
     <EditText
         android:hint="Event Description"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -22,7 +25,8 @@
         android:id="@+id/eventDescription"
         android:layout_marginTop="5dp"
         android:textColor="@color/AppTxtColor"
-        android:textColorHint="#E5E5E5" />
+        android:textColorHint="@color/AppTintColor"
+        android:theme="@style/EditTextTheme" />
     <EditText
         android:hint="Location"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -32,7 +36,8 @@
         android:layout_marginTop="5dp"
         android:id="@+id/theLocation"
         android:textColor="@color/AppTxtColor"
-        android:textColorHint="#E5E5E5" />
+        android:textColorHint="@color/AppTintColor"
+        android:theme="@style/EditTextTheme" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -136,7 +141,7 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/ListViewColor"
+        android:background="@color/AppBgColor"
         android:divider="@color/AppTxtColor"
         android:dividerHeight="6px"
         android:id="@+id/listviewcreateevent" />

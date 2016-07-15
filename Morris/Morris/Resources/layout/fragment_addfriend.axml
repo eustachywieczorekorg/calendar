@@ -9,15 +9,15 @@
         android:id="@+id/txtUserName"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="#ecf0f1"
+        android:background="@color/AppTbColor"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="25dp"
         android:hint="Username"
         android:paddingLeft="10dp"
-        android:textColor="#2c3e50"
-        android:textColorHint="#2c3e50" />
+        android:textColor="#000000"
+        android:textColorHint="@color/AppTintColor" />
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,14 +39,5 @@
             android:background="@drawable/button_selector"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp" />
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btnCreateContact"
-            android:id="@+id/progressBar"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ProgressBarStyle"
-            android:visibility="invisible" />
     </RelativeLayout>
 </RelativeLayout>

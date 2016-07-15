@@ -30,10 +30,10 @@ namespace Morris
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_eventinvites, container, false);
             HasOptionsMenu = true;
+            usernamefromsp = pref.GetString("Username", String.Empty);
             ((activity_main)this.Activity).SupportActionBar.Title = "Eventinvites" + " (" + usernamefromsp + ")";
 
             mListView = view.FindViewById<ListView>(Resource.Id.listView1);
-            usernamefromsp = pref.GetString("Username", String.Empty);
             WebClient client = new WebClient();
             NameValueCollection parameters = new NameValueCollection();
             parameters.Add("username", usernamefromsp);
@@ -80,9 +80,6 @@ namespace Morris
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-
-            Android.App.FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
-
             switch (item.ItemId)
             {
                 case Resource.Id.action_logout:

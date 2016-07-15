@@ -4,5 +4,7 @@
   <color name="AppBgColor">#E44C4C</color>
   <color name="AppTxtColor">#ffffff</color>
   <color name="ListViewColor">#e75d5d</color>
-
+  <color name="AppTintColor">#141414AA</color>
+  <color name="AppTbColor">#ffffff</color>
+  
 </resources>

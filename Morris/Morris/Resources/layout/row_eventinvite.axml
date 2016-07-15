@@ -19,12 +19,6 @@
             android:layout_height="60dp"
             android:id="@+id/imageView2"
             android:layout_centerInParent="true" />
-        <ImageView
-            android:src="@drawable/settingskoncept1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:id="@+id/imageView3"
-            android:layout_alignParentRight="true" />
     </RelativeLayout>
     <TextView
         android:text="Eventname"
@@ -33,8 +27,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/AppTxtColor"
         android:textSize="25dp"
-        android:id="@+id/roweventinvitename"
-        android:layout_marginLeft="3.0dp" />
+        android:id="@+id/roweventinvitename" />
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_below="@+id/roweventinvitename"
@@ -47,7 +40,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/roweventinvitedescription"
             android:textColor="@color/AppTxtColor"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageButton
@@ -87,24 +80,34 @@
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px">
+        <ImageView
+            android:src="@drawable/date"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imgDate" />
         <TextView
-            android:text="Start Date"
+            android:text="Date"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
             android:id="@+id/mstartdate" />
+        <ImageView
+            android:src="@drawable/time"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/imgTime" />
         <TextView
-            android:text="Start Time"
+            android:text="Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
-            android:id="@+id/mstarttime"
-            android:layout_marginLeft="5dp" />
+            android:id="@+id/mstarttime" />
     </LinearLayout>
-    <RelativeLayout
+    <LinearLayout
         android:orientation="horizontal"
         android:id="@+id/hejfa"
         android:layout_below="@+id/newlinearlayout"
@@ -112,54 +115,87 @@
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px">
+        <ImageView
+            android:src="@drawable/date"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imgDate2" />
         <TextView
-            android:text="End Date"
+            android:text="Date"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
             android:id="@+id/menddate" />
+        <ImageView
+            android:src="@drawable/time"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/imgTime2" />
         <TextView
-            android:text="End Time"
-            android:layout_toRightOf="@+id/menddate"
+            android:text="Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/AppTxtColor"
             android:textSize="20dp"
-            android:id="@+id/mendtime"
-            android:layout_marginLeft="5dp" />
-    </RelativeLayout>
-    <RelativeLayout
+            android:id="@+id/mendtime" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_below="@+id/hejfa"
         android:id="@+id/mrl4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:layout_centerHorizontal="true">
-        <ImageButton
-            android:background="@drawable/settingskoncept1"
-            android:layout_width="35dp"
-            android:id="@+id/buttoncomments1"
-            android:layout_marginRight="5dp"
-            android:layout_height="35dp"
-            android:layout_centerInParent="true" />
-        <ImageButton
-            android:layout_toRightOf="@+id/buttoncomments1"
-            android:background="@drawable/settingskoncept1"
-            android:layout_width="35dp"
-            android:id="@+id/btnMembers1"
-            android:layout_marginLeft="5dp"
-            android:layout_centerInParent="true"
-            android:layout_height="35dp" />
-        <TextView
-            android:text="W"
-            android:textColor="@color/AppTxtColor"
-            android:textSize="20dp"
-            android:id="@+id/theweek1"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
+        android:weightSum="100"
+        android:layout_marginBottom="5dp">
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:layout_weight="25">
+            <TextView
+                android:text="Week"
+                android:textColor="@color/AppTxtColor"
+                android:textSize="20dp"
+                android:id="@+id/theweek1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="bottom" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:layout_weight="25"
+            android:gravity="center">
+            <ImageButton
+                android:background="@drawable/comments"
+                android:layout_width="35dp"
+                android:id="@+id/buttoncomments1"
+                android:layout_height="35dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:layout_weight="25"
+            android:gravity="center">
+            <ImageButton
+                android:background="@drawable/invited"
+                android:layout_width="35dp"
+                android:id="@+id/btnMembers1"
+                android:layout_height="35dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="0px"
+            android:layout_weight="25"
+            android:gravity="center">
+            <ImageView
+                android:src="@drawable/standard"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:id="@+id/imageView3" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

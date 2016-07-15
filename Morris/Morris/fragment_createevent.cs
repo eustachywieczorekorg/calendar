@@ -13,7 +13,7 @@ using System.Net;
 using System.Collections.Specialized;
 using Newtonsoft.Json;
 using Java.Sql;
-
+using Android.Graphics;
 
 namespace Morris
 {
@@ -40,6 +40,7 @@ namespace Morris
         string Creator;
         bool editing;
         Uri url, url2, url3, url4, url5, url6, url7, url8;
+        string usernamefromsp;
 
         public fragment_createevent(DateTime getdate)
         {
@@ -73,10 +74,8 @@ namespace Morris
         {
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_createevent, container, false);
-            ((activity_main)this.Activity).SupportActionBar.Hide();
-            
-              
-
+            HasOptionsMenu = true;
+            usernamefromsp = pref.GetString("Username", String.Empty);
             startdate = view.FindViewById<TextView>(Resource.Id.startdate);
             enddate = view.FindViewById<TextView>(Resource.Id.enddate);
             location = view.FindViewById<EditText>(Resource.Id.theLocation);
@@ -108,6 +107,7 @@ namespace Morris
                 location.Text = Location;
                 Java.Lang.Integer shour, smin, ehour, emin;
                 int starthour, startminute, endhour, endminute;
+                ((activity_main)this.Activity).SupportActionBar.Title = "Update event" + " (" + EventName + ")";
 
                 int.TryParse(TimeStart.Substring(0, 2), out starthour);
                 int.TryParse(TimeStart.Substring(3, 2), out startminute);
@@ -139,7 +139,6 @@ namespace Morris
 
                 createeventbtn.Click += (object sender, EventArgs e) =>
                 {
-                    string usernamefromsp = pref.GetString("Username", String.Empty);
                     if (Creator == usernamefromsp)
                     {
                         url = new Uri("http://217.208.71.183/calendarusers/UpdateEventName.php");
@@ -238,6 +237,8 @@ namespace Morris
 
                 starttp.SetIs24HourView(Java.Lang.Boolean.True);
                 endtp.SetIs24HourView(Java.Lang.Boolean.True);
+                usernamefromsp = pref.GetString("Username", String.Empty);
+                ((activity_main)this.Activity).SupportActionBar.Title = "Create event" + " (" + usernamefromsp + ")";
 
                 startdate.Text = mStartDate.Year + "-" + mStartDate.Date.Month + "-" + mStartDate.Date.Day.ToString();
                 enddate.Text = mEndDate.Year + "-" + mEndDate.Date.Month + "-" + mEndDate.Date.Day.ToString();
@@ -247,7 +248,6 @@ namespace Morris
                     WebClient client = new WebClient();
                     Uri url = new Uri("http://217.208.71.183/calendarusers/CreateEvent.php");
                     NameValueCollection parameters = new NameValueCollection();
-                    string usernamefromsp = pref.GetString("Username", String.Empty);
 
                     Time starttime = new Time((int)starttp.CurrentHour, (int)starttp.CurrentMinute, 0);
                     Time endtime = new Time((int)endtp.CurrentHour, (int)endtp.CurrentMinute, 0);
@@ -319,8 +319,34 @@ namespace Morris
         public override void OnDestroy()
         {
             ((activity_main)this.Activity).updateall.Invoke(this, new EventArgs());
-            ((activity_main)this.Activity).SupportActionBar.Show();
+            ((activity_main)this.Activity).SupportActionBar.Title = "Morris" + " (" + usernamefromsp + ")";
             base.OnDestroy();
+        }
+
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            menu.Clear();
+            inflater.Inflate(Resource.Menu.actionbar_event, menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_logout:
+                    ISharedPreferencesEditor edit = pref.Edit();
+                    edit.Clear();
+                    edit.Apply();
+                    Intent intent = new Intent(this.Activity, typeof(activity_loginregister));
+                    this.StartActivity(intent);
+                    this.Dispose();
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+
         }
     }
 }

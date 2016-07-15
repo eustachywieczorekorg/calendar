@@ -760,38 +760,44 @@ namespace Morris
 			// aapt resource value: 0x7f0b003b
 			public const int AppBgColor = 2131427387;
 			
+			// aapt resource value: 0x7f0b003f
+			public const int AppTbColor = 2131427391;
+			
+			// aapt resource value: 0x7f0b003e
+			public const int AppTintColor = 2131427390;
+			
 			// aapt resource value: 0x7f0b003c
 			public const int AppTxtColor = 2131427388;
 			
 			// aapt resource value: 0x7f0b003d
 			public const int ListViewColor = 2131427389;
 			
-			// aapt resource value: 0x7f0b003e
-			public const int abc_background_cache_hint_selector_material_dark = 2131427390;
-			
-			// aapt resource value: 0x7f0b003f
-			public const int abc_background_cache_hint_selector_material_light = 2131427391;
-			
 			// aapt resource value: 0x7f0b0040
-			public const int abc_color_highlight_material = 2131427392;
+			public const int abc_background_cache_hint_selector_material_dark = 2131427392;
+			
+			// aapt resource value: 0x7f0b0041
+			public const int abc_background_cache_hint_selector_material_light = 2131427393;
+			
+			// aapt resource value: 0x7f0b0042
+			public const int abc_color_highlight_material = 2131427394;
 			
 			// aapt resource value: 0x7f0b0000
 			public const int abc_input_method_navigation_guard = 2131427328;
 			
-			// aapt resource value: 0x7f0b0041
-			public const int abc_primary_text_disable_only_material_dark = 2131427393;
-			
-			// aapt resource value: 0x7f0b0042
-			public const int abc_primary_text_disable_only_material_light = 2131427394;
-			
 			// aapt resource value: 0x7f0b0043
-			public const int abc_primary_text_material_dark = 2131427395;
+			public const int abc_primary_text_disable_only_material_dark = 2131427395;
 			
 			// aapt resource value: 0x7f0b0044
-			public const int abc_primary_text_material_light = 2131427396;
+			public const int abc_primary_text_disable_only_material_light = 2131427396;
 			
 			// aapt resource value: 0x7f0b0045
-			public const int abc_search_url_text = 2131427397;
+			public const int abc_primary_text_material_dark = 2131427397;
+			
+			// aapt resource value: 0x7f0b0046
+			public const int abc_primary_text_material_light = 2131427398;
+			
+			// aapt resource value: 0x7f0b0047
+			public const int abc_search_url_text = 2131427399;
 			
 			// aapt resource value: 0x7f0b0001
 			public const int abc_search_url_text_normal = 2131427329;
@@ -802,11 +808,11 @@ namespace Morris
 			// aapt resource value: 0x7f0b0003
 			public const int abc_search_url_text_selected = 2131427331;
 			
-			// aapt resource value: 0x7f0b0046
-			public const int abc_secondary_text_material_dark = 2131427398;
+			// aapt resource value: 0x7f0b0048
+			public const int abc_secondary_text_material_dark = 2131427400;
 			
-			// aapt resource value: 0x7f0b0047
-			public const int abc_secondary_text_material_light = 2131427399;
+			// aapt resource value: 0x7f0b0049
+			public const int abc_secondary_text_material_light = 2131427401;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int accent_material_dark = 2131427332;
@@ -967,11 +973,11 @@ namespace Morris
 			// aapt resource value: 0x7f0b0037
 			public const int switch_thumb_disabled_material_light = 2131427383;
 			
-			// aapt resource value: 0x7f0b0048
-			public const int switch_thumb_material_dark = 2131427400;
+			// aapt resource value: 0x7f0b004a
+			public const int switch_thumb_material_dark = 2131427402;
 			
-			// aapt resource value: 0x7f0b0049
-			public const int switch_thumb_material_light = 2131427401;
+			// aapt resource value: 0x7f0b004b
+			public const int switch_thumb_material_light = 2131427403;
 			
 			// aapt resource value: 0x7f0b0038
 			public const int switch_thumb_normal_material_dark = 2131427384;
@@ -1483,85 +1489,88 @@ namespace Morris
 			public const int cogwheel = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int cross = 2130837588;
+			public const int comments = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int crossMini = 2130837589;
+			public const int cross = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int crossMinida = 2130837590;
+			public const int crossMini = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int edit_text_style = 2130837591;
+			public const int crossMinida = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int edit_text_style1 = 2130837592;
+			public const int date = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int edit_text_style2 = 2130837593;
+			public const int edit = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int education = 2130837594;
+			public const int edit_text_style = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int entertainment = 2130837595;
+			public const int edit_text_style1 = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int event_border = 2130837596;
+			public const int edit_text_style2 = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int food = 2130837597;
+			public const int education = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int friendrequest = 2130837598;
+			public const int entertainment = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int ic_action_new = 2130837599;
+			public const int event_border = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int ic_action_overflow = 2130837600;
+			public const int eventrequest = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int knappkoncept3 = 2130837601;
+			public const int food = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int morris = 2130837602;
+			public const int friendrequest = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int morris_head = 2130837603;
+			public const int ic_action_new = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int morris_icon4 = 2130837604;
-			
-			// aapt resource value: 0x7f02006e
-			public const int notification_template_icon_bg = 2130837614;
+			public const int ic_action_overflow = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int plus = 2130837605;
+			public const int invited = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int ProgressBarStyle = 2130837606;
+			public const int morris = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int settingskoncept1 = 2130837607;
+			public const int morris_head = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int sports = 2130837608;
+			public const int morris_icon4 = 2130837608;
+			
+			// aapt resource value: 0x7f02006f
+			public const int notification_template_icon_bg = 2130837615;
 			
 			// aapt resource value: 0x7f020069
-			public const int standard = 2130837609;
+			public const int plus = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int tick = 2130837610;
+			public const int questionmark = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int time = 2130837611;
+			public const int settingskoncept1 = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int travel = 2130837612;
+			public const int standard = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int work = 2130837613;
+			public const int tick = 2130837613;
+			
+			// aapt resource value: 0x7f02006e
+			public const int time = 2130837614;
 			
 			static Drawable()
 			{
@@ -1576,23 +1585,23 @@ namespace Morris
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0c006b
-			public const int EventsListView = 2131492971;
+			// aapt resource value: 0x7f0c006a
+			public const int EventsListView = 2131492970;
 			
-			// aapt resource value: 0x7f0c00cc
-			public const int FriendCheckBox = 2131493068;
+			// aapt resource value: 0x7f0c00cb
+			public const int FriendCheckBox = 2131493067;
+			
+			// aapt resource value: 0x7f0c0084
+			public const int FriendRequestlistView = 2131492996;
 			
 			// aapt resource value: 0x7f0c0085
-			public const int FriendRequestlistView = 2131492997;
+			public const int FriendsFrameLayout = 2131492997;
 			
 			// aapt resource value: 0x7f0c0086
-			public const int FriendsFrameLayout = 2131492998;
+			public const int FriendsLayout = 2131492998;
 			
-			// aapt resource value: 0x7f0c0087
-			public const int FriendsLayout = 2131492999;
-			
-			// aapt resource value: 0x7f0c008b
-			public const int action0 = 2131493003;
+			// aapt resource value: 0x7f0c008a
+			public const int action0 = 2131493002;
 			
 			// aapt resource value: 0x7f0c0041
 			public const int action_bar = 2131492929;
@@ -1618,11 +1627,11 @@ namespace Morris
 			// aapt resource value: 0x7f0c0042
 			public const int action_context_bar = 2131492930;
 			
-			// aapt resource value: 0x7f0c008f
-			public const int action_divider = 2131493007;
+			// aapt resource value: 0x7f0c008e
+			public const int action_divider = 2131493006;
 			
-			// aapt resource value: 0x7f0c00cf
-			public const int action_logout = 2131493071;
+			// aapt resource value: 0x7f0c00ce
+			public const int action_logout = 2131493070;
 			
 			// aapt resource value: 0x7f0c0002
 			public const int action_menu_divider = 2131492866;
@@ -1642,11 +1651,11 @@ namespace Morris
 			// aapt resource value: 0x7f0c0024
 			public const int activity_chooser_view_content = 2131492900;
 			
-			// aapt resource value: 0x7f0c00d1
-			public const int add = 2131493073;
+			// aapt resource value: 0x7f0c00d0
+			public const int add = 2131493072;
 			
-			// aapt resource value: 0x7f0c00ce
-			public const int addevent = 2131493070;
+			// aapt resource value: 0x7f0c00cd
+			public const int addevent = 2131493069;
 			
 			// aapt resource value: 0x7f0c0030
 			public const int alertTitle = 2131492912;
@@ -1657,26 +1666,26 @@ namespace Morris
 			// aapt resource value: 0x7f0c0019
 			public const int beginning = 2131492889;
 			
-			// aapt resource value: 0x7f0c00c9
-			public const int btnAccept = 2131493065;
+			// aapt resource value: 0x7f0c00c8
+			public const int btnAccept = 2131493064;
 			
 			// aapt resource value: 0x7f0c0065
 			public const int btnCreateContact = 2131492965;
 			
-			// aapt resource value: 0x7f0c00ca
-			public const int btnDecline = 2131493066;
+			// aapt resource value: 0x7f0c00c9
+			public const int btnDecline = 2131493065;
 			
 			// aapt resource value: 0x7f0c0063
 			public const int btnDialogEmail = 2131492963;
 			
-			// aapt resource value: 0x7f0c008a
-			public const int btnInvite = 2131493002;
+			// aapt resource value: 0x7f0c0089
+			public const int btnInvite = 2131493001;
 			
-			// aapt resource value: 0x7f0c00b1
-			public const int btnMembers = 2131493041;
+			// aapt resource value: 0x7f0c00b0
+			public const int btnMembers = 2131493040;
 			
-			// aapt resource value: 0x7f0c00c2
-			public const int btnMembers1 = 2131493058;
+			// aapt resource value: 0x7f0c00c1
+			public const int btnMembers1 = 2131493057;
 			
 			// aapt resource value: 0x7f0c005d
 			public const int btnNo = 2131492957;
@@ -1690,80 +1699,77 @@ namespace Morris
 			// aapt resource value: 0x7f0c005c
 			public const int btnYes = 2131492956;
 			
-			// aapt resource value: 0x7f0c0079
-			public const int btnadd = 2131492985;
-			
-			// aapt resource value: 0x7f0c0075
-			public const int btnadd1 = 2131492981;
-			
-			// aapt resource value: 0x7f0c00c8
-			public const int btnremovefriend = 2131493064;
-			
 			// aapt resource value: 0x7f0c0078
-			public const int btnsub = 2131492984;
+			public const int btnadd = 2131492984;
 			
 			// aapt resource value: 0x7f0c0074
-			public const int btnsub1 = 2131492980;
+			public const int btnadd1 = 2131492980;
 			
-			// aapt resource value: 0x7f0c009f
-			public const int button1 = 2131493023;
+			// aapt resource value: 0x7f0c00c7
+			public const int btnremovefriend = 2131493063;
 			
-			// aapt resource value: 0x7f0c00b8
-			public const int buttonAccept1 = 2131493048;
+			// aapt resource value: 0x7f0c0077
+			public const int btnsub = 2131492983;
 			
-			// aapt resource value: 0x7f0c00a3
-			public const int buttonChangeReqs = 2131493027;
+			// aapt resource value: 0x7f0c0073
+			public const int btnsub1 = 2131492979;
 			
-			// aapt resource value: 0x7f0c00b9
-			public const int buttonDecline1 = 2131493049;
+			// aapt resource value: 0x7f0c009d
+			public const int button1 = 2131493021;
 			
-			// aapt resource value: 0x7f0c00a2
-			public const int buttonInviteFriend = 2131493026;
+			// aapt resource value: 0x7f0c00b6
+			public const int buttonAccept1 = 2131493046;
+			
+			// aapt resource value: 0x7f0c00b1
+			public const int buttonChangeReqs = 2131493041;
+			
+			// aapt resource value: 0x7f0c00b7
+			public const int buttonDecline1 = 2131493047;
+			
+			// aapt resource value: 0x7f0c00a0
+			public const int buttonInviteFriend = 2131493024;
 			
 			// aapt resource value: 0x7f0c002b
 			public const int buttonPanel = 2131492907;
 			
-			// aapt resource value: 0x7f0c00b0
-			public const int buttoncomments = 2131493040;
+			// aapt resource value: 0x7f0c00af
+			public const int buttoncomments = 2131493039;
 			
-			// aapt resource value: 0x7f0c00c1
-			public const int buttoncomments1 = 2131493057;
+			// aapt resource value: 0x7f0c00c0
+			public const int buttoncomments1 = 2131493056;
+			
+			// aapt resource value: 0x7f0c0066
+			public const int calendarframelayout = 2131492966;
 			
 			// aapt resource value: 0x7f0c0067
-			public const int calendarframelayout = 2131492967;
+			public const int calendarlayout = 2131492967;
 			
-			// aapt resource value: 0x7f0c0068
-			public const int calendarlayout = 2131492968;
+			// aapt resource value: 0x7f0c008b
+			public const int cancel_action = 2131493003;
 			
-			// aapt resource value: 0x7f0c008c
-			public const int cancel_action = 2131493004;
-			
-			// aapt resource value: 0x7f0c009e
-			public const int categoryicon = 2131493022;
-			
-			// aapt resource value: 0x7f0c00c7
-			public const int cbse = 2131493063;
+			// aapt resource value: 0x7f0c00c6
+			public const int cbse = 2131493062;
 			
 			// aapt resource value: 0x7f0c0039
 			public const int checkbox = 2131492921;
 			
-			// aapt resource value: 0x7f0c0092
-			public const int chronometer = 2131493010;
+			// aapt resource value: 0x7f0c0091
+			public const int chronometer = 2131493009;
 			
 			// aapt resource value: 0x7f0c001d
 			public const int collapseActionView = 2131492893;
 			
-			// aapt resource value: 0x7f0c006f
-			public const int comment = 2131492975;
+			// aapt resource value: 0x7f0c006e
+			public const int comment = 2131492974;
 			
-			// aapt resource value: 0x7f0c006d
-			public const int commentslistview = 2131492973;
+			// aapt resource value: 0x7f0c006c
+			public const int commentslistview = 2131492972;
 			
 			// aapt resource value: 0x7f0c0031
 			public const int contentPanel = 2131492913;
 			
-			// aapt resource value: 0x7f0c007e
-			public const int createEventBtn = 2131492990;
+			// aapt resource value: 0x7f0c007d
+			public const int createEventBtn = 2131492989;
 			
 			// aapt resource value: 0x7f0c0037
 			public const int custom = 2131492919;
@@ -1771,14 +1777,14 @@ namespace Morris
 			// aapt resource value: 0x7f0c0036
 			public const int customPanel = 2131492918;
 			
-			// aapt resource value: 0x7f0c0069
-			public const int datePicker1 = 2131492969;
+			// aapt resource value: 0x7f0c0068
+			public const int datePicker1 = 2131492968;
 			
-			// aapt resource value: 0x7f0c00ac
-			public const int dateend = 2131493036;
+			// aapt resource value: 0x7f0c00a9
+			public const int dateend = 2131493033;
 			
-			// aapt resource value: 0x7f0c00a7
-			public const int datestart = 2131493031;
+			// aapt resource value: 0x7f0c00a4
+			public const int datestart = 2131493028;
 			
 			// aapt resource value: 0x7f0c003f
 			public const int decor_content_parent = 2131492927;
@@ -1798,23 +1804,23 @@ namespace Morris
 			// aapt resource value: 0x7f0c001a
 			public const int end = 2131492890;
 			
-			// aapt resource value: 0x7f0c0097
-			public const int end_padder = 2131493015;
+			// aapt resource value: 0x7f0c0096
+			public const int end_padder = 2131493014;
 			
-			// aapt resource value: 0x7f0c0077
-			public const int enddate = 2131492983;
-			
-			// aapt resource value: 0x7f0c0071
-			public const int eventDescription = 2131492977;
+			// aapt resource value: 0x7f0c0076
+			public const int enddate = 2131492982;
 			
 			// aapt resource value: 0x7f0c0070
-			public const int eventName = 2131492976;
+			public const int eventDescription = 2131492976;
 			
-			// aapt resource value: 0x7f0c0081
-			public const int eventactivityframelayout = 2131492993;
+			// aapt resource value: 0x7f0c006f
+			public const int eventName = 2131492975;
 			
-			// aapt resource value: 0x7f0c00cd
-			public const int eventinvites = 2131493069;
+			// aapt resource value: 0x7f0c0080
+			public const int eventactivityframelayout = 2131492992;
+			
+			// aapt resource value: 0x7f0c00cc
+			public const int eventinvites = 2131493068;
 			
 			// aapt resource value: 0x7f0c0025
 			public const int expand_activities_button = 2131492901;
@@ -1822,17 +1828,17 @@ namespace Morris
 			// aapt resource value: 0x7f0c0038
 			public const int expanded_menu = 2131492920;
 			
-			// aapt resource value: 0x7f0c00d0
-			public const int friendrequests = 2131493072;
+			// aapt resource value: 0x7f0c00cf
+			public const int friendrequests = 2131493071;
 			
-			// aapt resource value: 0x7f0c00cb
-			public const int friendusername = 2131493067;
+			// aapt resource value: 0x7f0c00ca
+			public const int friendusername = 2131493066;
 			
-			// aapt resource value: 0x7f0c007c
-			public const int fromTimePicker = 2131492988;
+			// aapt resource value: 0x7f0c007b
+			public const int fromTimePicker = 2131492987;
 			
-			// aapt resource value: 0x7f0c00be
-			public const int hejfa = 2131493054;
+			// aapt resource value: 0x7f0c00bc
+			public const int hejfa = 2131493052;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int home = 2131492868;
@@ -1852,104 +1858,107 @@ namespace Morris
 			// aapt resource value: 0x7f0c0056
 			public const int imageView1 = 2131492950;
 			
-			// aapt resource value: 0x7f0c00b4
-			public const int imageView2 = 2131493044;
+			// aapt resource value: 0x7f0c00b3
+			public const int imageView2 = 2131493043;
 			
-			// aapt resource value: 0x7f0c00b5
-			public const int imageView3 = 2131493045;
+			// aapt resource value: 0x7f0c00c2
+			public const int imageView3 = 2131493058;
 			
-			// aapt resource value: 0x7f0c00a6
-			public const int imgDate = 2131493030;
-			
-			// aapt resource value: 0x7f0c00ab
-			public const int imgDate2 = 2131493035;
+			// aapt resource value: 0x7f0c00a3
+			public const int imgDate = 2131493027;
 			
 			// aapt resource value: 0x7f0c00a8
-			public const int imgTime = 2131493032;
+			public const int imgDate2 = 2131493032;
 			
-			// aapt resource value: 0x7f0c00ad
-			public const int imgTime2 = 2131493037;
+			// aapt resource value: 0x7f0c00a5
+			public const int imgTime = 2131493029;
 			
-			// aapt resource value: 0x7f0c0096
-			public const int info = 2131493014;
+			// aapt resource value: 0x7f0c00aa
+			public const int imgTime2 = 2131493034;
 			
-			// aapt resource value: 0x7f0c0089
-			public const int invitetoeventlistview = 2131493001;
+			// aapt resource value: 0x7f0c0095
+			public const int info = 2131493013;
 			
-			// aapt resource value: 0x7f0c0090
-			public const int line1 = 2131493008;
+			// aapt resource value: 0x7f0c0088
+			public const int invitetoeventlistview = 2131493000;
 			
-			// aapt resource value: 0x7f0c0094
-			public const int line3 = 2131493012;
+			// aapt resource value: 0x7f0c008f
+			public const int line1 = 2131493007;
+			
+			// aapt resource value: 0x7f0c0093
+			public const int line3 = 2131493011;
 			
 			// aapt resource value: 0x7f0c005b
 			public const int linearLayout1 = 2131492955;
 			
-			// aapt resource value: 0x7f0c00c4
-			public const int linearLayout2 = 2131493060;
+			// aapt resource value: 0x7f0c00c3
+			public const int linearLayout2 = 2131493059;
 			
-			// aapt resource value: 0x7f0c00b3
-			public const int linearlayout111 = 2131493043;
+			// aapt resource value: 0x7f0c00b2
+			public const int linearlayout111 = 2131493042;
 			
-			// aapt resource value: 0x7f0c009b
-			public const int linearlayout123 = 2131493019;
+			// aapt resource value: 0x7f0c009a
+			public const int linearlayout123 = 2131493018;
 			
-			// aapt resource value: 0x7f0c0082
-			public const int linearlayout4 = 2131492994;
+			// aapt resource value: 0x7f0c0081
+			public const int linearlayout4 = 2131492993;
 			
 			// aapt resource value: 0x7f0c0009
 			public const int listMode = 2131492873;
 			
-			// aapt resource value: 0x7f0c0088
-			public const int listView = 2131493000;
+			// aapt resource value: 0x7f0c0087
+			public const int listView = 2131492999;
 			
-			// aapt resource value: 0x7f0c0080
-			public const int listView1 = 2131492992;
+			// aapt resource value: 0x7f0c007f
+			public const int listView1 = 2131492991;
 			
-			// aapt resource value: 0x7f0c0084
-			public const int listView4 = 2131492996;
+			// aapt resource value: 0x7f0c0083
+			public const int listView4 = 2131492995;
 			
 			// aapt resource value: 0x7f0c0028
 			public const int list_item = 2131492904;
 			
-			// aapt resource value: 0x7f0c007f
-			public const int listviewcreateevent = 2131492991;
+			// aapt resource value: 0x7f0c007e
+			public const int listviewcreateevent = 2131492990;
 			
 			// aapt resource value: 0x7f0c0050
 			public const int logintoolbar = 2131492944;
 			
-			// aapt resource value: 0x7f0c008e
-			public const int media_actions = 2131493006;
+			// aapt resource value: 0x7f0c008d
+			public const int media_actions = 2131493005;
 			
-			// aapt resource value: 0x7f0c00bf
-			public const int menddate = 2131493055;
+			// aapt resource value: 0x7f0c00bd
+			public const int menddate = 2131493053;
 			
-			// aapt resource value: 0x7f0c00c0
-			public const int mendtime = 2131493056;
+			// aapt resource value: 0x7f0c00be
+			public const int mendtime = 2131493054;
 			
 			// aapt resource value: 0x7f0c001b
 			public const int middle = 2131492891;
 			
-			// aapt resource value: 0x7f0c00af
-			public const int mr13 = 2131493039;
+			// aapt resource value: 0x7f0c00ac
+			public const int mr14 = 2131493036;
 			
-			// aapt resource value: 0x7f0c009c
-			public const int mrl = 2131493020;
+			// aapt resource value: 0x7f0c009b
+			public const int mrl = 2131493019;
 			
-			// aapt resource value: 0x7f0c00a0
-			public const int mrl2 = 2131493024;
+			// aapt resource value: 0x7f0c009e
+			public const int mrl2 = 2131493022;
 			
-			// aapt resource value: 0x7f0c00a5
-			public const int mrl3 = 2131493029;
+			// aapt resource value: 0x7f0c00a2
+			public const int mrl3 = 2131493026;
 			
-			// aapt resource value: 0x7f0c00aa
-			public const int mrl4 = 2131493034;
+			// aapt resource value: 0x7f0c00a7
+			public const int mrl4 = 2131493031;
 			
-			// aapt resource value: 0x7f0c00bc
-			public const int mstartdate = 2131493052;
+			// aapt resource value: 0x7f0c00ad
+			public const int mrl5 = 2131493037;
 			
-			// aapt resource value: 0x7f0c00bd
-			public const int mstarttime = 2131493053;
+			// aapt resource value: 0x7f0c00ba
+			public const int mstartdate = 2131493050;
+			
+			// aapt resource value: 0x7f0c00bb
+			public const int mstarttime = 2131493051;
 			
 			// aapt resource value: 0x7f0c0014
 			public const int multiply = 2131492884;
@@ -1957,8 +1966,8 @@ namespace Morris
 			// aapt resource value: 0x7f0c001f
 			public const int never = 2131492895;
 			
-			// aapt resource value: 0x7f0c00bb
-			public const int newlinearlayout = 2131493051;
+			// aapt resource value: 0x7f0c00b9
+			public const int newlinearlayout = 2131493049;
 			
 			// aapt resource value: 0x7f0c000e
 			public const int none = 2131492878;
@@ -1968,9 +1977,6 @@ namespace Morris
 			
 			// aapt resource value: 0x7f0c002d
 			public const int parentPanel = 2131492909;
-			
-			// aapt resource value: 0x7f0c0066
-			public const int progressBar = 2131492966;
 			
 			// aapt resource value: 0x7f0c0005
 			public const int progress_circular = 2131492869;
@@ -1984,17 +1990,17 @@ namespace Morris
 			// aapt resource value: 0x7f0c0062
 			public const int relativeLayout1 = 2131492962;
 			
-			// aapt resource value: 0x7f0c00a1
-			public const int roweventdescription = 2131493025;
+			// aapt resource value: 0x7f0c009f
+			public const int roweventdescription = 2131493023;
 			
-			// aapt resource value: 0x7f0c00b7
-			public const int roweventinvitedescription = 2131493047;
+			// aapt resource value: 0x7f0c00b5
+			public const int roweventinvitedescription = 2131493045;
 			
-			// aapt resource value: 0x7f0c00b6
-			public const int roweventinvitename = 2131493046;
+			// aapt resource value: 0x7f0c00b4
+			public const int roweventinvitename = 2131493044;
 			
-			// aapt resource value: 0x7f0c009d
-			public const int roweventname = 2131493021;
+			// aapt resource value: 0x7f0c009c
+			public const int roweventname = 2131493020;
 			
 			// aapt resource value: 0x7f0c0015
 			public const int screen = 2131492885;
@@ -2068,56 +2074,56 @@ namespace Morris
 			// aapt resource value: 0x7f0c0018
 			public const int src_over = 2131492888;
 			
-			// aapt resource value: 0x7f0c0073
-			public const int startdate = 2131492979;
+			// aapt resource value: 0x7f0c0072
+			public const int startdate = 2131492978;
 			
-			// aapt resource value: 0x7f0c008d
-			public const int status_bar_latest_event_content = 2131493005;
+			// aapt resource value: 0x7f0c008c
+			public const int status_bar_latest_event_content = 2131493004;
 			
 			// aapt resource value: 0x7f0c004c
 			public const int submit_area = 2131492940;
 			
-			// aapt resource value: 0x7f0c006a
-			public const int swipeContainer = 2131492970;
+			// aapt resource value: 0x7f0c0069
+			public const int swipeContainer = 2131492969;
 			
 			// aapt resource value: 0x7f0c000b
 			public const int tabMode = 2131492875;
 			
-			// aapt resource value: 0x7f0c0095
-			public const int text = 2131493013;
+			// aapt resource value: 0x7f0c0094
+			public const int text = 2131493012;
 			
-			// aapt resource value: 0x7f0c0093
-			public const int text2 = 2131493011;
+			// aapt resource value: 0x7f0c0092
+			public const int text2 = 2131493010;
 			
-			// aapt resource value: 0x7f0c00a4
-			public const int textLocation = 2131493028;
+			// aapt resource value: 0x7f0c00a1
+			public const int textLocation = 2131493025;
 			
 			// aapt resource value: 0x7f0c0034
 			public const int textSpacerNoButtons = 2131492916;
 			
-			// aapt resource value: 0x7f0c0076
-			public const int textViewbindestreck = 2131492982;
+			// aapt resource value: 0x7f0c0075
+			public const int textViewbindestreck = 2131492981;
 			
 			// aapt resource value: 0x7f0c005a
 			public const int textprompt = 2131492954;
 			
-			// aapt resource value: 0x7f0c0072
-			public const int theLocation = 2131492978;
-			
-			// aapt resource value: 0x7f0c00b2
-			public const int theweek = 2131493042;
-			
-			// aapt resource value: 0x7f0c00c3
-			public const int theweek1 = 2131493059;
-			
-			// aapt resource value: 0x7f0c0091
-			public const int time = 2131493009;
+			// aapt resource value: 0x7f0c0071
+			public const int theLocation = 2131492977;
 			
 			// aapt resource value: 0x7f0c00ae
-			public const int timeend = 2131493038;
+			public const int theweek = 2131493038;
 			
-			// aapt resource value: 0x7f0c00a9
-			public const int timestart = 2131493033;
+			// aapt resource value: 0x7f0c00bf
+			public const int theweek1 = 2131493055;
+			
+			// aapt resource value: 0x7f0c0090
+			public const int time = 2131493008;
+			
+			// aapt resource value: 0x7f0c00ab
+			public const int timeend = 2131493035;
+			
+			// aapt resource value: 0x7f0c00a6
+			public const int timestart = 2131493030;
 			
 			// aapt resource value: 0x7f0c002a
 			public const int title = 2131492906;
@@ -2125,17 +2131,17 @@ namespace Morris
 			// aapt resource value: 0x7f0c002f
 			public const int title_template = 2131492911;
 			
-			// aapt resource value: 0x7f0c007d
-			public const int toTimePicker = 2131492989;
+			// aapt resource value: 0x7f0c007c
+			public const int toTimePicker = 2131492988;
 			
 			// aapt resource value: 0x7f0c0058
 			public const int toolbar = 2131492952;
 			
-			// aapt resource value: 0x7f0c0083
-			public const int toolbarEA2 = 2131492995;
+			// aapt resource value: 0x7f0c0082
+			public const int toolbarEA2 = 2131492994;
 			
-			// aapt resource value: 0x7f0c006c
-			public const int toolbarcomments = 2131492972;
+			// aapt resource value: 0x7f0c006b
+			public const int toolbarcomments = 2131492971;
 			
 			// aapt resource value: 0x7f0c002e
 			public const int topPanel = 2131492910;
@@ -2143,17 +2149,17 @@ namespace Morris
 			// aapt resource value: 0x7f0c0052
 			public const int txtCreateAccount = 2131492946;
 			
-			// aapt resource value: 0x7f0c009a
-			public const int txtDate = 2131493018;
-			
-			// aapt resource value: 0x7f0c00ba
-			public const int txtLocation = 2131493050;
-			
 			// aapt resource value: 0x7f0c0099
-			public const int txtMessage = 2131493017;
+			public const int txtDate = 2131493017;
 			
-			// aapt resource value: 0x7f0c00c5
-			public const int txtName = 2131493061;
+			// aapt resource value: 0x7f0c00b8
+			public const int txtLocation = 2131493048;
+			
+			// aapt resource value: 0x7f0c0098
+			public const int txtMessage = 2131493016;
+			
+			// aapt resource value: 0x7f0c00c4
+			public const int txtName = 2131493060;
 			
 			// aapt resource value: 0x7f0c0054
 			public const int txtOr = 2131492948;
@@ -2161,8 +2167,8 @@ namespace Morris
 			// aapt resource value: 0x7f0c0060
 			public const int txtPassword = 2131492960;
 			
-			// aapt resource value: 0x7f0c0098
-			public const int txtUser = 2131493016;
+			// aapt resource value: 0x7f0c0097
+			public const int txtUser = 2131493015;
 			
 			// aapt resource value: 0x7f0c0064
 			public const int txtUserName = 2131492964;
@@ -2173,17 +2179,17 @@ namespace Morris
 			// aapt resource value: 0x7f0c0061
 			public const int txtUsername = 2131492961;
 			
-			// aapt resource value: 0x7f0c006e
-			public const int txtcomment = 2131492974;
-			
-			// aapt resource value: 0x7f0c007b
-			public const int txtendtime = 2131492987;
-			
-			// aapt resource value: 0x7f0c00c6
-			public const int txtse = 2131493062;
+			// aapt resource value: 0x7f0c006d
+			public const int txtcomment = 2131492973;
 			
 			// aapt resource value: 0x7f0c007a
-			public const int txtstarttime = 2131492986;
+			public const int txtendtime = 2131492986;
+			
+			// aapt resource value: 0x7f0c00c5
+			public const int txtse = 2131493061;
+			
+			// aapt resource value: 0x7f0c0079
+			public const int txtstarttime = 2131492985;
 			
 			// aapt resource value: 0x7f0c0008
 			public const int up = 2131492872;
@@ -2976,14 +2982,17 @@ namespace Morris
 			// aapt resource value: 0x7f090079
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131296377;
 			
-			// aapt resource value: 0x7f090142
-			public const int CustomActionBarTheme = 2131296578;
+			// aapt resource value: 0x7f090143
+			public const int CustomActionBarTheme = 2131296579;
 			
 			// aapt resource value: 0x7f090140
 			public const int DatePickerTheme = 2131296576;
 			
-			// aapt resource value: 0x7f090143
-			public const int MyActionBar = 2131296579;
+			// aapt resource value: 0x7f090142
+			public const int EditTextTheme = 2131296578;
+			
+			// aapt resource value: 0x7f090144
+			public const int MyActionBar = 2131296580;
 			
 			// aapt resource value: 0x7f09013f
 			public const int MyTheme = 2131296575;

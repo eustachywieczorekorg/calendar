@@ -8,7 +8,7 @@
   <style name="MyTheme" parent="Theme.AppCompat.Light">
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
-    <item name="colorPrimary">#E44C4C</item>
+    <item name="colorPrimary">@color/AppBgColor</item>
     <item name="android:textColorPrimary">#ffffff</item>
   </style>
 
@@ -21,8 +21,14 @@
     <item name="colorAccent">#ffffff</item>
     <item name="android:textColorSecondary">#ffffff</item>
   </style>
-  
-  
+
+  <style name="EditTextTheme">
+  <item name="colorControlNormal">@color/AppBgColor</item>
+  <item name="colorControlActivated">#ffffff</item>
+  <item name="colorControlHighlight">#ffffff</item>
+  </style>
+   
+
     <!-- the theme applied to the application or activity -->
     <style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
       <item name="android:actionBarStyle">@style/MyActionBar</item>
