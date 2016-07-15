@@ -25,7 +25,7 @@ namespace Morris
             SetContentView(Resource.Layout.activity_loginregister);
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.logintoolbar);
             SetSupportActionBar(mToolbar);
-            SupportActionBar.Title = "Welcome to Morris, visit www.digestivetech.com to browse our other products and current projects";
+            SupportActionBar.Title = "Welcome to Morris Calendar Hub, visit www.digestivetech.com to browse our other products and current projects";
 
             nBtnSignIn = FindViewById<Button>(Resource.Id.btnSignIn);
             nBtnSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
