@@ -14,6 +14,7 @@ using System.Collections.Specialized;
 using Newtonsoft.Json;
 using Java.Sql;
 
+
 namespace Morris
 {
 
@@ -74,6 +75,7 @@ namespace Morris
             var view = inflater.Inflate(Resource.Layout.fragment_createevent, container, false);
             ((activity_main)this.Activity).SupportActionBar.Hide();
             
+              
 
             startdate = view.FindViewById<TextView>(Resource.Id.startdate);
             enddate = view.FindViewById<TextView>(Resource.Id.enddate);

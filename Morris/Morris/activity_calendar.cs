@@ -125,12 +125,12 @@ namespace Morris
                     this.Dispose();
                     return true;
                 case Resource.Id.addevent:
-                        DateTime mDate2 = mDatePicker.DateTime;
-                        fragment_createevent ced = new fragment_createevent(mDate2);
-                        ced.eventcreated += UpdateCalendar;
-                        Android.Support.V4.App.FragmentTransaction trans;
-                        trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout, ced, "swag").AddToBackStack(null);
-                        trans.Commit();
+                    DateTime mDate2 = mDatePicker.DateTime;
+                    fragment_createevent ced = new fragment_createevent(mDate2);
+                    ced.eventcreated += UpdateCalendar;
+                    Android.Support.V4.App.FragmentTransaction trans;
+                    trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout, ced, "swag").AddToBackStack(null).SetCustomAnimations(Resource.Transition.activity_slide, Resource.Transition.activity_fade);
+                    trans.Commit();
                     return true;
                 case Resource.Id.eventinvites:
                     fragment_eventinvites eventinvitefrag = new fragment_eventinvites();
