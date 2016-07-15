@@ -16,7 +16,7 @@ using Android.Support.V4.Widget;
 
 namespace Morris
 {
-    public class FriendsActivity : Android.Support.V4.App.Fragment
+    public class activity_friends : Android.Support.V4.App.Fragment
     {
 
         public LinearLayout mFriendsLayout;
@@ -31,7 +31,7 @@ namespace Morris
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-            var view = inflater.Inflate(Resource.Layout.FriendsActivity, container, false);
+            var view = inflater.Inflate(Resource.Layout.fragment_friends, container, false);
             HasOptionsMenu = true;
             mListView = view.FindViewById<ListView>(Resource.Id.listView);
             mFriendsLayout = view.FindViewById<LinearLayout>(Resource.Id.FriendsLayout);
@@ -71,7 +71,7 @@ namespace Morris
 
         private void MAdapter_friendusernameclicked(object sender, string e)
         {
-            Intent intent = new Intent(this.Activity, typeof(FriendEventActivity));
+            Intent intent = new Intent(this.Activity, typeof(activity_friendeventlist));
             intent.PutExtra("friendusername", e);
             this.Activity.StartActivity(intent);
         }
@@ -101,8 +101,9 @@ namespace Morris
             switch (item.ItemId)
             {
                 case Resource.Id.add:
-                    dialog_addfriend dialog = new dialog_addfriend();
-                    dialog.Show(transaction, "add friend");
+                    fragment_addfriend addfriendfrag = new fragment_addfriend();
+                    Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.FriendsFrameLayout, addfriendfrag, "addfriendfrag").AddToBackStack(null);
+                    trans.Commit();
                     return true;
 
                 case Resource.Id.action_logout:
@@ -110,7 +111,7 @@ namespace Morris
                         ISharedPreferencesEditor edit = pref.Edit();
                         edit.Clear();
                         edit.Apply();
-                        Intent intent = new Intent(this.Activity, typeof(LoginRegisterActivity));
+                        Intent intent = new Intent(this.Activity, typeof(activity_loginregister));
                         this.StartActivity(intent);
                         this.Dispose();
                     return true;
@@ -118,7 +119,8 @@ namespace Morris
                 case Resource.Id.friendrequests:
                     FriendRequestDialog friendrequestdialog = new FriendRequestDialog();
                     friendrequestdialog.updatefriends += Friendrequestdialog_updatefriends;
-                    friendrequestdialog.Show(transaction, "dialog fragment");
+                    Android.Support.V4.App.FragmentTransaction trans1 = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.FriendsFrameLayout, friendrequestdialog, "friendrequestfrag").AddToBackStack(null);
+                    trans1.Commit();
                     return true;
                     
                 default:

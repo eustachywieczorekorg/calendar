@@ -12,6 +12,7 @@ using Android.Widget;
 using Android.Graphics;
 using System.Net;
 using System.Collections.Specialized;
+using Android.Graphics.Drawables;
 
 namespace Morris
 {
@@ -281,9 +282,10 @@ namespace Morris
         public LinearLayout mLinearLayout;
         public event EventHandler eventremoved;
         bool onlyviewing;
-        public event EventHandler<int> btncommentspressed;
-        public event EventHandler<int> btninvitefriendspressed;
+        public event EventHandler<commentsfrageventargs> btncommentspressed;
+        public event EventHandler<commentsfrageventargs> btninvitefriendspressed;
         public event EventHandler<CalendarEvent> eventnamepressed;
+
         public CalendarEventListAdapter(Context context, int layout, List<CalendarEvent> events, FragmentManager fragmentmanager)
         {
             onlyviewing = false;
@@ -358,17 +360,10 @@ namespace Morris
             Week.Text ="W." + mEvents[position].Week.ToString();
 
             List<Color> mColors = new List<Color>();
-            mColors.Add(new Color(231, 76, 60));
-            mColors.Add(new Color(210, 84, 00));
-            mColors.Add(new Color(232, 76, 61));
-            mColors.Add(new Color(53, 152, 219));
-            mColors.Add(new Color(154, 101, 66));
-            mColors.Add(new Color(241, 196, 15));
-            mColors.Add(new Color(27, 188, 155));
-            mColors.Add(new Color(39, 174, 97));
-            mColors.Add(new Color(143, 68, 173));
+            mColors.Add(new Color(237, 74, 54));
+            mColors.Add(new Color(26, 198, 181));
 
-            Color bgcolor = new Color(mColors[mEvents[position].Category]);
+            Color bgcolor = new Color(mColors[position%2]);
             mLinearLayout.SetBackgroundColor(bgcolor);
 
             ImageButton btnInviteFriend = row.FindViewById<ImageButton>(Resource.Id.buttonInviteFriend);
@@ -379,13 +374,16 @@ namespace Morris
 
             ImageButton btncomments = row.FindViewById<ImageButton>(Resource.Id.buttoncomments);
 
+            ImageButton btnmembers = row.FindViewById<ImageButton>(Resource.Id.btnMembers);
+
             if (onlyviewing == false)
             {
                 if (btncomments.HasOnClickListeners == false)
                 {
                     btncomments.Click += (object sender, EventArgs e) =>
                     {
-                        btncommentspressed.Invoke(this, mEvents[position].Id);
+                        commentsfrageventargs asd = new commentsfrageventargs(mEvents[position].Id, mEvents[position].EventName);
+                        btncommentspressed.Invoke(this, asd);
                     };
                 }
                 if (btndelete.HasOnClickListeners == false)
@@ -413,7 +411,8 @@ namespace Morris
                     {
                         btnInviteFriend.Click += (object sender, EventArgs e) =>
                         {
-                            btninvitefriendspressed.Invoke(this, mEvents[position].Id);
+                            commentsfrageventargs asd = new commentsfrageventargs(mEvents[position].Id, mEvents[position].EventName);
+                            btninvitefriendspressed.Invoke(this, asd);
                         };
                     };
 
@@ -432,12 +431,14 @@ namespace Morris
             {
                 BtnChangeReq.Clickable = false;
                 btncomments.Clickable = false;
+                btnmembers.Clickable = false;
                 btndelete.Clickable = false;
                 btnInviteFriend.Clickable = false;
                 EventName.Clickable = false;
                 btndelete.SetBackgroundColor(bgcolor);
                 BtnChangeReq.SetBackgroundColor(bgcolor);
                 btncomments.SetBackgroundColor(bgcolor);
+                btnmembers.SetBackgroundColor(bgcolor);
             }
 
             
@@ -606,17 +607,10 @@ namespace Morris
 
             LinearLayout mLinearLayout = row.FindViewById<LinearLayout>(Resource.Id.linearlayout111);
             List<Color> mColors = new List<Color>();
-            mColors.Add(new Color(170, 170, 170));
-            mColors.Add(new Color(210, 84, 00));
-            mColors.Add(new Color(232, 76, 61));
-            mColors.Add(new Color(53, 152, 219));
-            mColors.Add(new Color(154, 101, 66));
-            mColors.Add(new Color(241, 196, 15));
-            mColors.Add(new Color(27, 188, 155));
-            mColors.Add(new Color(39, 174, 97));
-            mColors.Add(new Color(143, 68, 173));
+            mColors.Add(new Color(237, 74, 54));
+            mColors.Add(new Color(26, 198, 181));
 
-            Color bgcolor = new Color(mColors[mEvents[position].Category]);
+            Color bgcolor = new Color(mColors[position%2]);
             mLinearLayout.SetBackgroundColor(bgcolor);
 
             ImageButton btnAccept = row.FindViewById<ImageButton>(Resource.Id.buttonAccept1);

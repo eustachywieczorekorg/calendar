@@ -17,7 +17,7 @@ using Android.Support.V7.App;
 namespace Morris
 {
     [Activity(Label = "Activity2" , Theme = "@style/MyTheme")]
-    public class FriendEventActivity : AppCompatActivity
+    public class activity_friendeventlist : AppCompatActivity
     {
         public ListView mListview;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
@@ -26,7 +26,7 @@ namespace Morris
         private List<CalendarEvent> mEvents;
         string friendusername;
 
-        public FriendEventActivity()
+        public activity_friendeventlist()
         {
 
         }
@@ -34,7 +34,7 @@ namespace Morris
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.EventActivity2);
+            SetContentView(Resource.Layout.fragment_friendeventlist);
             mListview = FindViewById<ListView>(Resource.Id.listView4);
 
             Android.Support.V7.Widget.Toolbar mToolbar;
@@ -85,7 +85,7 @@ namespace Morris
                     ISharedPreferencesEditor edit = pref.Edit();
                     edit.Clear();
                     edit.Apply();
-                    Intent intent = new Intent(this, typeof(LoginRegisterActivity));
+                    Intent intent = new Intent(this, typeof(activity_loginregister));
                     this.StartActivity(intent);
                     this.Dispose();
                     return true;

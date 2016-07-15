@@ -17,11 +17,12 @@ using Android.Support.V4.Widget;
 
 namespace Morris
 {
-    public class FriendRequestDialog : DialogFragment
+    public class FriendRequestDialog : Android.Support.V4.App.Fragment
     {
         public ListView mListView;
         private FriendRequestListAdapter mAdapter;
         private List<FriendRequest> mFriendRequests;
+        string usernamefromsp;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         
         Uri url = new Uri("http://217.208.71.183/calendarusers/LoadFriendRequests.php");
@@ -32,10 +33,12 @@ namespace Morris
         {
            
             base.OnCreateView(inflater, container, savedInstanceState);
-            var view = inflater.Inflate(Resource.Layout.dialog_friendrequests, container, false);
+            var view = inflater.Inflate(Resource.Layout.fragment_friendrequests, container, false);
+            usernamefromsp = pref.GetString("Username", String.Empty);
+            HasOptionsMenu = true;
+            ((activity_main)this.Activity).SupportActionBar.Title = "Friendrequests" + " (" + usernamefromsp + ")";
             mListView = view.FindViewById<ListView>(Resource.Id.FriendRequestlistView);
             NameValueCollection parameters = new NameValueCollection();
-            string usernamefromsp = pref.GetString("Username", String.Empty);
             parameters.Add("username", usernamefromsp);
             WebClient client = new WebClient();
             client.UploadValuesCompleted += Client_UploadValuesCompleted12;
@@ -44,12 +47,12 @@ namespace Morris
 
             return view;
         }
-        
 
-        public override void OnDismiss(IDialogInterface dialog)
+        public override void OnDestroy()
         {
-            base.OnDismiss(dialog);
+            ((activity_main)this.Activity).SupportActionBar.Title = "Morris" + " (" + usernamefromsp + ")";
             updatefriends(this, new EventArgs());
+            base.OnDestroy();
         }
 
         public void Client_UploadValuesCompleted12(object sender, UploadValuesCompletedEventArgs e)
@@ -75,11 +78,34 @@ namespace Morris
             client1.UploadValuesAsync(url, "POST", parameters);
         }
 
-        public override void OnActivityCreated(Bundle savedInstanceState)
+
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
-            Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
-            base.OnActivityCreated(savedInstanceState);
-            Dialog.Window.Attributes.WindowAnimations = Resource.Style.dialog_animation;
+            menu.Clear();
+            inflater.Inflate(Resource.Menu.actionbar_event, menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+
+            Android.App.FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
+
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_logout:
+                    ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
+                    ISharedPreferencesEditor edit = pref.Edit();
+                    edit.Clear();
+                    edit.Apply();
+                    Intent intent = new Intent(this.Activity, typeof(activity_loginregister));
+                    this.StartActivity(intent);
+                    this.Dispose();
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+
         }
     }
 }

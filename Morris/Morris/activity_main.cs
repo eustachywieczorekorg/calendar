@@ -10,38 +10,37 @@ using Android.Support.V4.View;
 namespace Morris
 {
     [Activity(Label = "Morris EC", Theme ="@style/MyTheme")]
-    public class Activity1 : Android.Support.V7.App.AppCompatActivity
+    public class activity_main : Android.Support.V7.App.AppCompatActivity
     {
         ViewPager _viewPager;
-        FriendsActivity fa;
-        CalendarActivity ca;
-        EventActivity ea;
+        activity_friends fa;
+        activity_calendar ca;
+        fragment_eventlist ea;
         JavaList<Android.Support.V4.App.Fragment> fragments;
+        public EventHandler updateall;
 
-        public Activity1()
+        public activity_main()
         {
-            fa = new FriendsActivity();
-            ca = new CalendarActivity();
-            ea = new EventActivity();
+            fa = new activity_friends();
+            ca = new activity_calendar();
+            ea = new fragment_eventlist();
         }
         
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.ViewPager);
+            SetContentView(Resource.Layout.activity_viewpager);
 
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             string usernamefromsp = pref.GetString("Username", String.Empty);
 
-            ca.updateevent += update;
-            ea.eventremoved += update;
+            updateall += update;
 
             Android.Support.V7.Widget.Toolbar mToolbar;
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(mToolbar);
             SupportActionBar.Title = "Morris" + " ("+ usernamefromsp + ")";
-            
 
 
             _viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
@@ -63,8 +62,8 @@ namespace Morris
 
         public void update(object sender, EventArgs e)
         {
-            ca.UpdateCalendar(sender, e);
-            ea.UpdateEventList(sender, e);
+            ca.UpdateCalendar(this, new EventArgs());
+            ea.UpdateEventList(this, new EventArgs());
         }
         
         public override bool OnCreateOptionsMenu(IMenu menu)

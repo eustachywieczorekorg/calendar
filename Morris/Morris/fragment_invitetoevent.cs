@@ -17,25 +17,28 @@ using Android.Support.V7.App;
 
 namespace Morris
 {
-    public class Invitetoeventdialog : Android.Support.V4.App.Fragment
+    public class fragment_invitetoevent : Android.Support.V4.App.Fragment
     {
         public int Eventid;
+        public string EventName;
         public string usernamefromsp;
         List<Friend> mFriends;
         InviteToEventAdapter mAdapter;
         ListView mListView;
         Button mButton;
 
-        public Invitetoeventdialog(int eventid)
+        public fragment_invitetoevent(int eventid, string ename)
         {
             Eventid = eventid;
+            EventName = ename;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
-            var view = inflater.Inflate(Resource.Layout.Invitetoevent, container, false);
-            ((Activity1)this.Activity).SupportActionBar.Hide();
+            var view = inflater.Inflate(Resource.Layout.fragment_invitetoevent, container, false);
+            HasOptionsMenu = true;
+            ((activity_main)this.Activity).SupportActionBar.Title = "Send Invites: " + EventName;
             mListView = view.FindViewById<ListView>(Resource.Id.invitetoeventlistview);
 
             mButton = view.FindViewById<Button>(Resource.Id.btnInvite);
@@ -58,7 +61,8 @@ namespace Morris
 
         private void MButton_Click(object sender, EventArgs e)
         {
-            mAdapter.onfriendinvited.Invoke(this, e);
+            mAdapter.onfriendinvited.Invoke(sender, e);
+            ((activity_main)this.Activity).SupportFragmentManager.PopBackStack();
         }
 
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
@@ -85,11 +89,40 @@ namespace Morris
             client1.UploadValuesCompleted += Client_UploadValuesCompleted;
             client1.UploadValuesAsync(url, "POST", parameters);
         }
+
         public override void OnDestroy()
         {
-
-            ((Activity1)this.Activity).SupportActionBar.Show();
+            ((activity_main)this.Activity).SupportActionBar.Title = "Morris" + " (" + usernamefromsp + ")";
             base.OnDestroy();
+        }
+
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            menu.Clear();
+            inflater.Inflate(Resource.Menu.actionbar_event, menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+
+            Android.App.FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
+
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_logout:
+                    ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
+                    ISharedPreferencesEditor edit = pref.Edit();
+                    edit.Clear();
+                    edit.Apply();
+                    Intent intent = new Intent(this.Activity, typeof(activity_loginregister));
+                    this.StartActivity(intent);
+                    this.Dispose();
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+
         }
     }
 }

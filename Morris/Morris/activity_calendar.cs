@@ -12,18 +12,17 @@ using Android.Support.V4.Widget;
 
 namespace Morris
 { 
-    public class CalendarActivity : Android.Support.V4.App.Fragment, CalendarView.IOnDateChangeListener, DatePicker.IOnDateChangedListener
+    public class activity_calendar : Android.Support.V4.App.Fragment, CalendarView.IOnDateChangeListener, DatePicker.IOnDateChangedListener
     {
         ListView mListView;
         Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEvents.php");
         string usernamefromsp;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         public DatePicker mDatePicker;
-        public event EventHandler updateevent;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.CalendarActivity, container, false);
+            var view = inflater.Inflate(Resource.Layout.fragment_calendar, container, false);
 
             HasOptionsMenu = true;
             mDatePicker = view.FindViewById<DatePicker>(Resource.Id.datePicker1); 
@@ -73,30 +72,35 @@ namespace Morris
             mEvents = JsonConvert.DeserializeObject<List<CalendarEvent>>(json1);
             CalendarEventListAdapter mAdapter;
             mAdapter = new CalendarEventListAdapter(this.Activity, Resource.Layout.row_event, mEvents, this.Activity.FragmentManager);
-            mAdapter.eventremoved += UpdateCalendar;
+            mAdapter.eventremoved += MAdapter_eventremoved;
             mAdapter.btncommentspressed += MAdapter_btncommentspressed1;
             mAdapter.btninvitefriendspressed += MAdapter_btninvitefriendspressed1;
             mAdapter.eventnamepressed += MAdapter_eventnamepressed;
             mListView.Adapter = mAdapter;
         }
 
+        private void MAdapter_eventremoved(object sender, EventArgs e)
+        {
+            ((activity_main)this.Activity).updateall.Invoke(this, new EventArgs());
+        }
+
         private void MAdapter_eventnamepressed(object sender, CalendarEvent e)
         {
-            CreateEventFragment createeventfrag = new CreateEventFragment(e);
+            fragment_createevent createeventfrag = new fragment_createevent(e);
             Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Replace(Resource.Id.calendarframelayout, createeventfrag, "createeventfrag").AddToBackStack(null);
             trans.Commit();
         }
 
-        private void MAdapter_btninvitefriendspressed1(object sender, int e)
+        private void MAdapter_btninvitefriendspressed1(object sender, commentsfrageventargs e)
         {
-            Invitetoeventdialog invitefrag = new Invitetoeventdialog(e);
+            fragment_invitetoevent invitefrag = new fragment_invitetoevent(e.EventId, e.EventName);
             Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Replace(Resource.Id.calendarframelayout, invitefrag, "invitefrag").AddToBackStack(null);
             trans.Commit();
         }
 
-        private void MAdapter_btncommentspressed1(object sender, int e)
+        private void MAdapter_btncommentspressed1(object sender, commentsfrageventargs e)
         {
-            fragment_comments commentsfragment = new fragment_comments(e);
+            fragment_comments commentsfragment = new fragment_comments(e.EventId, e.EventName);
             Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout, commentsfragment, "commentsfrag").AddToBackStack(null);
             trans.Commit();
         }
@@ -116,13 +120,13 @@ namespace Morris
                     ISharedPreferencesEditor edit = pref.Edit();
                     edit.Clear();
                     edit.Apply();
-                    Intent intent = new Intent(this.Activity, typeof(LoginRegisterActivity));
+                    Intent intent = new Intent(this.Activity, typeof(activity_loginregister));
                     this.StartActivity(intent);
                     this.Dispose();
                     return true;
                 case Resource.Id.addevent:
                         DateTime mDate2 = mDatePicker.DateTime;
-                        CreateEventFragment ced = new CreateEventFragment(mDate2);
+                        fragment_createevent ced = new fragment_createevent(mDate2);
                         ced.eventcreated += UpdateCalendar;
                         Android.Support.V4.App.FragmentTransaction trans;
                         trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout, ced, "swag").AddToBackStack(null);
@@ -131,7 +135,6 @@ namespace Morris
                 case Resource.Id.eventinvites:
                     fragment_eventinvites eventinvitefrag = new fragment_eventinvites();
                     Android.Support.V4.App.FragmentTransaction transaction1 = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.calendarframelayout,eventinvitefrag,"eventinvitefrag").AddToBackStack(null);
-                    eventinvitefrag.eventad += UpdateCalendar;
                     transaction1.Commit();
                     return true;
                 default:
@@ -161,6 +164,17 @@ namespace Morris
             Console.WriteLine("monthofyear" + monthOfYear);
             client.UploadValuesCompleted += Client1_UploadValuesCompleted;
             client.UploadValuesAsync(url, "POST", parameters);
+        }
+    }
+    public class commentsfrageventargs : EventArgs
+    {
+        public int EventId { get; set; }
+        public string EventName { get; set; }
+
+        public commentsfrageventargs(int id, string name)
+        {
+            EventId = id;
+            EventName = name;
         }
     }
 }

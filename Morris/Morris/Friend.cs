@@ -41,7 +41,6 @@ namespace Morris
         public DateTime EndDate { get; set; }
         public string EndTime { get; set; }
         public int Week { get; set; }
-        public int Category { get; set; }
         public string Creator { get; set; }
     }
 

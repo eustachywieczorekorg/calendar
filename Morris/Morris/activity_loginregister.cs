@@ -12,7 +12,7 @@ using Android.Support.V7.App;
 namespace Morris
 {
     [Activity(Label = "Login And Register", Theme = "@style/MyTheme")]
-    public class LoginRegisterActivity : AppCompatActivity
+    public class activity_loginregister : AppCompatActivity
     {
         private Button nBtnSignUp;
         private Button nBtnSignIn;
@@ -22,7 +22,7 @@ namespace Morris
         {
             base.OnCreate(bundle);
 
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.activity_loginregister);
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.logintoolbar);
             SetSupportActionBar(mToolbar);
             SupportActionBar.Title = "Welcome to Morris, visit www.digestivetech.com to browse our other products and current projects";

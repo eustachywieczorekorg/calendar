@@ -16,18 +16,17 @@ using Android.Support.V4.Widget;
 
 namespace Morris
 {
-    public class EventActivity : Android.Support.V4.App.Fragment
+    public class fragment_eventlist : Android.Support.V4.App.Fragment
     {
         public ListView mListview;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
         string usernamefromsp;
         private CalendarEventListAdapter mAdapter;
         private List<CalendarEvent> mEvents;
-        public event EventHandler eventremoved;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.EventActivity, container, false);
+            var view = inflater.Inflate(Resource.Layout.fragment_eventlist, container, false);
             HasOptionsMenu = true;
             mListview = view.FindViewById<ListView>(Resource.Id.listView1);
             var swipeContainer = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeContainer);
@@ -54,11 +53,6 @@ namespace Morris
             (sender as SwipeRefreshLayout).Refreshing = false;
         }
 
-        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
-        {
-            menu.Clear();
-            inflater.Inflate(Resource.Menu.actionbar_event, menu);
-        }
 
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
@@ -76,20 +70,20 @@ namespace Morris
 
         private void MAdapter_eventnamepressed(object sender, CalendarEvent e)
         {
-            CreateEventFragment createeventfrag = new CreateEventFragment(e);
-            Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Replace(Resource.Id.eventactivityframelayout, createeventfrag, "createeventfrag").AddToBackStack(null);
+            fragment_createevent createeventfrag = new fragment_createevent(e);
+            Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.eventactivityframelayout, createeventfrag, "createeventfrag").AddToBackStack(null);
             trans.Commit();
         }
 
-        private void MAdapter_btninvitefriendspressed(object sender, int e)
+        private void MAdapter_btninvitefriendspressed(object sender, commentsfrageventargs e)
         {
-            Invitetoeventdialog invitefrag = new Invitetoeventdialog(e);
+            fragment_invitetoevent invitefrag = new fragment_invitetoevent(e.EventId, e.EventName);
             Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.eventactivityframelayout, invitefrag, "invitefrag").AddToBackStack(null);
             trans.Commit();
         }
-        private void MAdapter_btncommentspressed(object sender, int e)
+        private void MAdapter_btncommentspressed(object sender, commentsfrageventargs e)
         {
-            fragment_comments commentsfragment = new fragment_comments(e);
+            fragment_comments commentsfragment = new fragment_comments(e.EventId, e.EventName);
             Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.eventactivityframelayout, commentsfragment, "commentsfrag").AddToBackStack(null);
             trans.Commit();
         }
@@ -107,7 +101,13 @@ namespace Morris
 
         private void MAdapter_eventremoved(object sender, EventArgs e)
         {
-            eventremoved.Invoke(this, new EventArgs());
+            ((activity_main)this.Activity).updateall.Invoke(this, new EventArgs());
+        }
+
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            menu.Clear();
+            inflater.Inflate(Resource.Menu.actionbar_event, menu);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -122,7 +122,7 @@ namespace Morris
                     ISharedPreferencesEditor edit = pref.Edit();
                     edit.Clear();
                     edit.Apply();
-                    Intent intent = new Intent(this.Activity, typeof(LoginRegisterActivity));
+                    Intent intent = new Intent(this.Activity, typeof(activity_loginregister));
                     this.StartActivity(intent);
                     this.Dispose();
                     return true;

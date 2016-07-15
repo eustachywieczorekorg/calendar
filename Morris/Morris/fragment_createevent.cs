@@ -17,9 +17,11 @@ using Java.Sql;
 namespace Morris
 {
 
-    public class CreateEventFragment : Android.Support.V4.App.Fragment
+    public class fragment_createevent : Android.Support.V4.App.Fragment
     {
         public event EventHandler eventcreated;
+        List<CalendarEvent> mCalEventList;
+        CalendarEvent mCalEvent;
         EditText eventName;
         EditText eventDescription;
         EditText location;
@@ -31,20 +33,20 @@ namespace Morris
         DateTime mStartDate, mEndDate;
         public DateTime ddate;
         EditText week;
-        int category, myId;
-        string EventName,EventDescription, Location;
+        int myId;
+        string EventName, EventDescription, Location;
         string TimeStart, TimeEnd;
         string Creator;
         bool editing;
         Uri url, url2, url3, url4, url5, url6, url7, url8;
 
-        public CreateEventFragment(DateTime getdate)
+        public fragment_createevent(DateTime getdate)
         {
             editing = false;
             mStartDate = getdate;
             mEndDate = getdate;
         }
-        public CreateEventFragment(CalendarEvent ce)
+        public fragment_createevent(CalendarEvent ce)
         {
             editing = true;
             myId = ce.Id;
@@ -55,8 +57,8 @@ namespace Morris
             TimeStart = ce.StartTime;
             mEndDate = ce.EndDate;
             TimeEnd = ce.EndTime;
-            category = ce.Category;
             Creator = ce.Creator;
+            mCalEvent = ce;
         }
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -69,17 +71,9 @@ namespace Morris
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
-            var view = inflater.Inflate(Resource.Layout.dialog_addevent, container, false);
-            ((Activity1)this.Activity).SupportActionBar.Hide();
-
-            mSpinner = view.FindViewById<Spinner>(Resource.Id.spinner);
-            if(mSpinner.HasOnClickListeners == false)
-            {
-                mSpinner.ItemSelected += MSpinner_ItemSelected;
-            }
-            var adapter = ArrayAdapter.CreateFromResource(this.Activity, Resource.Array.category_array, Android.Resource.Layout.SimpleSpinnerItem);
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            mSpinner.Adapter = adapter;
+            var view = inflater.Inflate(Resource.Layout.fragment_createevent, container, false);
+            ((activity_main)this.Activity).SupportActionBar.Hide();
+            
 
             startdate = view.FindViewById<TextView>(Resource.Id.startdate);
             enddate = view.FindViewById<TextView>(Resource.Id.enddate);
@@ -94,7 +88,7 @@ namespace Morris
             endtp.Focusable = true;
             starttp.Activated = true;
             endtp.Activated = true;
-            
+
 
             Button addday = view.FindViewById<Button>(Resource.Id.btnadd);
             Button addday1 = view.FindViewById<Button>(Resource.Id.btnadd1);
@@ -112,14 +106,14 @@ namespace Morris
                 location.Text = Location;
                 Java.Lang.Integer shour, smin, ehour, emin;
                 int starthour, startminute, endhour, endminute;
-                
+
                 int.TryParse(TimeStart.Substring(0, 2), out starthour);
                 int.TryParse(TimeStart.Substring(3, 2), out startminute);
                 int.TryParse(TimeEnd.Substring(0, 2), out endhour);
                 int.TryParse(TimeEnd.Substring(3, 2), out endminute);
                 shour = new Java.Lang.Integer(starthour);
                 smin = new Java.Lang.Integer(startminute);
-                ehour= new Java.Lang.Integer(endhour);
+                ehour = new Java.Lang.Integer(endhour);
                 emin = new Java.Lang.Integer(endminute);
 
                 starttp.CurrentHour = shour;
@@ -131,7 +125,15 @@ namespace Morris
                 enddate.Text = mEndDate.Year + "-" + mEndDate.Date.Month + "-" + mEndDate.Date.Day.ToString();
                 startdate.Text = mStartDate.Year + "-" + mStartDate.Date.Month + "-" + mStartDate.Date.Day.ToString();
                 createeventbtn.Text = "Update Event";
-                mSpinner.SetSelection(category);
+
+                if (mCalEvent != null)
+                {
+                    mCalEventList = new List<CalendarEvent>();
+                    mCalEventList.Add(mCalEvent);
+                    ListView mlistview = view.FindViewById<ListView>(Resource.Id.listviewcreateevent);
+                    CalendarEventListAdapter mAdapter = new CalendarEventListAdapter(this.Activity, Resource.Layout.row_event, mCalEventList, this.Activity.FragmentManager, true);
+                    mlistview.Adapter = mAdapter;
+                }
 
                 createeventbtn.Click += (object sender, EventArgs e) =>
                 {
@@ -141,7 +143,6 @@ namespace Morris
                         url = new Uri("http://217.208.71.183/calendarusers/UpdateEventName.php");
                         url2 = new Uri("http://217.208.71.183/calendarusers/UpdateEventDescription.php");
                         url3 = new Uri("http://217.208.71.183/calendarusers/UpdateLocation.php");
-                        url4 = new Uri("http://217.208.71.183/calendarusers/UpdateCategory.php");
                         url5 = new Uri("http://217.208.71.183/calendarusers/UpdateEndTime.php");
                         url6 = new Uri("http://217.208.71.183/calendarusers/UpdateEndDate.php");
                         url7 = new Uri("http://217.208.71.183/calendarusers/UpdateStartTime.php");
@@ -152,7 +153,6 @@ namespace Morris
                         url = new Uri("http://217.208.71.183/calendarusers/UpdateEventNameReq.php");
                         url2 = new Uri("http://217.208.71.183/calendarusers/UpdateEventDescriptionReq.php");
                         url3 = new Uri("http://217.208.71.183/calendarusers/UpdateLocationReq.php");
-                        url4 = new Uri("http://217.208.71.183/calendarusers/UpdateCategoryReq.php");
                         url5 = new Uri("http://217.208.71.183/calendarusers/UpdateEndTimeReq.php");
                         url6 = new Uri("http://217.208.71.183/calendarusers/UpdateEndDateReq.php");
                         url7 = new Uri("http://217.208.71.183/calendarusers/UpdateStartimeReq.php");
@@ -188,16 +188,6 @@ namespace Morris
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url3, "POST", parameters);
                     }
-                    if (mSpinner.Id != category)
-                    {
-                        WebClient client = new WebClient();
-                        NameValueCollection parameters = new NameValueCollection();
-                        parameters.Add("eventid", myId.ToString());
-                        //parameters.Add("", );
-                        //parameters.Add("", );
-                        client.UploadValuesCompleted += Client_UploadValuesCompleted1;
-                        client.UploadValuesAsync(url4, "POST", parameters);
-                    }
                     if (startdate.Text != mStartDate.Year + "-" + mStartDate.Date.Month + "-" + mStartDate.Date.Day.ToString())
                     {
                         WebClient client = new WebClient();
@@ -208,7 +198,7 @@ namespace Morris
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url5, "POST", parameters);
                     }
-                        if (starttp.CurrentHour.ToString() != TimeStart.Substring(0, 2) || starttp.CurrentMinute.ToString() != TimeStart.Substring(3, 2))
+                    if (starttp.CurrentHour.ToString() != TimeStart.Substring(0, 2) || starttp.CurrentMinute.ToString() != TimeStart.Substring(3, 2))
                     {
                         WebClient client = new WebClient();
                         NameValueCollection parameters = new NameValueCollection();
@@ -228,7 +218,7 @@ namespace Morris
                         client.UploadValuesCompleted += Client_UploadValuesCompleted1;
                         client.UploadValuesAsync(url7, "POST", parameters);
                     }
-                        if (endtp.CurrentHour.ToString() != TimeStart.Substring(0, 2) || endtp.CurrentMinute.ToString() != TimeStart.Substring(3, 2))
+                    if (endtp.CurrentHour.ToString() != TimeStart.Substring(0, 2) || endtp.CurrentMinute.ToString() != TimeStart.Substring(3, 2))
                     {
                         WebClient client = new WebClient();
                         NameValueCollection parameters = new NameValueCollection();
@@ -257,7 +247,7 @@ namespace Morris
                     NameValueCollection parameters = new NameValueCollection();
                     string usernamefromsp = pref.GetString("Username", String.Empty);
 
-                    Time starttime = new Time((int)starttp.CurrentHour, (int)starttp.CurrentMinute,0);
+                    Time starttime = new Time((int)starttp.CurrentHour, (int)starttp.CurrentMinute, 0);
                     Time endtime = new Time((int)endtp.CurrentHour, (int)endtp.CurrentMinute, 0);
 
                     parameters.Add("eventname", eventName.Text);
@@ -266,7 +256,6 @@ namespace Morris
                     parameters.Add("starttp", starttime.ToString());
                     parameters.Add("enddate", mEndDate.Year + "-" + mEndDate.Month + "-" + mEndDate.Day);
                     parameters.Add("endtp", endtime.ToString());
-                    parameters.Add("category", category.ToString());
                     parameters.Add("username", usernamefromsp);
                     parameters.Add("location", location.Text);
                     client.UploadValuesCompleted += Client_UploadValuesCompleted;
@@ -276,7 +265,7 @@ namespace Morris
 
             return view;
         }
-        
+
 
         private void Addday_Click(object sender, EventArgs e)
         {
@@ -314,11 +303,6 @@ namespace Morris
             }
         }
 
-        private void MSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
-            category = (int)e.Id;
-        }
-
         private void Client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
             string response = Encoding.UTF8.GetString(e.Result);
@@ -332,8 +316,8 @@ namespace Morris
 
         public override void OnDestroy()
         {
-
-            ((Activity1)this.Activity).SupportActionBar.Show();
+            ((activity_main)this.Activity).updateall.Invoke(this, new EventArgs());
+            ((activity_main)this.Activity).SupportActionBar.Show();
             base.OnDestroy();
         }
     }

@@ -17,13 +17,13 @@ using Android.Support.V7.App;
 namespace Morris
 {
     [Activity(Label = "Morris", MainLauncher = true, Icon = "@drawable/morris_icon4", Theme = "@style/MyTheme")]
-    public class Splash : AppCompatActivity
+    public class activity_splash : AppCompatActivity
     {
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.Splash);
+            SetContentView(Resource.Layout.activity_splash);
             ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
             string userName = pref.GetString("Username", String.Empty);
             string password = pref.GetString("Password", String.Empty);
@@ -31,7 +31,7 @@ namespace Morris
             if (userName == String.Empty || password == String.Empty)
             {
                 //No saved credentials, take user to login screen
-                Intent intent = new Intent(this, typeof(LoginRegisterActivity));
+                Intent intent = new Intent(this, typeof(activity_loginregister));
                 this.StartActivity(intent);
                 this.Finish();
             }
@@ -56,7 +56,7 @@ namespace Morris
             if (a == "Login successful")
             {
                 //Successful take the user to application
-                Intent intent = new Intent(this, typeof(Activity1));
+                Intent intent = new Intent(this, typeof(activity_main));
                 this.StartActivity(intent);
                 this.Finish();
             }
@@ -68,7 +68,7 @@ namespace Morris
                 ISharedPreferencesEditor edit = pref.Edit();
                 edit.Clear();
                 edit.Apply();
-                Intent intent = new Intent(this, typeof(LoginRegisterActivity));
+                Intent intent = new Intent(this, typeof(activity_loginregister));
                 this.StartActivity(intent);
                 this.Finish();
             }

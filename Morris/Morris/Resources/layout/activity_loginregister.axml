@@ -20,7 +20,7 @@
         android:layout_height="1dp"
         android:id="@+id/view_toolbar" />
     <TextView
-        android:text="Morris EC"
+        android:text="Morris"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_weight="20"

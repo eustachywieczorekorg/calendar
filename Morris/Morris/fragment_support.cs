@@ -4,7 +4,7 @@ using Android.Views;
 
 namespace Morris
 {
-    public class SupportFragment : Fragment
+    public class fragment_support : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -16,7 +16,7 @@ namespace Morris
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-            var view = inflater.Inflate(Resource.Layout.dialog_addevent, container, false);
+            var view = inflater.Inflate(Resource.Layout.fragment_createevent, container, false);
 
             return view;
             
