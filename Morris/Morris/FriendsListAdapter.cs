@@ -12,6 +12,7 @@ using Android.Widget;
 using Android.Graphics;
 using System.Net;
 using System.Collections.Specialized;
+using Android.Graphics.Drawables;
 
 namespace Morris
 {
@@ -281,9 +282,10 @@ namespace Morris
         public LinearLayout mLinearLayout;
         public event EventHandler eventremoved;
         bool onlyviewing;
-        public event EventHandler<int> btncommentspressed;
-        public event EventHandler<int> btninvitefriendspressed;
+        public event EventHandler<commentsfrageventargs> btncommentspressed;
+        public event EventHandler<commentsfrageventargs> btninvitefriendspressed;
         public event EventHandler<CalendarEvent> eventnamepressed;
+
         public CalendarEventListAdapter(Context context, int layout, List<CalendarEvent> events, FragmentManager fragmentmanager)
         {
             onlyviewing = false;
@@ -358,7 +360,7 @@ namespace Morris
             Week.Text ="W." + mEvents[position].Week.ToString();
 
             List<Color> mColors = new List<Color>();
-            mColors.Add(new Color(231, 76, 60));
+            mColors.Add(new Color(228, 76, 76));
             mColors.Add(new Color(210, 84, 00));
             mColors.Add(new Color(232, 76, 61));
             mColors.Add(new Color(53, 152, 219));
@@ -367,6 +369,20 @@ namespace Morris
             mColors.Add(new Color(27, 188, 155));
             mColors.Add(new Color(39, 174, 97));
             mColors.Add(new Color(143, 68, 173));
+
+            List<int> mDrawables = new List<int>();
+            mDrawables.Add(Resource.Drawable.standard);
+            mDrawables.Add(Resource.Drawable.food);
+            mDrawables.Add(Resource.Drawable.sports);
+            mDrawables.Add(Resource.Drawable.work);
+            mDrawables.Add(Resource.Drawable.travel);
+            mDrawables.Add(Resource.Drawable.entertainment);
+            mDrawables.Add(Resource.Drawable.settingskoncept1);
+            mDrawables.Add(Resource.Drawable.settingskoncept1);
+            mDrawables.Add(Resource.Drawable.education);
+
+            ImageView categoryicon = row.FindViewById<ImageView>(Resource.Id.categoryicon);
+            categoryicon.SetBackgroundResource(mDrawables[mEvents[position].Category]);
 
             Color bgcolor = new Color(mColors[mEvents[position].Category]);
             mLinearLayout.SetBackgroundColor(bgcolor);
@@ -379,13 +395,16 @@ namespace Morris
 
             ImageButton btncomments = row.FindViewById<ImageButton>(Resource.Id.buttoncomments);
 
+            ImageButton btnmembers = row.FindViewById<ImageButton>(Resource.Id.btnMembers);
+
             if (onlyviewing == false)
             {
                 if (btncomments.HasOnClickListeners == false)
                 {
                     btncomments.Click += (object sender, EventArgs e) =>
                     {
-                        btncommentspressed.Invoke(this, mEvents[position].Id);
+                        commentsfrageventargs asd = new commentsfrageventargs(mEvents[position].Id, mEvents[position].EventName);
+                        btncommentspressed.Invoke(this, asd);
                     };
                 }
                 if (btndelete.HasOnClickListeners == false)
@@ -413,7 +432,8 @@ namespace Morris
                     {
                         btnInviteFriend.Click += (object sender, EventArgs e) =>
                         {
-                            btninvitefriendspressed.Invoke(this, mEvents[position].Id);
+                            commentsfrageventargs asd = new commentsfrageventargs(mEvents[position].Id, mEvents[position].EventName);
+                            btninvitefriendspressed.Invoke(this, asd);
                         };
                     };
 
@@ -432,12 +452,14 @@ namespace Morris
             {
                 BtnChangeReq.Clickable = false;
                 btncomments.Clickable = false;
+                btnmembers.Clickable = false;
                 btndelete.Clickable = false;
                 btnInviteFriend.Clickable = false;
                 EventName.Clickable = false;
                 btndelete.SetBackgroundColor(bgcolor);
                 BtnChangeReq.SetBackgroundColor(bgcolor);
                 btncomments.SetBackgroundColor(bgcolor);
+                btnmembers.SetBackgroundColor(bgcolor);
             }
 
             

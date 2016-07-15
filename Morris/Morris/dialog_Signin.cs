@@ -76,7 +76,7 @@ namespace Morris
 
 
                         this.Dismiss();
-                        Intent intent = new Intent(this.Activity, typeof(Activity1));
+                        Intent intent = new Intent(this.Activity, typeof(activity_main));
                         this.Activity.StartActivity(intent);
                         this.Activity.Finish();
                     }

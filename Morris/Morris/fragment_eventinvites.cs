@@ -24,13 +24,13 @@ namespace Morris
         public Uri url = new Uri("http://217.208.71.183/calendarusers/LoadEventInvites.php");
         public string usernamefromsp;
         ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
-        public event EventHandler eventad;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
-            var view = inflater.Inflate(Resource.Layout.dialog_eventinvites, container, false);
-            ((Activity1)this.Activity).SupportActionBar.Hide();
+            var view = inflater.Inflate(Resource.Layout.fragment_eventinvites, container, false);
+            HasOptionsMenu = true;
+            ((activity_main)this.Activity).SupportActionBar.Title = "Eventinvites" + " (" + usernamefromsp + ")";
 
             mListView = view.FindViewById<ListView>(Resource.Id.listView1);
             usernamefromsp = pref.GetString("Username", String.Empty);
@@ -53,14 +53,15 @@ namespace Morris
             mAdapter.eventad += MAdapter_update;
             mListView.Adapter = mAdapter;
         }
+        
 
         public override void OnDestroy()
         {
-            eventad.Invoke(this, new EventArgs());
-            ((Activity1)this.Activity).SupportActionBar.Show();
+            ((activity_main)this.Activity).SupportActionBar.Title = "Morris" + " (" + usernamefromsp + ")";
+            ((activity_main)this.Activity).updateall.Invoke(this, new EventArgs());
             base.OnDestroy();
-            
         }
+
         private void MAdapter_update(object sender, EventArgs e)
         {
             usernamefromsp = pref.GetString("Username", String.Empty);
@@ -70,6 +71,35 @@ namespace Morris
             client.UploadValuesCompleted += Client_UploadValuesCompleted;
             client.UploadValuesAsync(url, "POST", parameters);
         }
-        
+
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            menu.Clear();
+            inflater.Inflate(Resource.Menu.actionbar_event, menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+
+            Android.App.FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
+
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_logout:
+                    ISharedPreferences pref = Application.Context.GetSharedPreferences("UserInfo", FileCreationMode.Private);
+                    ISharedPreferencesEditor edit = pref.Edit();
+                    edit.Clear();
+                    edit.Apply();
+                    Intent intent = new Intent(this.Activity, typeof(activity_loginregister));
+                    this.StartActivity(intent);
+                    this.Dispose();
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+
+        }
+
     }
 }

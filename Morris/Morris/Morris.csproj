@@ -73,30 +73,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activity1.cs" />
+    <Compile Include="activity_main.cs" />
     <Compile Include="fragment_comments.cs" />
-    <Compile Include="FriendEventActivity.cs" />
+    <Compile Include="activity_friendeventlist.cs" />
     <Compile Include="fragment_createevent.cs" />
     <Compile Include="fragment_eventinvites.cs" />
     <Compile Include="dialog_prompt.cs" />
-    <Compile Include="EventActivity.cs" />
+    <Compile Include="fragment_eventlist.cs" />
     <Compile Include="Friend.cs" />
     <Compile Include="fragment_invitetoevent.cs" />
     <Compile Include="FriendsListAdapter.cs" />
-    <Compile Include="dialog_addfriend.cs" />
-    <Compile Include="dialog_friendrequests.cs" />
-    <Compile Include="FriendsActivity.cs" />
-    <Compile Include="Splash.cs" />
+    <Compile Include="fragment_addfriend.cs" />
+    <Compile Include="fragment_friendrequests.cs" />
+    <Compile Include="activity_friends.cs" />
+    <Compile Include="activity_splash.cs" />
     <Compile Include="dialog_Signin.cs" />
     <Compile Include="dialog_Signup.cs" />
-    <Compile Include="LoginRegisterActivity.cs" />
+    <Compile Include="activity_loginregister.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CalendarActivity.cs" />
-    <Compile Include="SupportFragment.cs" />
+    <Compile Include="activity_calendar.cs" />
+    <Compile Include="fragment_support.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\CalendarActivity.axml">
+    <AndroidResource Include="Resources\layout\fragment_calendar.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <None Include="packages.config" />
@@ -104,47 +104,47 @@
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\dialog_sign_up.axml" />
     <AndroidResource Include="Resources\layout\dialog_sign_in.axml" />
-    <AndroidResource Include="Resources\layout\dialog_addfriend.axml" />
-    <AndroidResource Include="Resources\layout\FriendsActivity.axml" />
+    <AndroidResource Include="Resources\layout\fragment_addfriend.axml" />
+    <AndroidResource Include="Resources\layout\fragment_friends.axml" />
     <AndroidResource Include="Resources\layout\row_friend.axml" />
-    <AndroidResource Include="Resources\layout\dialog_friendrequests.axml">
+    <AndroidResource Include="Resources\layout\fragment_friendrequests.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\row_friendrequest.axml" />
-    <AndroidResource Include="Resources\layout\dialog_addevent.axml">
+    <AndroidResource Include="Resources\layout\fragment_createevent.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\row_event.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\EventActivity.axml">
+    <AndroidResource Include="Resources\layout\fragment_eventlist.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Invitetoevent.axml">
+    <AndroidResource Include="Resources\layout\fragment_invitetoevent.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\row_invitetoevent.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\dialog_eventinvites.axml">
+    <AndroidResource Include="Resources\layout\fragment_eventinvites.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\row_eventinvite.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Splash.axml">
+    <AndroidResource Include="Resources\layout\activity_splash.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\ViewPager.axml">
+    <AndroidResource Include="Resources\layout\activity_viewpager.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\dialog_prompt.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\EventActivity2.axml">
+    <AndroidResource Include="Resources\layout\fragment_friendeventlist.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\dialog_comments.axml">
+    <AndroidResource Include="Resources\layout\fragment_comments.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\row_comment.axml">
@@ -152,7 +152,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml">
+    <AndroidResource Include="Resources\layout\activity_loginregister.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -238,9 +238,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\morris_head.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\morris_moving.gif" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml" />
