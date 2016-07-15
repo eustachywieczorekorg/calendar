@@ -71,7 +71,7 @@ namespace Morris
         private void MAdapter_eventnamepressed(object sender, CalendarEvent e)
         {
             fragment_createevent createeventfrag = new fragment_createevent(e);
-            Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Replace(Resource.Id.eventactivityframelayout, createeventfrag, "createeventfrag").AddToBackStack(null);
+            Android.Support.V4.App.FragmentTransaction trans = this.Activity.SupportFragmentManager.BeginTransaction().Add(Resource.Id.eventactivityframelayout, createeventfrag, "createeventfrag").AddToBackStack(null);
             trans.Commit();
         }
 

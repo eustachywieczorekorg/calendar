@@ -360,31 +360,10 @@ namespace Morris
             Week.Text ="W." + mEvents[position].Week.ToString();
 
             List<Color> mColors = new List<Color>();
-            mColors.Add(new Color(228, 76, 76));
-            mColors.Add(new Color(210, 84, 00));
-            mColors.Add(new Color(232, 76, 61));
-            mColors.Add(new Color(53, 152, 219));
-            mColors.Add(new Color(154, 101, 66));
-            mColors.Add(new Color(241, 196, 15));
-            mColors.Add(new Color(27, 188, 155));
-            mColors.Add(new Color(39, 174, 97));
-            mColors.Add(new Color(143, 68, 173));
+            mColors.Add(new Color(237, 74, 54));
+            mColors.Add(new Color(26, 198, 181));
 
-            List<int> mDrawables = new List<int>();
-            mDrawables.Add(Resource.Drawable.standard);
-            mDrawables.Add(Resource.Drawable.food);
-            mDrawables.Add(Resource.Drawable.sports);
-            mDrawables.Add(Resource.Drawable.work);
-            mDrawables.Add(Resource.Drawable.travel);
-            mDrawables.Add(Resource.Drawable.entertainment);
-            mDrawables.Add(Resource.Drawable.settingskoncept1);
-            mDrawables.Add(Resource.Drawable.settingskoncept1);
-            mDrawables.Add(Resource.Drawable.education);
-
-            ImageView categoryicon = row.FindViewById<ImageView>(Resource.Id.categoryicon);
-            categoryicon.SetBackgroundResource(mDrawables[mEvents[position].Category]);
-
-            Color bgcolor = new Color(mColors[mEvents[position].Category]);
+            Color bgcolor = new Color(mColors[position%2]);
             mLinearLayout.SetBackgroundColor(bgcolor);
 
             ImageButton btnInviteFriend = row.FindViewById<ImageButton>(Resource.Id.buttonInviteFriend);
@@ -628,17 +607,10 @@ namespace Morris
 
             LinearLayout mLinearLayout = row.FindViewById<LinearLayout>(Resource.Id.linearlayout111);
             List<Color> mColors = new List<Color>();
-            mColors.Add(new Color(170, 170, 170));
-            mColors.Add(new Color(210, 84, 00));
-            mColors.Add(new Color(232, 76, 61));
-            mColors.Add(new Color(53, 152, 219));
-            mColors.Add(new Color(154, 101, 66));
-            mColors.Add(new Color(241, 196, 15));
-            mColors.Add(new Color(27, 188, 155));
-            mColors.Add(new Color(39, 174, 97));
-            mColors.Add(new Color(143, 68, 173));
+            mColors.Add(new Color(237, 74, 54));
+            mColors.Add(new Color(26, 198, 181));
 
-            Color bgcolor = new Color(mColors[mEvents[position].Category]);
+            Color bgcolor = new Color(mColors[position%2]);
             mLinearLayout.SetBackgroundColor(bgcolor);
 
             ImageButton btnAccept = row.FindViewById<ImageButton>(Resource.Id.buttonAccept1);

@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">Morris</string>
   
-  <string name="category_prompt">Choose a category</string>
-  <string-array name="category_array">
-    <item>Select below</item>
-    <item>Food</item>
-    <item>Sports</item>
-    <item>Work</item>
-    <item>Travel</item>
-    <item>Entertainment</item>
-    <item>Friends</item>
-    <item>Relaxation</item>
-    <item>Education</item>
-  </string-array>
 </resources>
